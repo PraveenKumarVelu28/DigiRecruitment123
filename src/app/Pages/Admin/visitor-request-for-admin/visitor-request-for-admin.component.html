@@ -1,0 +1,179 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <!-- <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/VisitorRequest">ADD</button>
+        </div> -->
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">VISITOR REQUEST DASHBOARD</label>
+    <hr>
+    <div class="tab">
+        <button class="tablinks" (click)="openCity($event, 'Raised')" id="def_open">Yet To Visit</button>
+        <button class="tablinks" (click)="openCity($event, 'Completed')">Visited</button>
+        <button class="tablinks" (click)="openCity($event, 'NotVisited')">Not Visited</button>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" [(ngModel)]="search" placeholder="Search...">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="buildingid" name="buildingid" (change)="getbuildingID($event)">
+                <option value="0" selected>Select Building</option>
+                <option *ngFor="let list of buildingList" value="{{list.id}}">{{list.name}}</option>
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <h4 style="float: right;" *ngIf="type=='Raised'">Count:{{yettovistcount}}</h4>
+            <h4 style="float: right;" *ngIf="type=='Completed'">Count:{{visitedcount}}</h4>
+            <h4 style="float: right;" *ngIf="type=='NotVisited'">Count:{{count}}</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="Raised" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Raised By</th>
+                        <th>Entry Date</th>
+                        <th>Entry Time</th>
+                        <th>Visitor Name</th>
+                        <th>Address</th>
+                        <th>No Of Visitors</th>
+                        <th>Visitor Type</th>
+                        <th>Contact Mobile Number</th>
+                        <th>ID Type</th>
+                        <th>ID Number</th>
+                        <th>Floor</th>
+                        
+                        <th>Visiting For</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr *ngFor="let list of filteredList|filter:search">
+                        <td>{{list.visitorFor}}</td>
+                        <td>{{list.visitingDate}}</td>
+                        <td>{{list.visitingTime}}</td>
+                        <td>{{list.visitorName}}</td>
+                        <td>{{list.address}}</td>
+                        <td>{{list.noOfPeople}}</td>
+                        <td>{{list.visitorType}}</td>
+                        <td>{{list.phoneNo}}</td>
+                        <td>{{list.iDType}}</td>
+                        <td>{{list.iDNumber}}</td>
+                        <td></td>
+                       
+                        <td>{{list.reason}}</td>
+                        <td>{{list.status}}</td>
+                        <td>
+                            <i class="fa fa-edit" title="Edit"
+                                [routerLink]="['/VisitorRequest',list.id]"></i>
+                                <br> 
+                            <i class="fa fa-trash" aria-hidden="true" (click)="Delete(list.id)"></i>&nbsp;
+                            <br>
+                            <i class="fa fa-image" title="Attachments" data-toggle="modal" data-target="#myModal"
+                                (click)="getimage(Building.id)"></i>&nbsp;
+                                <br>
+                            <i class="fa fa-eye" title="View" [routerLink]="['/VisitorRequest',list.id]"></i>&nbsp;
+                             <br>
+                            <i class="fa fa-clock-o" aria-hidden="true" data-toggle="modal" data-target="#myModal" (click)="visitor(list.id)"></i>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="Completed" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Visitor Request</th>
+                        <th>Visiting Date</th>
+                        <th>Visiting Time</th>
+                        <th>Visiting Person Name</th>
+                        <th>Visiting For</th>
+                        <th>Exit Date</th>
+                        <th>Exit Time</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr *ngFor="let list of filteredvisitedRequestList|filter:search">
+                        <td>{{list.visitorName}}</td>
+                        <td>{{list.visitingDate}}</td>
+                        <td>{{list.visitingTime}}</td>
+                        <td>{{list.visitorFor}}</td>
+                        <td>{{list.reason}}</td>
+                        <td>{{list.exitDate}}</td>
+                        <td>{{list.exitTime}}</td>
+                        <td>{{list.status}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="NotVisited" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Visitor Name</th>
+                        <th>Visiting Date</th>
+                        <th>Visiting Time</th>
+                        <th>Visiting Person</th>
+                        <th>Visiting For</th>
+                        <!-- <th>Status</th>-->
+
+                    </tr>
+                    <tr *ngFor="let list of NotvisitedRequestList|filter:search">
+                        <td>{{list.name}}</td>
+                        <td>{{list.visitingDate}}</td>
+                        <td>{{list.visitingTime}}</td>
+                        <td>{{list.visitorFor}}</td>
+                        <td>{{list.reason}}</td>
+                        <!-- <td>{{list.status}}</td>-->
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Exit Time Update </h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-4">
+                        Enter Exit Date:
+                    </div>
+                    <div class="col-lg-8">
+                        <input type="date" class="form-control" [(ngModel)]="exitDate">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-4">
+                        Enter Exit Time:
+                    </div>
+                    <div class="col-lg-8">
+                        <input type="time" class="form-control" [(ngModel)]="exitTime">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="VisitedVisitorRequest()">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

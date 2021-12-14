@@ -1,0 +1,129 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/AddAssets">ADD</button>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">ASSETS DASHBOARD</label>
+    <hr>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div>
+        <!-- <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="status" name="status" (change)="getStatus($event)">
+                <option value="0" selected>Select Status</option>
+                <option value="1" >Open</option>
+                <option value="2" >Rejected</option>
+                <option value="3" >Completed</option>
+            </select>
+        </div> -->
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="staffid" name="staffid" (change)="getstaffID($event)">
+                <option value="0" selected>Select Staff</option>
+                <option *ngFor="let list of staffList" value="{{list.id}}">{{list.name}}</option>
+            </select> 
+        </div>
+        <div class="col-lg-3">
+            <h4 style="float:right">Count:{{count}}</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="NewRequest" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>AssetID</th>
+                        <th>Staff Name</th>
+                        <th>Issue Date</th>
+                        <th>Return Date</th>
+                        <th style="width: 20px;">Asset Name</th>
+                        <th>Vendor Name</th>
+                        <th>Email</th>
+                        <th>Phone Numbers</th>
+                        <th>Purchase Date</th>
+                        <th>Action</th>
+
+                    </tr>
+                    <tr *ngFor="let list of filteredEventList|filter:search">
+
+                        <td>{{list.assetname}}</td>
+                        <td>{{list.staffName}}</td>
+                        <td>{{list.issueDate|date}}</td>
+                        <td *ngIf="list.returnDate==null">--</td>
+                        <td *ngIf="list.returnDate!=null">{{list.returnDate|date}}</td>
+                        <td>{{list.equipmentTypeID}}</td>
+                        <td>{{list.name}}</td>
+                        <td matColumnDef="description">{{list.emailID}}</td>
+                        <td>{{list.phoneNo}}</td>
+                        <td>{{list.purchaseDate|date}}</td>
+                        <td>
+                            <img src="assets/images/edit.png"  [routerLink]="['/AddAssets',list.id]" style="width: 20px;">&nbsp;
+                            <img src="assets/images/dell.png" style="width: 20px;"
+                                (click)="Delete(list.id)">
+                            <button type="button" class="btn primary btn-xs" (click)="issuedAssets(list.id)"
+                                data-toggle="modal" data-target="#myModal">Return</button>
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br>
+    </div>
+    <br>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Return Status</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-1">
+                    </div>
+                    <div class="col-lg-3">
+                        <label>Notes :</label>
+                    </div>
+                    <div class="col-lg-5">
+                        <textarea type="text" rows="5" class="form-control" [(ngModel)]="notes"
+                            placeholder="Reason"></textarea>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-1">
+                    </div>
+                    <div class="col-lg-3">
+                        <label>Return Date</label>
+                    </div>
+                    <div class="col-lg-5">
+                        <input type="date" class="form-control" [(ngModel)]="returnDate" name="returnDate">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn primary btn-xs" data-dismiss="modal"
+                    (click)="ReturnAssets()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

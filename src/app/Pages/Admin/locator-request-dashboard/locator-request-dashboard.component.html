@@ -1,0 +1,66 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading"> LOCATOR DASHBOARD</label>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search...">
+        </div>
+        <div class="col-lg-7"></div>
+        <div class="col-lg-2">
+            <h4 style="float:right">Count : {{LocatorRequestsList.length}}</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Project</th>
+                    <th>Transportation Type</th>
+                    <th>Date</th>
+                    <th>Purpose</th>
+                    <th>Contact Person</th>
+                    <th>Contact PhNo</th>
+                    <th>Time Of Departure</th>
+                    <th>Time Of Return</th>
+                    <th>Destination</th>
+                    <th>No Of Hrs</th>
+                    <th>Actions</th>
+                </tr>
+                <tr *ngFor="let list of LocatorRequestsList|filter:Search">
+                    <td>{{list.name}}</td>
+                    <td>{{list.project}}</td>
+                    <td>{{list.transportationType}}</td>
+                    <td>{{list.date|date}}</td>
+                    <td>{{list.purpose}}</td>
+                    <td>{{list.contactPerson}}</td>
+                    <td>{{list.contactPhNo}}</td>
+                    <td>{{list.timeOfDeparture}}</td>
+                    <td>{{list.timeOfReturn}}</td>
+                    <td>{{list.destination}}</td>
+                    <td>{{list.hourDiff}}</td>
+                    <td>
+                        <button type="button" class="approveButton">Approve</button>
+                        <br>
+                        <br>
+                        <button type="button" class="rejectButton">Reject</button>
+                    
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+</div>

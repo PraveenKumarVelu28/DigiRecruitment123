@@ -1,0 +1,8 @@
+/*
+ * Public API Surface of ngx-time-scheduler
+ */
+export * from './lib/ngx-time-scheduler.service';
+export * from './lib/ngx-time-scheduler.component';
+export * from './lib/ngx-time-scheduler.module';
+export * from './lib/ngx-time-scheduler.model';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljX2FwaS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL25neC10aW1lLXNjaGVkdWxlci8iLCJzb3VyY2VzIjpbInB1YmxpY19hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0dBRUc7QUFFSCxjQUFjLGtDQUFrQyxDQUFDO0FBQ2pELGNBQWMsb0NBQW9DLENBQUM7QUFDbkQsY0FBYyxpQ0FBaUMsQ0FBQztBQUNoRCxjQUFjLGdDQUFnQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAqIFB1YmxpYyBBUEkgU3VyZmFjZSBvZiBuZ3gtdGltZS1zY2hlZHVsZXJcbiAqL1xuXG5leHBvcnQgKiBmcm9tICcuL2xpYi9uZ3gtdGltZS1zY2hlZHVsZXIuc2VydmljZSc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9uZ3gtdGltZS1zY2hlZHVsZXIuY29tcG9uZW50JztcbmV4cG9ydCAqIGZyb20gJy4vbGliL25neC10aW1lLXNjaGVkdWxlci5tb2R1bGUnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvbmd4LXRpbWUtc2NoZWR1bGVyLm1vZGVsJztcbiJdfQ==

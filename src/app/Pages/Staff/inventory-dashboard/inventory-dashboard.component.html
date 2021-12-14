@@ -1,0 +1,107 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <!-- <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/AddInventory">ADD</button>
+        </div> -->
+        <!-- <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+        </div> -->
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">INVENTORY DASHBOARD</label>
+    <hr>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div>
+    </div>
+
+
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="NewRequest" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Inventory Type</th>
+                        <th>Name</th>
+                        <th>Total Qty</th>
+                        <th>Consume Count</th>
+                        <th>Available Qty</th>
+
+                        <th>Vendor Name</th>
+                        <th>Phone Numbers</th>
+                        <th>Action</th>
+
+                    </tr>
+                    <tr *ngFor="let list of inventoryList|filter:search">
+
+                        <td>{{list.short}}</td>
+                        <td>{{list.inventoryName}}</td>
+                        <td>{{list.quantity}}</td>
+                        <td>{{list.consumeCount}}</td>
+                        <td>{{list.available}}</td>
+
+                        <td>{{list.vendorName}}</td>
+                        <td>{{list.vendorPhoneNo}}</td>
+                        <td>
+                            <button type="button" class="btn btn-info" (click)="getconsumeitem(list.id)" data-toggle="modal"
+                                data-target="#myModal" *ngIf="list.status!='Resigned'">Consume</button>
+                            <br>
+                            <img src="assets/images/edit.png" [routerLink]="['/AddInventory',list.id]"
+                                style="width: 20px;">&nbsp;
+                            <img src="assets/images/dell.png" style="width: 20px;" (click)="Delete(list.id)">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br>
+    </div>
+    <br>
+    <!-- <div class="row">
+        <div class="col-lg-9"></div>
+        <div class="col-lg-3">
+            <h4 style="float: right;"> Total Quantity : <span style="color: black;">{{TotalCount}}</span></h4> 
+        </div>
+    </div>
+    <br> -->
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Consume Item</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-4">
+                        Consume Quantity :
+                    </div>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" [(ngModel)]="consumeCount"
+                            placeholder="Item Consumed">
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="consumedItem()">Added</button>
+            </div>
+        </div>
+    </div>
+</div>

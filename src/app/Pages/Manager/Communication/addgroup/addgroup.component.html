@@ -1,0 +1,75 @@
+<div class="container-fluid card">
+    <div class="row">
+        <div class="col-lg-12">
+            <label class="page_SubHeading">CREATE GROUP</label>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<div class="container-fluid card">
+    <br>
+    <div class="row" style="margin-top:20px;">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Group Name</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="groupName" placeholder="Name" name="productType">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Group Admin</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="staffID">
+                <option value="0" selected>Select Admin</option>
+                <option *ngFor="let list of stafflist" value="{{list.id}}" >{{list.name}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row" style="margin-top:20px;">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Description</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="description" placeholder="Description" name="productType">
+        </div>
+        
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Group Image</label>
+        </div>
+        <div class="col-lg-4">
+            <ngx-dropzone (change)="onattachmentUpload($event)">
+                <ngx-dropzone-label>Drag and drop file here</ngx-dropzone-label>
+            </ngx-dropzone>
+        </div>
+        <div class="col-lg-4" *ngIf="paramID == undefined">
+            <img src="{{attachmentsurl}}">
+        </div>
+    </div>
+    <br>
+
+    <br>
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="insertDetails()">Save</button>
+        </div>
+        <div class="col-lg-5"></div>
+    </div>
+    <br>
+</div>

@@ -1,0 +1,71 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading"> WORK SPACE DASHBOARD</label>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search...">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-2">
+            <img src="assets/images/meeting1.png" style="height: 5vh;width: auto;">&nbsp;&nbsp;<span>Meeting Room-1</span>
+        </div>
+        <div class="col-lg-2">
+            <img src="assets/images/meeting1.png" style="height: 5vh;width: auto;">&nbsp;&nbsp;<span>Meeting Room-2</span>
+        </div>
+        <div class="col-lg-2">
+            <img src="assets/images/meeting1.png" style="height: 5vh;width: auto;">&nbsp;&nbsp;<span>Meeting Room-3</span>
+        </div>
+        <div class="col-lg-2">
+            <img src="assets/images/meeting1.png" style="height: 5vh;width: auto;">&nbsp;&nbsp;<span>Meeting Room-4</span>
+        </div>
+        <div class="col-lg-2">
+            <img src="assets/images/meeting1.png" style="height: 5vh;width: auto;">&nbsp;&nbsp;<span>VR Studio</span>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th>Building</th>
+                    <th>Room</th>
+                    <th>Raised By</th>
+                    <th>Project</th>
+                    <th>Request For</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    
+                </tr>
+                <tr *ngFor="let list of workSpaceRequest">
+                    <td>{{list.buildingName}}</td>
+                    <td>{{list.workStationName}}</td>
+                    <td>{{list.raisedBy}}</td>
+                    <td>{{list.project}}</td>
+                    <td>{{list.requestFor}}</td>
+                    <td>{{list.startTime}}</td>
+                    <td>{{list.endTime}}</td>
+                 
+
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+</div>

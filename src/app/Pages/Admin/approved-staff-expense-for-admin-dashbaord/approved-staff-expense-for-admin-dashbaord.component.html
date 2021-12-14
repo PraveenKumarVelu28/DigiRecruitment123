@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="approvedexportexcel()">Export To Excel</button>
+        </div>
+       
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">APPROVED EXPENSE DASHBOARD</label>
+    <hr>
+   
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="Search">
+        </div>
+        <div class="col-lg-3">
+
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            
+                <table>
+                    <tr>
+                        <th>Employee Name</th>
+                        <th>Expense Amount</th>
+                        <th>Expense Head</th>
+                        <th>Project Name</th>
+                        <!-- <th>Submitted Date</th> -->
+                        <th>Expense Location</th>
+                        <th>Currency</th>
+                        <th>Status</th>
+                        <th>Comments</th>
+                    </tr>
+                    <tr *ngFor="let list of filteredApprovedExpenseList|filter:Search">
+                        <td>{{list.name}}</td>
+                        <td>{{list.expenceAmount}}</td>
+                        <td>{{list.expencesName}}</td>
+                        <td>{{list.project}}</td>
+                        <!-- <td>{{list.webdate|date}}</td> -->
+                        <td>{{list.expenceLocation}}</td>
+                        <td>{{list.currency}}</td>
+                        <td>{{list.approvalStatus}}</td>
+                        <td>{{list.comments}}</td>
+                    </tr>
+                </table>
+           
+          
+        </div>
+    </div>
+    <br>
+</div>
+

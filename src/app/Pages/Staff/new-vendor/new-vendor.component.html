@@ -1,0 +1,146 @@
+<div class="container-fluid card">
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <label class="page_SubHeading">ADD VENDOR</label>
+            <hr>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Vendor Name</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="name" name="name" placeholder="Vendor Name">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Email</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="emailID" name="emailID" placeholder="Email">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Contact Person</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="contactPerson" name="contactPerson" placeholder="Contact Person">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Phone Number</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="phoneNo" name="honeNo"
+                placeholder="PhoneNumber">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Vendor Supply</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="vendorSupply" name="vendorSupply" placeholder="Vendor Supply">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Account Number</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="accountNumber" name="accountNumber" placeholder="Account Number" >
+        </div>
+    </div>
+    <br>
+
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Account Type</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" name="accountTypeID" [(ngModel)]="accountTypeID">
+                <option selected value="0">Select Account Type</option>
+                <option *ngFor="let list of accountTypeList" value="{{list.id}}">{{list.short}}</option>
+
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Bank Address</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="bankAddress" placeholder="Bank Address">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Branch Name</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="branchName" placeholder="Branch Name">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Payment Terms</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="paymentTerms" placeholder="payment Terms">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Address</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="address" placeholder="Address">
+        </div>
+    </div>
+    <br>
+   
+  
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="InsertDetails()">Save</button>
+        </div>
+    </div>
+    <br>

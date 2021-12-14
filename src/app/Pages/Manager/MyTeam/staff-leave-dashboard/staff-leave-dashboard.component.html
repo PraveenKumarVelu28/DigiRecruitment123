@@ -1,0 +1,88 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="approvedexportexcel()">Export To Excel</button>
+        </div>
+        <!-- <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/StaffLeave">Apply Leave</button>
+        </div> -->
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">APPROVED LEAVE DASHBOARD</label>
+    <hr>
+
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" [(ngModel)]="Search" placeholder="Search...">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="managerStaffID" name="managerStaffID" (change)="getstaffID($event)">
+                <option value="0" selected>Select Employee</option>
+                <option *ngFor="let list of staffList" value="{{list.id}}">{{list.name}}</option>
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="leaveTypeID" name="leaveTypeID" (change)="getleaveTypeID($event)">
+                <option value="0" selected>Select Leave Type</option>
+                <option *ngFor="let list of leaveTypeList" value="{{list.id}}">{{list.short}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-9">
+        </div>
+        <div class="col-lg-3">
+            <h4 style="float:right">Count : {{filteredstaffLeaveList.length}}</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th>Building</th>
+                    <th>Leave Type</th>
+                    <th>Staff Name</th>
+                    <th>Applied Date</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>No Of Days Leave</th>
+                    <th>Reason</th>
+                    <th>Covering Staff</th>
+                    <th>Status</th>
+                    
+
+                </tr>
+                <tr *ngFor="let list of filteredstaffLeaveList|filter:Search">
+
+                    <td>{{list.building}}</td>
+                    <td>{{list.leavetype}}</td>
+                    <td>{{list.staffName}}</td>
+                    <td>{{list.applieddate|date}}</td>
+                    <td>{{list.sDateOfLeave}}</td>
+                    <td>{{list.eDateOfLeave}}</td>
+                    <td>{{list.noOfDays}}</td>
+                    <td>{{list.leaveReason}}</td>
+                    <td>{{list.coveringStaff}}</td>
+                    <td>{{list.status}}</td>
+                   
+                </tr>
+            </table>
+
+
+
+            <br>
+        </div>
+    </div>
+</div>

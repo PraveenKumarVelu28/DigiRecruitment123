@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn"  routerLink="/TechnologyRequest">ADD</button>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">TECHNOLOGY REQUEST DASHBOARD</label>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" [(ngModel)]="search" placeholder="Search...">
+        </div>
+        <div class="col-lg-6"></div>
+        <div class="col-lg-3">
+            <h4 style="float: right;">Count:{{count}}</h4>
+         </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th>Due Date</th>
+                    <th>Request Type</th>
+                    <th>Attachment</th>
+                    <th>Status</th>
+                  
+                </tr>
+                <tr *ngFor="let list of filteredList|filter:search">
+                  
+                    <td>{{list.dueDate}}</td>
+                    <td>{{list.requestType}}</td>
+                    <td><img src="{{list.imageUrl}}"></td>
+                    <td>{{list.status}}</td>
+                   
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+</div>
+
+

@@ -1,0 +1,177 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6">
+    </div>
+    <!-- <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/ResignedStaffDashboardForHr">Resigned Staff</button>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/NewStaff">New Staff</button>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+        </div> -->
+  </div>
+</div>
+<br>
+<div class="container-fluid card">
+  <br>
+  <label class="page_SubHeading">ACTIVE STAFF</label>
+  <hr>
+
+  <div class="row">
+    <div class="col-lg-3">
+      <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+    </div>
+    <div>
+      <button id="showpayroll" style="display: none;" class="addbtn" (click)="ShowPayroll()" type="button">Payroll
+        Report</button>
+    </div>
+    <!-- <div class="col-lg-3">
+      <select class="form-control" [(ngModel)]="MonthID" name="MonthID" (change)="getMonthID($event)">
+        <option value="0" selected>Select Month</option>
+        <option value="1">Jan</option>
+        <option value="2">Feb</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">Sept</option>
+        <option value="10">Oct</option>
+        <option value="11">Nov</option>
+        <option value="12">Dec</option>
+
+      </select>
+    </div> -->
+    <div class="col-lg-3">
+      <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+        (ngModelChange)="selectedDate($event)">
+    </div>
+    <div class="col-lg-2">
+      <div class="dashbutton">
+        <button (click)="SelectAll()" class="addbtn" type="button" id="btn_button">Run Payroll</button>
+      </div>
+    </div>
+  </div>
+  <br>
+
+
+  <div class="row">
+    <div class="col-lg-12">
+      <table style="overflow: scroll;display: block;overflow-x: auto;white-space: nowrap;">
+        <tr>
+          <th>Action</th>
+          <th>Company</th>
+          <!-- <th>Photo</th> -->
+          <th>Employee ID</th>
+          <th>Employee Name</th>
+          <th>Designation</th>
+          <th>Personal Email ID</th>
+          <th>Official ID</th>
+          <th>Mobile Number</th>
+          <th>Manager</th>
+          <th>Joining Date</th>
+          <th>Basic Salary</th>
+          <!-- <th>Net Pay</th> -->
+
+        </tr>
+        <tr *ngFor="let list of allStaffpayrollList|filter:search">
+          <!-- <td>
+                        <img src="assets/images/dell.png" style="width: 20px;" (click)="Delete(list.id)">&nbsp;&nbsp;
+
+                        <img src="assets/images/activate.png" *ngIf="list.status=='Enabled'" tilte="Deactivate"
+                            style="width:50px;" (click)="DisableStaff(list.id)" />
+                        <img src="assets/images/deactivate.png" *ngIf="list.status=='Disabled'" style=" width:50px;"
+                            tilte="Activate" (click)="EnableStaff(list.id)" />
+                        <br>&nbsp;&nbsp;&nbsp;
+                        <img src="assets/images/edit.png" [routerLink]="['/NewStaff',list.id]" style="width: 20px;">
+                        <br>
+                        <button type="button" class="btn primary btn-xs" (click)="getStaffID(list.id)"
+                            data-toggle="modal" data-target="#myModal" *ngIf="list.status!='Resigned'">Resign</button>
+                        <p *ngIf="list.status=='Resigned'"></p>
+
+                    </td> -->
+          <td>
+            <input type="checkbox" [(ngModel)]="list.checked" [value]="list.value"
+              (click)="getCheckbocdetails(list)">&nbsp;
+          </td>
+
+          <td>{{list.building}}</td>
+          <!-- <td>
+                        <img src="{{list.attachment}}" style="height: 100px;">
+                    </td> -->
+          <td>{{list.employeID}}</td>
+          <td>{{list.name}}</td>
+          <td>{{list.designation}}</td>
+          <td>{{list.emailID}}</td>
+          <td>{{list.officialID}}</td>
+          <td>{{list.phoneNo}}</td>
+
+          <td>{{list.supervisor}}</td>
+          <td>{{list.joiningDate|date}}</td>
+          <td>{{list.basicSalary}}</td>
+          <!-- <td>{{list.netPay}}</td> -->
+
+
+        </tr>
+      </table>
+      <br>
+      <!-- <div class="col-lg-12" style="text-align:right;">
+                <pagination-controls (pageChange)="changepage($event)"></pagination-controls>
+            </div> -->
+
+
+    </div>
+  </div>
+  <br>
+</div>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" style="width: 136%;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <table>
+          <tr>
+
+            <!-- <th>Employee ID</th> -->
+            <th>Gross Salary</th>
+            <th>LOP Days</th>
+            <th>LOP Amount</th>
+            <th>Monthly salary</th>
+            <th>Contribution</th>
+            <th>NetMonthSalary </th>
+
+
+          </tr>
+          <tr *ngFor="let list of StaffSalaryReports|filter:search">
+
+
+            <!-- <td>{{list.employeeID}}</td> -->
+            <td>{{list.grossSalary}}</td>
+            <td>{{list.lopDays}}</td>
+            <td>{{list.lopAmount}}</td>
+            <td>{{list.monthlysalary}}</td>
+            <td>{{list.contribution}}</td>
+            <td>{{list.netMonthSalary}}</td>
+
+
+
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

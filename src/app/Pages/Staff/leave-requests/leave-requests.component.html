@@ -1,0 +1,159 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8">
+        </div>
+        <div class="col-lg-2" *ngIf="Applied">
+            <button type="button" class="addbtn" (click)="appliedexportexcel()">Export To Excel</button>
+        </div>
+        <div class="col-lg-2" *ngIf="Approved">
+            <button type="button" class="addbtn" (click)="approvedexportexcel()">Export To Excel</button>
+        </div>
+        <div class="col-lg-2" *ngIf="Rejected">
+            <button type="button" class="addbtn" (click)="rejectexportexcel()">Export To Excel</button>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/StaffLeave">Apply Leave</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">STAFF LEAVE DASHBOARD</label>
+    <hr>
+    <div class="tab">
+        <button class="tablinks" (click)="openCity($event, 'NewRequest')" id="def_open">Applied Leave</button>
+        <button class="tablinks" (click)="openCity($event, 'Approved')">Approved</button>
+        <button class="tablinks" (click)="openCity($event, 'Rejected')">Rejected</button>
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" [(ngModel)]="Search" placeholder="Search...">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [bsConfig]="{containerClass:'theme-dark-blue'}" [(ngModel)]="value" (ngModelChange)="selectedDate($event)">
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="leaveTypeID" name="leaveTypeID" (change)="getleaveTypeID($event)">
+                <option value="0" selected>Select Leave Type</option>
+                <option *ngFor="let list of leaveTypeList" value="{{list.id}}">{{list.short}}</option>
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <h4 style="float:right">Count : {{appliedCount}}</h4>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div id="NewRequest" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Action</th>
+                        <th>Building</th>
+                        <th>Leave Type</th>
+                        <th>Applied Date</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>No Of Days Leave</th>
+                        <th>Reason</th>
+                        <th>Covering Staff</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr *ngFor="let list of filteredleaveList|filter:Search">
+                        <td>
+                            <img src="assets/images/dell.png" style="width: 20px;" (click)="DeleteStaffLeaves(list.id)">&nbsp;&nbsp;
+                        </td>
+                        <td>{{list.building}}</td>
+                        <td>{{list.leavetype}}</td>
+                        <td>{{list.applieddate|date}}</td>
+                        <td>{{list.sDateOfLeave}}</td>
+                        <td>{{list.eDateOfLeave}}</td>
+                        <td *ngIf="list.noOfDays!=0.5">{{list.noOfDays}}</td>
+                        <td *ngIf="list.noOfDays==0.5">Half Day</td>
+                        <td>{{list.leaveReason}}</td>
+                        <td>{{list.coveringStaff}}</td>
+                        <td>{{list.status}}</td>
+                    </tr>
+                </table>
+            </div>
+            <!-- Approved -->
+            <div id="Approved" class="tabcontent">
+                <div class="col-lg-12">
+                    <table>
+                        <tr>
+                            <th>Building</th>
+                            <th>Leave Type</th>
+
+                            <th>Applied Date</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>No Of Days Leave</th>
+                            <th>Reason</th>
+                            <th>Covering Staff</th>
+                            <th>Status</th>
+                        </tr>
+                        <tr *ngFor="let list of filteredApprovedLeaves|filter:Search">
+
+                            <td>{{list.building}}</td>
+                            <td>{{list.leavetype}}</td>
+
+                            <td>{{list.applieddate|date}}</td>
+                            <td>{{list.sDateOfLeave}}</td>
+                            <td>{{list.eDateOfLeave}}</td>
+                            <td>{{list.noOfDays}}</td>
+                            <td>{{list.leaveReason}}</td>
+                            <td>{{list.coveringStaff}}</td>
+                            <td><span style="color:forestgreen;">{{list.status}}</span></td>
+
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+            <!-- Rejected -->
+            <div id="Rejected" class="tabcontent">
+                <div class="col-lg-12">
+                    <table>
+                        <tr>
+
+                            <th>Building</th>
+                            <th>Leave Type</th>
+                            <th>Applied Date</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>No Of Days Leave</th>
+                            <th>Reason</th>
+                            <th>Covering Staff</th>
+                            <th>Status</th>
+                            <th>Reject Reason</th>
+
+                        </tr>
+                        <tr *ngFor="let list of filteredRejectedLeaves|filter:Search">
+
+                            <td>{{list.building}}</td>
+                            <td>{{list.leavetype}}</td>
+                            <td>{{list.applieddate|date}}</td>
+                            <td>{{list.sDateOfLeave}}</td>
+                            <td>{{list.eDateOfLeave}}</td>
+                            <td>{{list.noOfDays}}</td>
+                            <td>{{list.leaveReason}}</td>
+                            <td>{{list.coveringStaff}}</td>
+                            <td><span style="color:red;">{{list.status}}</span></td>
+                            <td>{{list.rejectReason}}</td>
+
+
+
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <br>
+        </div>
+    </div>
+</div>

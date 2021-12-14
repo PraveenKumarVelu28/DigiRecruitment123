@@ -1,0 +1,46 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/ProjectTypeID">ADD</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading"> PROJECT TYPE DASHBOARD</label>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search...">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th style="text-align: center;">Project Type </th>
+                    <th style="text-align: center;">Code</th>
+                   
+                    <th>Action</th>
+                </tr>
+                <tr *ngFor="let list of projectIDTypeList">
+                    <td style="text-align: center;">{{list.short}}</td>
+                    <td style="text-align: center;">{{list.code}}</td>
+                   
+                    
+                    <td>
+                        <img src="assets/images/edit.png"  [routerLink]="['/ProjectTypeID',list.id]" style="width: 20px;">&nbsp;
+                        <img src="assets/images/dell.png" style="width: 20px;" (click)="DeleteProjectIDType(list.id)">  
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+</div>
+

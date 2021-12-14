@@ -1,0 +1,71 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+       
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">ASSETS DASHBOARD</label>
+    <hr>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div>
+       
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-3">
+            <h4 style="float:right">Count:{{count}}</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="NewRequest" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>AssetID</th>
+                        <th>Staff Name</th>
+                        <th>Issue Date</th>
+                        <th>Return Date</th>
+                        <th style="width: 20px;">Asset Name</th>
+                        <th>Vendor Name</th>
+                        <th>Email</th>
+                        <th>Phone Numbers</th>
+                        <th>Purchase Date</th>
+                      
+
+                    </tr>
+                    <tr *ngFor="let list of filteredEventList|filter:search">
+
+                        <td>{{list.assetname}}</td>
+                        <td>{{list.staffName}}</td>
+                        <td>{{list.issueDate|date}}</td>
+                        <td *ngIf="list.returnDate==null">--</td>
+                        <td *ngIf="list.returnDate!=null">{{list.returnDate|date}}</td>
+                        <td>{{list.equipmentTypeID}}</td>
+                        <td>{{list.name}}</td>
+                        <td matColumnDef="description">{{list.emailID}}</td>
+                        <td>{{list.phoneNo}}</td>
+                        <td>{{list.purchaseDate|date}}</td>
+                       
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br>
+    </div>
+    <br>
+</div>

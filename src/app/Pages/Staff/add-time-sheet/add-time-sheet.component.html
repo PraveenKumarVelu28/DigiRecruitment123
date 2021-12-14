@@ -1,0 +1,172 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <h6>TIMESHEET</h6>
+    </div>
+  </div>
+</div>
+<br>
+<div class="container-fluid card">
+  <br>
+  <div class="row">
+    <div class="col-lg-3">
+      <label>Staff Name</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="text" class="form-control" placeholder="Staff Name" [(ngModel)]="staffName" name="staffName"
+        disabled>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+
+    <div class="col-lg-3">
+      <label>Building</label>
+    </div>
+    <div class="col-lg-4">
+      <select class="form-control" [(ngModel)]="buildingID" name="buildingID" (change)="getBuildingID($event)">
+        <option selected value=0>Select Building</option>
+        <option *ngFor="let list of buildingList" value="{{list.id}},{{list.name}}">{{list.name}}</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+
+    <div class="col-lg-3">
+      <label>Floor</label>
+    </div>
+    <div class="col-lg-4">
+      <select class="form-control" (change)="getFloorID($event)">
+        <option selected value=0>Select Floor</option>
+        <option *ngFor="let list of floorList" value="{{list.id}},{{list.floor}}">{{list.floor}}</option>
+      </select>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-lg-3">
+      <label>Date</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="date" class="form-control" [(ngModel)]="date" name="date">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-3">
+      <label>Start Time</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="time" class="form-control" [(ngModel)]="startTime" name="startTime">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-3">
+      <label>End Time</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="time" class="form-control" [(ngModel)]="endTime" name="endTime">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+
+    <div class="col-lg-3">
+      <label>Project</label>
+    </div>
+    <div class="col-lg-4">
+      <select class="form-control" [(ngModel)]="projectName" name="projectName">
+        <option selected value=0>Select Project</option>
+        <option *ngFor="let list of projectList1" value="{{list.projectName}}">{{list.projectName}}</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-3">
+      <label>Task</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="text" class="form-control" placeholder="Task" [(ngModel)]="task" name="task">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-3">
+      <label>Supervisior</label>
+    </div>
+    <div class="col-lg-4">
+      <select class="form-control" [(ngModel)]="supervisor" name="supervisor">
+        <option value="0" selected>Supervisior</option>
+        <option *ngFor="let list of supervisorList" value="{{list.employeeName}}">{{list.employeeName}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-3">
+      <label>Comment</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="text" class="form-control" placeholder="Comments" [(ngModel)]="comments" name="comments">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-5"></div>
+    <div class="col-lg-3">
+      <button type="button" class="addbtn" (click)="AddDetails()">ADD</button>
+
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-12">
+      <div>
+        <table>
+          <tr>
+            <!-- <th>BuildingName</th> -->
+            <th>StaffName</th>
+            <th>FloorName</th>
+            <th>Date</th>
+            <th>StartTime</th>
+            <th>EndTime</th>
+            <th>ProjectName</th>
+            <th>Task</th>
+            <th>Supervisor</th>
+            <th>Comments</th>
+
+          </tr>
+          <tr *ngFor="let list of qwerty">
+
+            <!-- <td>{{list.BuildingName}}</td> -->
+            <td>{{list.StaffName}}</td>
+            <td>{{list.FloorName}}</td>
+            <td>{{list.Date}}</td>
+            <td>{{list.StartTime}}</td>
+            <td>{{list.EndTime}}</td>
+            <td>{{list.ProjectName}}</td>
+            <td>{{list.Task}}</td>
+            <td>{{list.Supervisor}}</td>
+            <td>{{list.Comments}}</td>
+
+          </tr>
+        </table>
+      </div>
+    </div>
+    <br>
+  </div>
+  <div class="row">
+    <div class="col-lg-5"></div>
+    <div class="col-lg-2">
+      <button type="button" class="addbtn" (click)="InsertDetails()">Save</button>
+
+    </div>
+    <div class="col-lg-5"></div>
+  </div>
+  <br>
+</div>

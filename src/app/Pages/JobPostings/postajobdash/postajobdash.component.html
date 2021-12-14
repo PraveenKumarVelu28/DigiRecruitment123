@@ -1,0 +1,77 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/Postajob">ADD</button>
+        </div>
+        <!-- <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()" >Export To Excel</button>
+        </div> -->
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">JOB RECRUITEMENTS DASHBOARD</label>
+    <hr>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="search" name="search">
+        </div>
+        <div class="col-lg-3">
+            <!-- <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)"> -->
+        </div>
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-3">
+            <h6 style="float:right">Count:{{count}}</h6>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12" style="overflow: auto;">
+            <div class="tabcontent">
+                <table style="overflow: auto;">
+                    <tr>
+                        <th>Job Reference ID</th>
+                        <th>Date</th>
+                        <th>Job Title</th>
+                        <th>Skill/Technology</th>
+                        <th>Total Years of Experience</th>
+                        <th>Years of Relavant Experience</th>
+                        <th>Job Description</th>
+                        <th>Job Location</th>
+                        <th>No of Positions</th>
+                        <th>Hiring Manager</th>
+
+                        <th>Resource Manager</th>
+                        <th>Actions</th>
+
+                    </tr>
+                    <tr *ngFor="let job of joblist|filter:search">
+                        <td>{{job.jobRefernceID}}</td>
+                        <td>{{job.date}}</td>
+                        <td>{{job.jobTitle}}</td>
+                        <td>{{job.skills}}</td>
+                        <td>{{job.totalExp}}</td>
+                        <td>{{job.relaventExp}}</td>
+                        <td>{{job.jobDescription}}</td>
+                        <td>{{job.joblocation}}</td>
+                        <td>{{job.noofpositions}}</td>
+                        <td>{{job.hiringManager}}</td>
+                        <td>{{job.resourceManager}}</td>
+                        <td>
+                            <button  routerLink="/ApplyJobs" class="btn btn-primary">Apply</button>
+                        </td>
+
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+        <br>
+    </div><br><br>
+</div>

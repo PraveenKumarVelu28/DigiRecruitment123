@@ -1,0 +1,120 @@
+/* You can add global styles to this file, and also import other style files */
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+body{
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Roboto", sans-serif;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.mycardhead {
+    background-color: black;
+    color: white;
+    border-radius: 0px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+/* border-radius: 10px;
+background-color: #21a4da;
+color: white;
+border: none;
+width: 150px;
+height: 30px; */
+
+
+.addbtn {
+    border-radius: 10px;
+    background-color: #21a4da;
+    height: 35px;
+    color: white;
+    width: 100%;
+    border: 1px solid white;
+    margin-top: 2%; 
+    margin-left: 7%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td{
+    border: 1px solid #dddddd; 
+    background-color: #ffffff;
+    text-align: left;
+    padding: 8px;
+}
+/* th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+} */
+
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    background-color:#21a4da;
+    color: white;
+}
+
+/* tr:nth-child(even) {
+    background-color: #dddddd;
+} */
+
+.mycardhead {
+    background-color: #28365f;
+    color: white;
+    border-radius: 0px;
+    height: 50px;
+}
+
+.view {
+    width: auto;
+    background-color: #28365f;
+    border: none;
+    color: white;
+}
+
+.ck-editor__editable_inline {
+    min-height: 300px !important;
+}
+.page_Heading{
+    font-weight: 500;
+    color: #666666;
+    float: left;
+    width: auto;
+    margin: 0;
+    /* margin-left: 35px; */
+    padding: 0;
+    font-size: 24px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+.page_SubHeading{
+    color: grey;
+    font-size: 19px;
+    font-weight: 500;
+}

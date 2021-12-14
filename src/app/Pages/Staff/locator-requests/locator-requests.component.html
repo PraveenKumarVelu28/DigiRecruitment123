@@ -1,0 +1,159 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/AddLocatorByStaff">New Request</button>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">LOCATOR DASHBOARD</label>
+    <hr>
+    <div class="tab">
+        <button class="tablinks" (click)="openCity($event, 'NewRequest')" id="def_open">Applied</button>
+        <button class="tablinks" (click)="openCity($event, 'Approved')">Approved</button>
+        <button class="tablinks" (click)="openCity($event, 'Rejected')">Rejected</button>
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" [(ngModel)]="search" placeholder="Search...">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value" (ngModelChange)="selectedDate($event)">
+        </div>
+        <div class="col-lg-4"></div>
+        <div class="col-lg-2">
+            <h4 style="float:right">Count : {{appliedCount}}</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="NewRequest" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Actions</th>
+                        <th>Name</th>
+                        <th>Project</th>
+                        <th>Transportation Type</th>
+                        <th>Date</th>
+                        <th>Purpose</th>
+                        <th>Contact Person</th>
+                        <th>Contact PhNo</th>
+                        <th>Time Of Departure</th>
+                        <th>Time Of Return</th>
+                        <th>Destination</th>
+                        <th>No Of Hrs</th>
+                        <th>Status</th>
+
+                    </tr>
+                    <tr *ngFor="let list of filteredLocatorRequestsList|filter:search">
+                        <td>
+                            <img src="assets/images/edit.png" title="Update" [routerLink]="['/AddLocatorByStaff',list.id]" style="width: 20px;"> &nbsp;
+                            <img src="assets/images/dell.png" style="width: 20px;" (click)="DeleteStaffLocatorRequest(list.id)">&nbsp;&nbsp;
+                        </td>
+                        <td>{{list.name}}</td>
+                        <td>{{list.project}}</td>
+                        <td>{{list.transportationType}}</td>
+                        <td>{{list.date|date}}</td>
+                        <td>{{list.purpose}}</td>
+                        <td>{{list.contactPerson}}</td>
+                        <td>{{list.contactPhNo}}</td>
+                        <td>{{list.timeOfDeparture}}</td>
+                        <td>{{list.timeOfReturn}}</td>
+                        <td>{{list.destination}}</td>
+                        <td>{{list.hourDiff}}</td>
+                        <td>
+                            <p *ngIf="list.status==null">Not Yet Approved</p>
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+            <div id="Approved" class="tabcontent">
+                <table>
+                    <tr>
+                        <!-- <th>Actions</th> -->
+                        <th>Name</th>
+                        <th>Project</th>
+                        <th>Transportation Type</th>
+                        <th>Date</th>
+                        <th>Purpose</th>
+                        <th>Contact Person</th>
+                        <th>Contact PhNo</th>
+                        <th>Time Of Departure</th>
+                        <th>Time Of Return</th>
+                        <th>Destination</th>
+                        <th>No Of Hrs</th>
+                        <th>Status</th>
+
+                    </tr>
+                    <tr *ngFor="let list of ApprovedLocatorRequestsList|filter:search">
+                        <!-- <td><img src="assets/images/edit.png" title="Update"  style="width: 20px;"> &nbsp;
+                            <img src="assets/images/dell.png" title="Delete"  style="width: 20px;"></td> -->
+                        <td>{{list.name}}</td>
+                        <td>{{list.project}}</td>
+                        <td>{{list.transportationType}}</td>
+                        <td>{{list.date|date}}</td>
+                        <td>{{list.purpose}}</td>
+                        <td>{{list.contactPerson}}</td>
+                        <td>{{list.contactPhNo}}</td>
+                        <td>{{list.timeOfDeparture}}</td>
+                        <td>{{list.timeOfReturn}}</td>
+                        <td>{{list.destination}}</td>
+                        <td>{{list.hourDiff}}</td>
+                        <td><span style="color:forestgreen;">{{list.status}}</span></td>
+
+                    </tr>
+                </table>
+            </div>
+            <div id="Rejected" class="tabcontent">
+                <table>
+                    <tr>
+                        <!-- <th>Actions</th> -->
+                        <th>Name</th>
+                        <th>Project</th>
+                        <th>Transportation Type</th>
+                        <th>Date</th>
+                        <th>Purpose</th>
+                        <th>Contact Person</th>
+                        <th>Contact PhNo</th>
+                        <th>Time Of Departure</th>
+                        <th>Time Of Return</th>
+                        <th>Destination</th>
+                        <th>No Of Hrs</th>
+                        <th>Status</th>
+
+                    </tr>
+                    <tr *ngFor="let list of RejectedLocatorRequestsList|filter:search">
+                        <!-- <td><img src="assets/images/edit.png" title="Update"  style="width: 20px;"> &nbsp;
+                            <img src="assets/images/dell.png" title="Delete"  style="width: 20px;"></td> -->
+                        <td>{{list.name}}</td>
+                        <td>{{list.project}}</td>
+                        <td>{{list.transportationType}}</td>
+                        <td>{{list.date|date}}</td>
+                        <td>{{list.purpose}}</td>
+                        <td>{{list.contactPerson}}</td>
+                        <td>{{list.contactPhNo}}</td>
+                        <td>{{list.timeOfDeparture}}</td>
+                        <td>{{list.timeOfReturn}}</td>
+                        <td>{{list.destination}}</td>
+                        <td>{{list.hourDiff}}</td>
+                        <td><span style="color:red;">{{list.status}}</span></td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>

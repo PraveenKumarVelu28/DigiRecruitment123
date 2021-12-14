@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/AddTimeSheet" *ngIf="roleid==3">ADD</button>
+        </div>
+        <!-- <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()" >Export To Excel</button>
+        </div> -->
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">TIMESHEET DASHBOARD</label>
+    <hr>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div>
+        <div class="col-lg-3">
+        </div>
+        <!-- <div class="col-lg-3">
+            <h4 style="float:right">Count:{{count}}</h4>
+        </div> -->
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="NewRequest" class="tabcontent">
+                <table>
+                    <tr>
+                       
+                        <th>StaffName</th>
+                        <th>FloorName</th>
+                        <th>Date</th>
+                        <th>StartTime</th>
+                        <th>EndTime</th>
+                        <th>ProjectName</th>
+                        <th>Task</th>
+                        <th>Supervisor</th>
+                        <th>Comments</th>
+                        
+                    </tr>
+                    <tr *ngFor="let list of stafflist|filter:search">
+                        
+                        
+                        <td>{{list.raisedBy}}</td>
+                        <td>{{list.floor}}</td>
+                        <td>{{list.date|date}}</td>
+                        <td>{{list.startTime}}</td>
+                        <td>{{list.endTime}}</td>
+                        <td>{{list.project}}</td>
+                        <td>{{list.task}}</td>
+                        <td>{{list.supervisor}}</td>
+                        <td>{{list.comments}}</td>
+                       
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>
+
+
+
+

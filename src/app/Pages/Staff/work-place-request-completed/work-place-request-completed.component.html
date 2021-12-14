@@ -1,0 +1,205 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8">
+    </div>
+    <div class="col-lg-2">
+      <button *ngIf="roleid==2 || roleid==4" type="button" class="addbtn" routerLink="/AddWorkPlaceRequest">ADD</button>
+    </div>
+    <div class="col-lg-2">
+      <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+    </div>
+  </div>
+</div>
+<br>
+<div class="container-fluid card">
+  <br>
+  <label class="page_SubHeading"> Work Allocation Dashboard</label>
+  <hr>
+  <div class="tab">
+    <button class="tablinks" (click)="openCity($event, 'NewRequest')" id="def_open">UpComing</button>
+    <button class="tablinks" (click)="openCity($event, 'Completed')" >Completed</button>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-3">
+      <input type="search" class="form-control" [(ngModel)]="Search" placeholder="Search...">
+    </div>
+    <!-- <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="buildingID" name="buildingID" (change)="getbuildingID($event)">
+                <option value=0 selected>Select Building</option>
+                <option *ngFor="let list of buildingList" value="{{list.id}}">{{list.name}}</option>
+            </select>
+        </div> -->
+    <div class="col-lg-3">
+      <select class="form-control" id="project" [(ngModel)]="project" name="project" (change)="getproject($event)">
+        <option value="0" selected>Select Project</option> 
+        <option *ngFor="let list of projectlist" value="{{list.projectName}}">{{list.projectName}}</option>
+      </select>
+    </div>
+    <div class="col-lg-3">
+      <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+        (ngModelChange)="selectedDate($event)">
+    </div>
+  </div>
+  <br>
+  <!-- <div class="row">
+        <div class="col-lg-2">
+            <img src="assets/images/meeting1.png" style="height: 5vh;width: auto;">&nbsp;&nbsp;<span>Meeting
+                Room-1</span>
+        </div>
+        <div class="col-lg-2">
+            <img src="assets/images/meeting1.png" style="height: 5vh;width: auto;">&nbsp;&nbsp;<span>Meeting
+                Room-2</span>
+        </div>
+        <div class="col-lg-2">
+            <img src="assets/images/meeting1.png" style="height: 5vh;width: auto;">&nbsp;&nbsp;<span>Meeting
+                Room-3</span>
+        </div>
+        <div class="col-lg-2">
+            <img src="assets/images/meeting1.png" style="height: 5vh;width: auto;">&nbsp;&nbsp;<span>Meeting
+                Room-4</span>
+        </div>
+        <div class="col-lg-2">
+            <img src="assets/images/meeting1.png" style="height: 5vh;width: auto;">&nbsp;&nbsp;<span>VR Studio</span>
+        </div>
+        <div class="col-lg-2">
+            <h4 style="float:right">Count:{{count}}</h4>
+        </div>
+    </div> -->
+  <br>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div id="NewRequest" class="tabcontent">
+        <table>
+          <tr>
+            <th>Action</th>
+            <!-- <th>Building</th> -->
+            <!-- <th>Room Type</th> -->
+            <!-- <th>Room Name</th> -->
+            <th>Project</th>
+            <th>Work</th>
+            <th>Assigned To</th>
+            <th>Start Date</th>
+            <th>Start Time</th>
+            <th>End Date</th>
+            <th>End Time</th>
+            <th>Work Description</th>
+            <!-- <th>Status</th>  -->
+          </tr>
+          <tr *ngFor="let list of filteredList|filter:Search">
+            <td><img src="assets/images/edit.png" title="Update" [routerLink]="['/AddWorkPlaceRequest',list.id]"
+                style="width: 20px;"> &nbsp;
+              <img src="assets/images/dell.png" style="width: 20px;"
+                (click)="DeleteWorkplaceRequest(list.id)">&nbsp;&nbsp;
+              <button *ngIf="roleid==3" type="button" class="btn btn-primary editable-table-button btn-xs"
+                (click)="GetWorkID(list.id)" data-toggle="modal" data-target="#myModalAttachments">Complete</button>
+            </td>
+            <!-- <td>{{list.buildingName}}</td> -->
+            <!-- <td>{{list.workStationName}}</td> -->
+            <!-- <td>Conference Room</td> -->
+            <!-- <td>{{list.workSpaceID}}</td> -->
+            <td>{{list.project}}</td>
+            <td>{{list.requestFor}}</td>
+            <td>{{list.assignedto}}</td>
+            <td>{{list.startDate|date}}</td>
+            <td>{{list.startTime}}</td>
+            <td>{{list.endDate|date}}</td>
+            <td>{{list.endTime}}</td>
+            <td>{{list.comments}}</td>
+          </tr>
+        </table>
+      </div>
+      <div id="Completed" class="tabcontent">
+        <table>
+          <tr>
+
+            <!-- <th>Building</th>
+            <th>Room Type</th>
+            <th>Room Name</th> -->
+            <th>Project</th>
+            <th>Work </th>
+            <th>Assignedto</th>
+            <th>Start Date</th>
+            <th>Start Time</th>
+            <th>End Date</th>
+            <th>End Time</th>
+            <th>Work Description</th>
+            <th>Comments </th>
+            <th>Attachment</th>
+          </tr>
+          <tr *ngFor="let list of completedfilteredList|filter:Search">
+            <!-- <td>{{list.buildingName}}</td>
+            <td>{{list.workStationName}}</td>
+            <td>{{list.workSpaceID}}</td> -->
+            <td>{{list.project}}</td>
+            <td>{{list.requestFor}}</td>
+            <td>{{list.assignedto}}</td>
+            <td>{{list.startDate|date}}</td>
+            <td>{{list.startTime}}</td>
+            <td>{{list.endDate|date}}</td>
+            <td>{{list.endTime}}</td>
+            <td>{{list.comments}}</td>
+            <td>{{list.completedcomments}}</td>
+            <td>
+              <img src="{{list.attachment}}" style="width: 100px;height: 100px;">&nbsp;&nbsp;
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
+
+<div id="myModalAttachments" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content" style="margin-top: 100px;">
+      <div class="modal-header">
+        <h4>Complete Work</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body col-lg-12">
+        <div class="row">
+          <div class=col-lg-1></div>
+          <div class="col-lg-3">
+            <p>Comments
+              <span>*</span>
+            </p>
+          </div>
+          <div class="col-lg-7 form-group">
+            <textarea type="text" class="form-control" rows="4" placeholder="Comments" [(ngModel)]="Comments"
+              name="Comments"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class=col-lg-1></div>
+          <div class="col-lg-3">
+            <p>Attachment
+              <span>*</span>
+            </p>
+          </div>
+          <div class="col-lg-7 form-group">
+            <ngx-dropzone (change)="onBrochureUpload($event)">
+              <!-- <ngx-dropzone-preview *ngFor="let f of brochures" [removable]="true" (removed)="onRemove(f)">
+              </ngx-dropzone-preview> -->
+              <ngx-dropzone-label>Drag and drop file here</ngx-dropzone-label>
+            </ngx-dropzone>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-5">
+          </div>
+          <div class="col-lg-2">
+            <button class="btn btn-primary editable-table-button btn-xs" (click)="UpdateWorkSchedule()"
+              data-dismiss="modal">Save</button>
+          </div>
+          <div class="col-lg-5">
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

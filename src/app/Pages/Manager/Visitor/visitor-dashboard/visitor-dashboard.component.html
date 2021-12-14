@@ -1,0 +1,67 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2"> 
+            <button type="button" class="addbtn" routerLink="/NewVisitor">New Visitor</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">VISITOR DASHBOARD</label>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search...">
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="buildingID" name="buildingID" (change)="getbuildingID($event)">
+                <option value="0" selected>Select Building</option>
+                <option *ngFor="let list of buildingList" value="{{list.name}}">{{list.name}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th>Raised By</th>
+                    <th>Entry Date & Time</th>
+                    <th>Building</th>
+                    <th>Visitor Name</th>
+                    <th>Address</th>
+                    <th>No Of Visitors</th>
+                    <th>Visitor Type</th>
+                    <th>Contact Mobile Number</th>
+                    <th>ID Type</th>
+                    <th>ID Number</th>
+                    <th>Floor</th>
+                    <th>Exit Date & Time</th>
+                    <th>Action</th>
+                </tr>
+                <tr *ngFor="let list of filteredVisitorList|filter:search">
+                    <td>{{list.raisedBy}}</td>
+                    <td>{{list.entryDateTime}}</td>
+                    <td>{{list.buildingName}}</td>
+                    <td>{{list.visitorName}}</td>
+                    <td>{{list.addressOfVisitor}}</td>
+                    <td>{{list.noOfVisitors}}</td> 
+                    <td>{{list.visitorIDType}}</td>
+                    <td>{{list.visitorPhoneNo}}</td>
+                    <td>{{list.typeID}}</td>
+                    <td>{{list.iDNumber}}</td>
+                    <td>{{list.floorID}}</td> 
+                    <td>{{list.exitDateTime}}</td>
+                    <td></td>
+
+                   
+
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+</div>

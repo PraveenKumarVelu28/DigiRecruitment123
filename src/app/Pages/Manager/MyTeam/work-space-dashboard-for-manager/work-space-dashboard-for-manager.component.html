@@ -1,0 +1,215 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-10">
+    </div>
+    <div class="col-lg-2">
+      <!-- <button type="button" class="addbtn" routerLink="/AddWorkPlaceRequest">ADD</button> -->
+    </div>
+  </div>
+</div>
+<br>
+<div class="container-fluid card">
+  <br>
+  <label class="page_SubHeading">WORK ALLOCATION DASHBOARD</label>
+  <hr>
+  <div class="tab">
+    <button class="tablinks" (click)="openCity($event, 'NewRequest')" id="def_open">UpComing</button>
+    <button class="tablinks" (click)="openCity($event, 'Completed')">Completed</button>
+  </div>
+  <!-- <div class="col-lg-2">
+    <label class="switch">
+      <input type="checkbox" checked (change)="changeStatus($event)">
+      <span class="slider round"></span>
+    </label>
+  </div> -->
+
+  <!-- <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="buildingID" name="buildingID" (change)="getBuildingID($event)">
+                <option selected value=0>Select Building</option>
+                <option *ngFor="let list of buildingList" value="{{list.id}}">{{list.name}}</option>
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="floorID" name="floorID" (change)="getFloorID($event)">
+                <option selected value=0>Select Floor</option>
+                <option *ngFor="let list of floorList" value="{{list.id}}">{{list.floor}}</option>
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="roomTypeID" name="roomTypeID" (change)="getRoomTypeID($event)">
+                <option selected value=0>Select Type </option>
+                <option *ngFor="let list of roomTypeList" value="{{list.id}}">{{list.short}}</option>
+            </select>
+        </div>
+    </div> -->
+  <br>
+  <div class="row">
+    <div class="col-lg-3">
+      <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+        (ngModelChange)="selectedDate($event)">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-12">
+      <div id="NewRequest" class="tabcontent">
+        <table>
+          <tr>
+            <th>Action</th>
+            <!-- <th>Building</th> -->
+            <!-- <th>Room Type</th> -->
+            <!-- <th>Room Name</th> -->
+            <th>Project</th>
+            <th>Work</th>
+            <!-- <th>Assigned To</th> -->
+            <th>Start Date</th>
+            <th>Start Time</th>
+            <th>End Date</th>
+            <th>End Time</th>
+            <th>Work Description</th>
+
+          </tr>
+          <tr *ngFor="let list of workSpaceRequest|filter:search">
+            <td>
+              <button type="button" class="btn btn-primary editable-table-button btn-xs" (click)="GetWorkID(list.id)"
+                data-toggle="modal" data-target="#myModalAttachments">Complete</button>
+            </td>
+            <td>{{list.project}}</td>
+            <td>{{list.requestFor}}</td>
+            <!-- <td>{{list.assignedto}}</td> -->
+            <td>{{list.startDate|date}}</td>
+            <td>{{list.startTime}}</td>
+            <td>{{list.endDate|date}}</td>
+            <td>{{list.endTime}}</td>
+            <td>{{list.comments}}</td>
+
+          </tr>
+        </table>
+      </div>
+      <div id="Completed" class="tabcontent">
+        <table>
+          <tr>
+            <!-- <th>Building</th> -->
+            <!-- <th>Room Type</th> -->
+            <!-- <th>Room Name</th> -->
+            <th>Project</th>
+            <th>Work</th>
+            <!-- <th>Assigned To</th> -->
+            <th>Start Date</th>
+            <th>Start Time</th>
+            <th>End Date</th>
+            <th>End Time</th>
+            <th>Work Description</th>
+            <th>Comments </th>
+            <th>Attachment</th>
+          </tr>
+          <tr *ngFor="let list of workSpaceRequest|filter:search">
+            <td>{{list.project}}</td>
+            <td>{{list.requestFor}}</td>
+            <!-- <td>{{list.assignedto}}</td> -->
+            <td>{{list.startDate|date}}</td>
+            <td>{{list.startTime}}</td>
+            <td>{{list.endDate|date}}</td>
+            <td>{{list.endTime}}</td>
+            <td>{{list.comments}}</td>
+            <td>{{list.completedcomments}}</td>
+            <td>
+              <img src="{{list.attachment}}" style="width: 100px;height: 100px;">&nbsp;&nbsp;
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
+
+<div class="container-fluid card" [hidden]="!showorhidecontent">
+  <div class="row callendernavButtons">
+    <div class="col-lg-4">
+      <a (click)="previousmonth()">
+        <!-- <i class="fa fa-arrow-left" aria-hidden="true"></i> -->
+        <img src="assets/images/LeftArrow.png" style="height: 30px;">
+      </a>
+    </div>
+    <div class="col-lg-4">
+      <summary>
+        <strong>{{callenderMonth}}</strong> {{callenderyear}}
+      </summary>
+    </div>
+    <div class="col-lg-4">
+      <a (click)="nextmonth()">
+        <img src="assets/images/RightArrow.png" style="height: 30px;">
+        <!-- <i class="fa fa-arrow-right" aria-hidden="true"></i> -->
+      </a>
+    </div>
+  </div>
+
+  <div class="row callenderdiv">
+    <div class="col-lg-12">
+      <div class="row">
+        <div class="col-lg-2 callenderboxes" *ngFor="let calday of callenderdaysdount;let i = index">
+          {{calday.date}} {{calday.day}}
+          <div *ngIf="calday.StaffName" class="event_Pending" innerHtml='{{calday.mantainenceHtml}}'
+            style="overflow-y: auto;background-color: white;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="myModalAttachments" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content" style="margin-top: 100px;">
+      <div class="modal-header">
+        <h4>Complete Work</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body col-lg-12">
+        <div class="row">
+          <div class=col-lg-1></div>
+          <div class="col-lg-3">
+            <p>Comments
+              <span>*</span>
+            </p>
+          </div>
+          <div class="col-lg-7 form-group">
+            <textarea type="text" class="form-control" rows="4" placeholder="Comments" [(ngModel)]="Comments"
+              name="Comments"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class=col-lg-1></div>
+          <div class="col-lg-3">
+            <p>Attachment
+              <span>*</span>
+            </p>
+          </div>
+          <div class="col-lg-7 form-group">
+            <ngx-dropzone (change)="onBrochureUpload($event)">
+              <!-- <ngx-dropzone-preview *ngFor="let f of brochures" [removable]="true" (removed)="onRemove(f)">
+                </ngx-dropzone-preview> -->
+              <ngx-dropzone-label>Drag and drop file here</ngx-dropzone-label>
+            </ngx-dropzone>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-5">
+          </div>
+          <div class="col-lg-2">
+            <button class="btn btn-primary editable-table-button btn-xs" (click)="UpdateWorkSchedule()"
+              data-dismiss="modal">Save</button>
+          </div>
+          <div class="col-lg-5">
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

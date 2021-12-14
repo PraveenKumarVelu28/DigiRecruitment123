@@ -1,0 +1,326 @@
+<div class="container-fluid Pages_background ">
+  <div class="row">
+    <div class="col-lg-6">
+      <h4 class="header">Staff Appraisal</h4>
+    </div>
+    <div class="col-lg-3">
+    </div>
+    <div class="col-lg-3">
+      <div class="row mainrow">
+        <div class="col-lg-12 BreadChrumbProperties" style="margin-bottom: 40px;">
+          <span class="building">Staff Appraisal</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="shadow p-3 mb-5 bg-white rounded   maincard ">
+    <form #loginForm="ngForm">
+      <br>
+
+
+
+      <div class="row">
+        <div class="col-lg-4">
+          <label>Appraisal Name : {{appraisalname}}</label>
+        </div>
+        <div class="col-lg-3">
+          <label>Appraisal start date : {{apprasalstartdate|date}}</label>
+        </div>
+        <div class="col-lg-3">
+          <label>Appraisal end date : {{appraisalenddate|date}}</label>
+        </div>
+
+      </div><br>
+
+      <!-- <div class="row">
+            <div class="col-lg-1">
+            </div>
+            <div class="col-lg-2">
+              <p style="padding:5px">
+                Staff Type <span style="color: red;">*</span> </p>
+            </div>
+            <div class="col-lg-5">
+              <select class="dropdown form-control" id="StaffTypeID" name="StaffTypeID" [(ngModel)]="StaffTypeID" required
+                disabled>
+                <option value="0">Select Staff Type</option>
+                <option *ngFor="let Staff of StaffTypelist" value="{{Staff.id}}">{{Staff.short}}
+              </select>
+            </div>
+          </div>
+          <br>
+    
+          <div class="row">
+            <div class="col-lg-1">
+            </div>
+            <div class="col-lg-2">
+              <p style="padding:5px">
+                Staff <span style="color: red;">*</span> </p>
+            </div>
+            <div class="col-lg-5">
+              <select class="dropdown form-control" id="StaffID " name="StaffID" [(ngModel)]="StaffID" required disabled>
+                <option value="0">Select Staff </option>
+                <option *ngFor="let value of Stafflist" value="{{value.id}}">{{value.name}}</option>
+              </select>
+            </div>
+          </div>
+          <br> -->
+
+
+      <!-- <div class="row ">
+              <div class=col-lg-1> </div>
+              <div class="col-lg-2">
+                <h6 style="font-size: 14px;"> Appraisal Manager<span style="color: red;">*</span> </h6>
+              </div>
+              <div class="col-lg-5">
+                <input class="form-control" type="text" [(ngModel)]="AppraisalManager" name="AppraisalManager"
+                  id="resultareaname" required placeholder="Appraisal Manager" disabled>
+              </div>
+            </div> 
+            <br>-->
+      <!-- <div class="row ">
+              <div class=col-lg-1> </div>
+              <div class="col-lg-2">
+                <h6 style="font-size: 14px;"> Date Of Joining<span style="color: red;">*</span> </h6>
+              </div>
+              <div class="col-lg-5">
+                <input class="form-control" type="text" [(ngModel)]="JDate" name="JDate" id="JDate" required
+                  placeholder="Date Of Joining" disabled>
+              </div>
+            </div>
+            <br>
+            <div class="row ">
+              <div class=col-lg-1> </div>
+              <div class="col-lg-2">
+                <h6 style="font-size: 14px;"> Year Of Service<span style="color: red;">*</span> </h6>
+              </div>
+              <div class="col-lg-5">
+                <input class="form-control" type="text" value="{{YearOfService}}" name="Yserodswdfr" id="Yserodswdfr" required
+                  placeholder="Date Of Service" disabled>
+              </div>
+            </div>
+            <br> -->
+      <div *ngIf="tablecount!=2 && TableNextPrevHide!=1">
+        <div class="row">
+          <div class="col-lg-1">
+          </div>
+          <div class="col-lg-2">
+            <p style="padding:5px">
+              KRA<span style="color: red;">*</span> </p>
+          </div>
+          <div class="col-lg-5">
+            <select class="dropdown form-control" id="ResultArea" disabled name="ResultArea" [(ngModel)]="ResultAreaID"
+              required>
+              <option value="0">Select KRA</option>
+              <option *ngFor="let value of ResultAreaList" value="{{value.kraid}}">
+                {{value.kraName}}
+              </option>
+            </select>
+          </div>
+          <div class="col-lg-3">
+            <label>Staff Score : {{staffscore}}</label><br>
+            <label>Staff Comments : {{staffcomments}}</label><br>
+            <label>Total KRA : {{ResultAreaList.length}}</label>
+
+          </div>
+
+
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-lg-1">
+          </div>
+          <div class="col-lg-2">
+            <p style="padding:5px">
+              Performance Indicator <span style="color: red;">*</span></p>
+          </div>
+          <div class="col-lg-5">
+            <textarea class="form-control" id="Description" disabled [(ngModel)]="Description" name="Description"
+              placeholder="Performance Indicator" rows="4" required></textarea>
+          </div>
+          <div class="col-lg-3">
+            <label>Manager Score : {{managerscore}}</label><br>
+            <label>Manager Comments : {{managercomments}}</label>
+
+           
+          </div>
+
+
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-lg-1">
+          </div>
+          <div class="col-lg-2">
+            <p style="padding:5px">
+              Score <span style="color: red;">*</span> </p>
+          </div>
+          <div class="col-lg-5">
+            <select class="dropdown form-control" id="Score" name="Score" [(ngModel)]="Score"
+              (change)="GetScore($event)" required>
+              <option value="0">Select Score</option>
+              <option *ngFor="let value of list" value="{{value.id}}">{{value.score}} - {{value.answers}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <br>
+
+        <div class="row">
+          <div class="col-lg-1">
+          </div>
+          <div class="col-lg-2">
+            <p style="padding:5px">
+              Comments <span style="color: red;">*</span> </p>
+          </div>
+          <div class="col-lg-5">
+            <textarea class="form-control" id="SelfComments" [(ngModel)]="SelfComments" name="SelfComments"
+              placeholder="Comments" rows="4" required></textarea>
+          </div>
+        </div>
+        <br>
+      </div>
+      <div class="row">
+        <div class="col-lg-5">
+        </div>
+        <!-- <div class="col-lg-2" *ngIf="tablecount==1">
+                <button class="btn btn-block btn-md"
+                  style="background-color:#fec500;margin-left: -109px;color:white;border-color: rgba(20, 21, 31, 0.20);"
+                  (click)="insertdetails1()">Save</button>
+              </div> -->
+
+        <div class="col-lg-2" *ngIf="tablecount==2 ">
+          <button class="btn btn-block btn-md"
+            style="background-color:#fec500;margin-left: -109px;color:white;border-color: rgba(20, 21, 31, 0.20);"
+            (click)="Preview()">Preview</button>
+        </div>
+        <div class="col-lg-1" *ngIf="tablecount!=2 && TableNextPrevHide!=1">
+          <button style="    margin-top: 2px;
+                        width: 100px;
+                        margin-left: -134px;
+                        height: 33px;
+                    " (click)="prev()" type="button" class="btn btn-primary  btn-sm">Prev </button>
+        </div>&nbsp;&nbsp;
+        <div class="col-lg-1" *ngIf="tablecount!=2 && TableNextPrevHide!=1">
+          <button style="    margin-top: 2px;
+                        width: 100px;
+                        margin-left: -119px;
+                        height: 33px;
+                    " (click)="next()" type="button" class="btn btn-primary  btn-sm">Next </button>
+        </div>
+        <div class="col-lg-4">
+        </div>
+        <br>
+      </div>
+
+      <div class="table-responsive card maincard" *ngIf="tablecount==1">
+        <br>
+        <table class="table table-bordered table-hover table-condensed">
+          <tbody>
+            <tr class="tableheader tableheaderfont">
+              <th style="width:15%">KRA</th>
+              <th style="width:15%">PI</th>
+              <th style="width:15%">Scores</th>
+              <th style="width:15%">Comments</th>
+              <th style="width:10%">Actions</th>
+            </tr>
+            <tr *ngFor="let details of appraisalList">
+              <td>{{details.resultAreaName}}</td>
+              <td>{{details.performanceindicatorName}}</td>
+              <td>{{details.SelfScores}}</td>
+              <td>{{details.SelfComments}}</td>
+              <td>
+                <img src="assets/images/dell.png" style="width: 20px;" (click)="delete(details.sno)">&nbsp;
+                <img src="assets/images/edit.png" style="width: 20px;" data-toggle="modal" data-target="#exampleModal"
+                (click)="UpdateIndex(details.Sno)">
+              </td>
+            </tr>
+          </tbody>
+        </table><br>
+        <div class="row" *ngIf="tablecount==1">
+          <div class="col-lg-5">
+          </div>
+          <div class="col-lg-2">
+            <button class="btn btn-block btn-md"
+              style="background-color:#fec500;color:white;border-color: rgba(20, 21, 31, 0.20);"
+              (click)="insertdetails1()">Submit Appraisal</button>
+          </div>
+          <div class="col-lg-5">
+          </div>
+        </div>
+      </div>
+    </form>
+    <br>
+    <hr>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document" style="width: 600px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Rating</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="    width: 600px;">
+        <div class="row">
+          <div class="col-lg-1">
+          </div>
+          <div class="col-lg-2">
+            <p style="padding:5px">
+              Score <span style="color: red;">*</span> </p>
+          </div>
+          <div class="col-lg-5">
+            <select class="dropdown form-control" id="Score" name="Score" [(ngModel)]="Score"
+              (change)="GetScore($event)" required>
+              <option value="0">Select Score</option>
+              <option *ngFor="let value of list" value="{{value.id}}">{{value.score}} - {{value.answers}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-lg-1">
+          </div>
+          <div class="col-lg-2">
+            <p style="padding:5px">
+              Comments <span style="color: red;">*</span> </p>
+          </div>
+          <div class="col-lg-5">
+            <textarea class="form-control" id="SelfComments" [(ngModel)]="SelfComments" name="SelfComments"
+              placeholder="Comments" rows="4" required></textarea>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-lg-5">
+          </div>
+          <div class="col-lg-2">
+            <button class="btn btn-block btn-md"
+              style="background-color:#fec500;color:white;border-color: rgba(20, 21, 31, 0.20);"
+              (click)="updateindexs()">Update</button>
+          </div>
+          <div class="col-lg-5">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>

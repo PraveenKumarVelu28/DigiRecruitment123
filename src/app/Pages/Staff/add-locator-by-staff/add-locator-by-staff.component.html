@@ -1,0 +1,160 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h6>LOCATOR REQUEST</h6>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Request By</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Staff Name" [(ngModel)]="staffName" name="staffName" disabled>
+        </div>
+    </div>
+    <br>
+    <!-- <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Supervisor</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" name="approver" [(ngModel)]="approver">
+                <option selected value="0">Select Staff</option>
+                <option *ngFor="let list of supervisorList" value="{{list.id}}">{{list.supervisorName}}</option>
+
+            </select>
+        </div>
+    </div>
+    <br> -->
+
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Transportation Type</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="transportationType" name="transportationType">
+                <option value="0" selected>Select Transportation Type</option>
+                <option *ngFor="let list of transportationtypelist" value="{{list.name}}">{{list.name}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Date</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="date" class="form-control" [(ngModel)]="date" name="date">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Project</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="project" name="project">
+                <option value="0" selected>Select Project</option>
+                <option *ngFor="let list of projectlist" value="{{list.projectName}}">{{list.projectName}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Destination</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Destination" [(ngModel)]="destination" name="destination">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Purpose</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Purpose" [(ngModel)]="purpose" name="purpose">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Time Of Departure</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="time" class="form-control"  [(ngModel)]="timeOfDeparture" name="timeOfDeparture">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Time Of Return</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="time" class="form-control"  [(ngModel)]="timeOfReturn" name="timeOfReturn">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Approver</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="Supervisor">
+                <option value="0" selected>Approver</option>
+                <option *ngFor="let list of supervisorList" value="{{list.supervisorName}}" >{{list.supervisorName}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Phone Number</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="phoneNumber" name="phoneNumber"
+                placeholder="phoneNumber">
+        </div>
+    </div>
+    <br>
+   
+   
+
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" *ngIf="paramID==undefined" (click)="InsertDetails()">Save</button>
+            <button type="button" class="addbtn" *ngIf="paramID!=undefined" (click)="updatedetails()">Update</button> 
+        </div>
+        <div class="col-lg-5"></div>
+    </div>
+    <br>
+</div>
+

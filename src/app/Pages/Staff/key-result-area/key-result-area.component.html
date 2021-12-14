@@ -1,0 +1,81 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h6>HR LEAVE</h6>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <!-- <div class="row">
+        <div class="col-lg-3">
+            <label>Office Location</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="buildingID" name="buildingID" >
+                <option value="0" selected>Select Building</option>
+                <option *ngFor="let list of buildinglist" value="{{list.id}}">{{list.name}}</option>
+            </select>
+        </div>
+    </div>
+    <br> -->
+    <div class="row">
+        <div class="col-lg-3">
+            <label>KRA Type</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="kraTypeID" name="kraTypeID" >
+                <option value="0" selected>Select KRA Type</option>
+                <option value="Goals">Goals</option>
+                <option value="Skills">Skills</option>
+                <option value="Certifications">Certifications</option>
+               
+            </select>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <label>KRA Name </label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Kra Name " [(ngModel)]="kraName" name="kraName">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Role</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="designation" name="designation" >
+                <option value="0" selected>Select Role</option>
+                <option *ngFor="let list of designationList" value="{{list.short}}">{{list.short}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Description</label>
+        </div>
+        <div class="col-lg-4">
+            <textarea type="text" class="form-control" rows="5" placeholder="Description" [(ngModel)]="description" name="description"></textarea>
+        </div>
+    </div>
+    <br>
+    
+
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" *ngIf="showbutton=='0'" (click)="InsertDetails()">Save</button>
+            <button type="button" class="addbtn" *ngIf="showbutton=='1'" (click)="UpdateDetails()">Update</button>
+            <!-- <button type="button" class="addbtns" *ngIf="paramID!=undefined">Update</button>  -->
+        </div>
+        <div class="col-lg-5"></div>
+    </div>
+    <br>
+</div>

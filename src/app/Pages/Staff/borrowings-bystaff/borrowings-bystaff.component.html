@@ -1,0 +1,81 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <label class="page_SubHeading"> BORROWER REQUEST</label>
+           
+        </div>
+    </div>
+
+<br>
+<div class="container-fluid card">
+    <br>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Borrower Name</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control"  placeholder="Name" [(ngModel)]="staffName" name="staffName">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Equipment Type</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="equipmentTypeID" name="equipmentTypeID">
+                <option value="0" selected>Select Equipment Type</option>
+                <option *ngFor="let list of equipmentTypeList" value="{{list.id}}" >{{list.short}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Equipment Name</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control"  placeholder="Equipment Name" [(ngModel)]="equipmentName" name="equipmentName" >
+        </div>
+    </div>
+    <br>
+   
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Start Date</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="date" class="form-control" [(ngModel)]="startDate" name="startDate">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>End Date</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="date" class="form-control" [(ngModel)]="endDate" name="endDate">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Notes</label>
+        </div>
+        <div class="col-lg-4">
+            <textarea  class="form-control" [(ngModel)]="notes" name="notes" rows='5' placeholder="Notes"></textarea>
+        </div>
+    </div>
+    <br>
+    
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="InsertDetails()">Save</button>
+           
+        </div>
+        <div class="col-lg-5"></div>
+    </div>
+    <br>
+</div>

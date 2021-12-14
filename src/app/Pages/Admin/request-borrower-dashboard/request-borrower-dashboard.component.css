@@ -1,0 +1,20 @@
+.rejectButton{
+    background-color: #ac0909;
+    color: white;
+    border: none;
+    width: 95px;
+}
+
+.approveButton{
+    background-color:green;
+    color: white;
+    border: none;
+    width: 95px;
+}
+
+.holdButton{
+    background-color:  rgb(219, 191, 28);
+    color: black;
+    border: none;
+    width: 95px;
+}

@@ -1,0 +1,161 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8">
+        </div>
+        <div class="col-lg-2" *ngIf="Raised">
+            <button type="button" class="addbtn" (click)="raisedexportexcel()">Export To Excel</button>
+        </div>
+        <div class="col-lg-2" *ngIf="Completed">
+            <button type="button" class="addbtn" (click)="completedexportexcel()">Export To Excel</button>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/ExpensesRequest">New Request</button>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">STAFF EXPENSE DASHBOARD</label>
+    <hr>
+    <div class="row" style="margin-left: 0%;margin-right: 0%;">
+        <!-- <div class="col-lg-2"></div> -->
+        <div class="col-lg-6" style="text-align: center;background-color:rgb(82,165,218)" value="applied"
+            (click)="Raisedclicked($event)">
+            <span>
+                <span style="color:black ;width: 177px;text-align: center;">Raised Expense</span>
+            </span>
+        </div>
+        <div class="col-lg-6" style="text-align: center;background-color:#48f570" (click)="CompletedClicked($event)">
+            <span>
+                <span style="color:black;width: 111px;text-align: center;">Completed Expense</span>
+            </span>
+        </div>
+        <!-- <div class="col-lg-2"></div> -->
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search...">
+        </div>
+        <div class="col-lg-9">
+        </div>
+    </div>
+    <br>
+    <!-- Raised Expense -->
+    <div class="row" *ngIf="Raised">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <!-- <th>Actions</th> -->
+                    <th>Employee Name</th>
+                    <th>Expense Amount</th>
+                    <th>Expense Head</th>
+                    <th>Project Name</th>
+                    <th>Submitted Date</th>
+                    <th>Expense Location</th>
+                    <th>Currency</th>
+                    <th>Status</th>
+                    <th>Comments</th>
+                    <th>Attachment</th>
+                </tr>
+                <tr *ngFor="let list of staffExpenseList|filter:search">
+                    <!-- <td>
+                        <img src="assets/images/edit.png" title="Update"  style="width: 20px;"> &nbsp;
+                        <img src="assets/images/dell.png" title="Delete"  style="width: 20px;">
+                    </td> -->
+                    <td>{{list.name}}</td>
+                    <td>{{list.expenceAmount}}</td>
+                    <td>{{list.expencesName}}</td>
+                    <td>{{list.project}}</td>
+                    <td>{{list.date|date}}</td>
+                    <td>{{list.expenceLocation}}</td>
+                    <td>{{list.currency}}</td>
+                    <td>{{list.approvalStatus}}</td>
+                    <td>{{list.comments}}</td>
+                    <td>
+                        <img src="assets/images/pdf.png" data-toggle="modal" data-target="#myModalupimage"
+                            (click)="GetImageURL(list)" title="Update" style="width: 50px;">
+
+                        <!-- <a href="{{list.invoiceURL}}" download>
+                            <img src="{{list.invoiceURL}}" style="width: 350px;">
+                        </a> -->
+                    </td>
+
+
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- Completed Expense-->
+    <div class="row" *ngIf="Completed">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Expense Amount</th>
+                    <th>Expense Head</th>
+                    <th>Project Name</th>
+                    <th>Submitted Date</th>
+                    <th>Expense Location</th>
+                    <th>Currency</th>
+                    <th>Status</th>
+                    <th>Comments</th>
+                </tr>
+                <tr *ngFor="let list of filteredCompletedStaffExpenseList">
+
+                    <td>{{list.name}}</td>
+                    <td>{{list.expenceAmount}}</td>
+                    <td>{{list.expencesName}}</td>
+                    <td>{{list.project}}</td>
+                    <td>{{list.webdate|date}}</td>
+                    <td>{{list.expenceLocation}}</td>
+                    <td>{{list.currency}}</td>
+                    <td>{{list.approvalStatus}}</td>
+                    <td>{{list.comments}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <br>
+</div>
+
+
+
+
+<div class="modal fade" id="myModalupimage">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="margin-top: 15%;width: 588px;margin-left: 222px;">
+            <div class="modal-header">
+                <h4>Invoice</h4>
+
+                <button type="button" class="close " data-dismiss="modal">&times;</button>
+            </div>
+            <div class="row" style="margin-top:5%;">
+                <div class="col-lg-12">
+                    <div class="col-lg-2">
+                    </div>
+                    <div class="col-lg-8">
+                        <a href="{{invoiceURL}}" download>
+                            <img src="{{invoiceURL}}" style="width: 350px;">
+                        </a>
+                    </div>
+                    <div class="col-lg-2">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-9"> </div>
+                <div class="col-lg-3">
+                    <button class="dashbutton " style="width: 69px;
+                         margin-right: 12px;" type="submit" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

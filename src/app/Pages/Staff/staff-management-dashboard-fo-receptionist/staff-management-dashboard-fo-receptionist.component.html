@@ -1,0 +1,103 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/ResignedStaff">Resigned Staff</button>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/NewStaff">New Staff</button>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">ADD / REMOVE STAFF</label>
+    <hr>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="buildingID" name="buildingID" (change)="getbuildingID($event)">
+                <option value=0 selected>Select Building</option>
+                <option *ngFor="let list of buildingList" value="{{list.id}}">{{list.name}}</option>
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div>
+        <div class="col-lg-3">
+            <h4 style="float:right;">Count :{{Count}}</h4>
+        </div>
+    </div>
+    <br>
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <table style="overflow: scroll;display: block;overflow-x: auto;white-space: nowrap;">
+                <tr>
+                    <th>Action</th>
+
+                    <th>Building</th>
+                    <th>Photo</th>
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
+                    <th>Email</th>
+                    <th>Mobile Number</th>
+                    <th>Designation</th>
+                    <th>Supervisor</th>
+                    <th>Emergency Contact No</th>
+                    <th>Joined Date</th>
+                    <th>Length Of Service</th>
+                    <th>Resignation Date</th>
+                    <th>Status</th>
+
+                </tr>
+                <tr *ngFor="let list of filteredList|filter:search| paginate: { itemsPerPage: 5, currentPage: p }">
+                    <td>
+                        <img src="assets/images/edit.png" title="Update" [routerLink]="['/NewStaff',list.id]" style="width: 20px;"> &nbsp;
+                        <img src="assets/images/dell.png" style="width: 20px;" (click)="Delete(list.id)">
+                        <br>
+                        <br>
+                        <button type="button" class="btn primary btn-xs" (click)="getStaffID(list.id)"
+                            data-toggle="modal" data-target="#myModal" *ngIf="list.status!='Resigned'">Resign</button>
+                        <p *ngIf="list.status=='Resigned'"></p>
+
+                    </td>
+
+                    <td>{{list.building}}</td>
+                    <td>
+                        <img src="{{list.attachment}}" style="height: 100px;">
+                    </td>
+                    <td>{{list.employeID}}</td>
+                    <td>{{list.name}}</td>
+                    <td>{{list.emailID}}</td>
+                    <td>{{list.phoneNo}}</td>
+                    <td>{{list.designation}}</td>
+                    <td>{{list.supervisor}}</td>
+                    <td>{{list.emergencyContactNo}}</td>
+                    <td>{{list.joiningDate|date}}</td>
+                    <td>{{list.ageing}}</td>
+                    <td>{{list.resignationDate|date}}</td>
+                    <td>{{list.status}}</td>
+
+                </tr>
+            </table>
+            <br>
+            <div class="col-lg-12" style="text-align:right;">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+
+
+        </div>
+    </div>
+    <br>
+</div>

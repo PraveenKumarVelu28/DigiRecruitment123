@@ -1,0 +1,61 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8">
+    </div>
+    <div class="col-lg-2">
+      <!-- <button type="button" class="addbtn" (click)="exportexcel()" >Export To Excel</button> -->
+    </div>
+    <div class="col-lg-2">
+      <button type="button" class="addbtn" routerLink="/RoleMenuMapping">Add Menu Mapping</button>
+    </div>
+  </div>
+</div>
+<br>
+<div class="container-fluid card">
+  <br>
+  <label class="page_SubHeading">ROLE MENU MAPPING DASHBOARD</label>
+  <hr>
+  <div class="row">
+    <div class="col-lg-3">
+      <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+    </div>
+    <div class="col-lg-3">
+     
+    </div>
+  </div>
+
+  <br>
+  <div class="row">
+    <div class="col-lg-12">
+      <table>
+        <thead>
+          <tr>
+            <th>Role</th>
+            <th>Menu</th>
+            <th>Sub Menu</th>
+            <th>Actions</th>
+          </tr>
+          <tr *ngFor="let rolemap of RoleMappinglist|filter:search">
+            <td>{{rolemap.short}}</td>
+            <td>{{rolemap.menus}}</td>
+            <td>{{rolemap.subMenuName}}</td>
+            <td>
+
+
+              <ng-template #tipcontent2>Delete</ng-template>
+              <a [ngbTooltip]="tipcontent2">
+                <img src="assets/images/dell.png" style="width: 18px;" (click)="DeleteRoleMapping(rolemap.id)">
+              </a>&nbsp;
+
+              <ng-template #tipcontent1>Edit</ng-template>
+              <a [ngbTooltip]="tipcontent1" [routerLink]="['/RoleMenuMapping',rolemap.id]" style="color:black">
+                <img src="assets/images/edit.png" style="width: 18px"></a>
+
+            </td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+  <br>
+</div>

@@ -1,0 +1,128 @@
+<br>
+<div class="container-fluid ">
+  <div class="row ">
+    <div class="col-lg-3">
+      <h5 style="margin-top: 12px;">Menu Role Mapping</h5>
+    </div>
+    <div class="col-lg-6"></div>
+    <div class="col-lg-3"></div>
+  </div>
+</div>
+<br />
+
+<div class="conatiner-fluid card card-hover">
+  <br>
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label class="REGISTRATION NO:">Role : </label>
+      <span class="required">*</span>
+    </div>
+    <div class="col-lg-4" *ngIf="showbutton=='0'">
+      <select class="form-control" (change)="GetRoleID($event)" [(ngModel)]="roleid" name="roleid">
+        <option value="0">Select</option>
+        <!-- <option *ngFor="let role of rolelist" value="{{role.id}}">{{role.short}}</option> -->
+        <option value="1">CEO</option>
+        <option value="2">Hr</option>
+        <option value="3">Staff</option>
+        <option value="4">Manager</option>
+        <option value="5">Finance</option>
+
+      </select>
+    </div>
+    <div class="col-lg-4" *ngIf="showbutton=='1'">
+      <select class="form-control" disabled (change)="GetRoleID($event)" [(ngModel)]="roleid" name="roleid">
+        <option value="0">Select</option>
+        <option value="1">CEO</option>
+        <option value="2">Hr</option>
+        <option value="3">Staff</option>
+        <option value="4">Manager</option>
+        <option value="5">Finance</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <div *ngIf="showbutton=='0'">
+    <div class="row">
+      <div class="col-lg-1">
+      </div>
+      <div class="col-lg-3">
+        <label class="REGISTRATION NO:">Main Menu : </label>
+        <span class="required">*</span>
+      </div>
+      <div class="col-lg-4">
+        <!-- <ng-multiselect-dropdown placeholder="Select" [data]="Menulist" [settings]="menudd"
+          (onSelect)="GetMenuID($event)">
+        </ng-multiselect-dropdown> -->
+
+        <select class="form-control" (change)="GetMenuID($event)">
+          <option value="0">Select</option>
+          <option *ngFor="let menu of Menulist" value="{{menu.id}}">{{menu.menus}}</option>
+        </select>
+
+      </div>
+    </div><br>
+  </div>
+
+  <div *ngIf="showbutton=='1'">
+    <div class="row">
+      <div class="col-lg-1">
+      </div>
+      <div class="col-lg-3">
+        <label class="REGISTRATION NO:">Main Menu : </label>
+        <span class="required">*</span>
+      </div>
+      <div class="col-lg-4">
+        <input type="text" class="form-control" disabled [(ngModel)]="menuname" name="menuname">
+      </div>
+    </div><br>
+  </div>
+
+  <div class="row" *ngIf="showdash=='1'">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-10" style="overflow: auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>Menu</th>
+            <th>Sub Menu</th>
+            <th>Actions</th>
+          </tr>
+          <tr *ngFor="let submenu of submenulist">
+            <td>{{submenu.menus}}</td>
+            <td>{{submenu.subMenuName}}</td>
+            <td>
+              <input type="checkbox" class="messageCheckbox" *ngIf="showbutton=='0'"
+                (change)="GetMenuslist($event,submenu)">
+
+              <input type="checkbox" class="messageCheckbox" *ngIf="showbutton=='1'" [checked]="submenu.isChecked"
+                (change)="GetSavedList($event,submenu)">
+            </td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <br /><br />
+  </div>
+
+  <br>
+  <div class="row">
+    <div class="col-lg-5">
+    </div>
+    <div class="col-lg-2">
+      <button type="button" style="background-color: #21a4da;color: white;" *ngIf="showbutton=='0'"
+        class="btn btn-default" data-dismiss="modal" class="btn btn-block btn-md allbtns btncolor"
+        (click)="InsertSaveMenus()">Save</button>
+
+      <button type="button" style="background-color: #21a4da;color: white;" *ngIf="showbutton=='1'"
+        class="btn btn-default" data-dismiss="modal" class="btn btn-block btn-md allbtns btncolor"
+        (click)="UpdateMenunus()">Update</button>
+
+    </div>
+    <div class="col-lg-5">
+    </div><br>
+    <br>
+  </div>
+</div> <br>

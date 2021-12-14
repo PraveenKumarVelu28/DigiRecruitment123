@@ -1,0 +1,72 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h6>Appraisal Cycle</h6>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Appraisal Cycle Name</label>
+        </div>
+        <div class="col-lg-4">
+            <!-- <select class="form-control" [(ngModel)]="buildingID" name="buildingID" >
+                <option value="0" selected>Select Building</option>
+                <option *ngFor="let list of buildinglist" value="{{list.id}}">{{list.name}}</option>
+            </select> -->
+
+            <input type="text" class="form-control" placeholder="Appraisal Cycle Name" [(ngModel)]="appraiselcyclename" name="appraiselcyclename">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Frequency Type</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="frequencyType" name="frequencyType" >
+                <option value="0" selected>Select KRA Type</option>
+                <option value="Yearly">Yearly</option>
+                <option value="Monthly">Monthly</option>
+                <option value="Quartly">Quartly</option>
+               
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Cycle Start Date</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="date" class="form-control" placeholder="Cycle Start Date" min={{todaydate}} [(ngModel)]="cycleStartDate" name="cycleStartDate">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Cycle Endt Date</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="date" class="form-control" min="{{cycleStartDate}}" placeholder="Cycle End Date" [(ngModel)]="cycleEndDate" name="cycleEndDate">
+        </div>
+    </div>
+    <br>
+    
+
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" *ngIf="showbutton=='0'" (click)="InsertDetails()">Save</button>
+            <button type="button" class="addbtn" *ngIf="showbutton=='1'" (click)="UpdateDetails()">Update</button>
+            <!-- <button type="button" class="addbtns" *ngIf="paramID!=undefined">Update</button>  -->
+        </div>
+        <div class="col-lg-5"></div>
+    </div>
+    <br>
+</div>
+
+

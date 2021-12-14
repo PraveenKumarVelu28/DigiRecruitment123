@@ -1,0 +1,91 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3">
+        <input type="search" class="form-control" [(ngModel)]="search" placeholder="Search..">
+      </div>
+      <div class="col-lg-9">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-2">
+        <div class="tab">
+          <button *ngFor="let list of staffList|filter:search" class="tablinks"
+            (click)="getchat(list.id)">{{list.name}}</button>
+        </div>
+      </div>
+      <div class="col-lg-10 tabcontent">
+  
+        <div class="container-fluid card card-hover" *ngIf="Show=='1'">
+          <br>
+          <div class="row">
+            <div class="col-lg-3">
+            </div>
+          </div>
+          <div style="height: 500px;overflow-y: scroll;">
+            <div *ngFor='let convo of coversationarray'>
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-4"></div>
+                  <div class="col-lg-3"></div>
+                  <div class="col-lg-5" style="background-color:darkgray;border-radius: 5px;color:white">
+                    <div>
+                      <!-- <img src="{{docphoto}}" class="rounded-circle" style="width:26px;;margin-top: 5px;margin-right: 3%;
+                        float: left;"> -->
+                      <p style="margin-top: 5px;">{{convo.chatmsg}}
+                        <span style="float: right;;margin-top: 5px;">
+                          {{convo.time}}
+                        </span>
+                      </p>
+                    </div>
+  
+                  </div>
+                </div>
+              </div>
+              <div class="container" >
+                <div class="row">
+                  <div class="col-lg-5" style="background-color:#1ebea5;border-radius: 5px;color:white;margin-top: 1px;">
+                    <div>
+                      <p style="margin-top: 5px;">
+                        <!-- <img src="{{patientphoto}}" class="rounded-circle" style="width:26px;margin-top: 5px;"> -->
+                        &nbsp;
+                        {{convo.chatmsg}}
+                        <span style="float: right;;margin-top: 5px;">
+                          {{convo.time}}
+                        </span>
+                      </p>
+                    </div>
+  
+                  </div>
+                </div>
+              </div>
+              <br>
+            </div>
+          </div>
+          <hr>
+          <div class="container-fluid" style="border: 1px solid #bcbcbc;  padding-top: 2%;  padding-bottom: 1.5%;">
+            <form #chatfrom="ngForm">
+              <div class="row">
+                <div class="col-lg-9">
+  
+                  <input type="text" [(ngModel)]="message" name="message" required class="form-control"
+                    placeholder="Type A Message">
+                </div>
+                <div class="col-lg-2">
+                  <button type="submit" [disabled]="chatfrom.form.invalid" class="requestbtn"
+                    (click)="insertchatdetails()"> Send
+                    <!-- <img src="assets/Images/send.png" alt="Avatar" class="right"  style="width:50%;"> -->
+                  </button>
+                </div>
+                <div class="col-lg-1">
+                  <!-- <ngx-dropzone [multiple]="false" (filesAdded)="onattachmentUpload($event)" class="dropzone_vendorinvoice"
+                      style="height: 50px;">
+                    </ngx-dropzone> -->
+                </div>
+              </div>
+            </form>
+          </div><br>
+        </div><br>
+      </div>
+    </div>
+  </div>

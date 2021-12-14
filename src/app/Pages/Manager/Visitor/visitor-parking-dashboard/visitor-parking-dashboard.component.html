@@ -1,0 +1,103 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+            <!-- <button type="button" class="addbtn" routerLink="/NewVisitor">New Visitor</button> -->
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">PARKING</label>
+    <hr>
+    <br>
+    <div class="row">
+        <!-- <div class="col-lg-3">
+            <button type="button" class="addbtn">New Parking Location</button>
+          
+        </div> -->
+        <div class="col-lg-3">
+            <button type="button" *ngIf="!newparking" (click)="newparkingallocation()" routerLinkActive="active-link"
+                style="margin-top: -77px;" id="btn_VisitorParking_AllocateParking" class="addbtn">New Parking
+                Allocation</button>
+            <button type="button" *ngIf="newparking" routerLinkActive="active-link"
+                id="btn_VisitorParking_AllocateParking" class="addbtn" style="margin-top: -79px;">New Parking
+                Allocation</button>
+        </div>
+    </div>
+    <br>
+</div>
+<br>
+
+<div class="container-fluid card" *ngIf="newparking">
+    <br>
+    <label class="page_SubHeading">PARKING SLOTS</label>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <select class="form-control" [(ngmodel)]="buildingID" (change)="getBuildingID($event)">
+                <option value="0" selected>Select Building</option>
+                <option *ngFor="let list of buildingList" value="{{list.id}}">{{list.name}}</option>
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="floorID" (change)="getFloorID($event)">
+                <option value="0" selected >Select Floor</option>
+                <option *ngFor="let list of floorList" value="{{list.id}}">{{list.floor}}</option>
+
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control"  [(ngModel)]="visitorID" (change)="getVisitorID($event)">
+                <option value="0" selected>Select Visitor Name</option>
+                <option *ngFor="let list of visitorList" value="{{list.id}}">{{list.visitorName}}</option>
+
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <input type="Phone Number" class="form-control" placeholder="Phone Number">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <button type="button" class="addbtn">Allocate</button>
+
+        </div>
+
+    </div>
+    <br>
+
+</div>
+
+
+
+<div class="container-fluid card " *ngIf="!newparking">
+    <br>
+    <label class="page_SubHeading">ALLOTED PARKING SLOTS</label>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <select class="form-control">
+                <option *ngFor="let list of buildingList" value="{{list.id}}">{{list.name}}</option>
+            </select>
+        </div>
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-5">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn">Allocate</button>
+        </div>
+        <div class="col-lg-5">
+        </div>
+
+    </div>
+    <br>
+
+</div>

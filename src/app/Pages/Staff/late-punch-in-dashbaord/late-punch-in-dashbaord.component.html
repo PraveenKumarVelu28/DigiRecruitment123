@@ -1,0 +1,53 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <!-- <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()" >Export To Excel</button>
+        </div> -->
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/LatePunchIn">New Late Punch</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">LATE PUNCH DASHBOARD</label>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+        </div>
+        <!-- <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div>      -->
+    </div>
+    
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th>Late Punch-In Time</th>
+                    <th>Late Punch-Out Time</th>
+                    <th>Action</th>
+                </tr>
+                <tr *ngFor="let list of puchinlist|filter:search">
+                    <td>{{list.latePunchInTime}}</td>
+                    <td>{{list.latePunchOutTime}}</td>
+                    <td>
+                        <img src="assets/images/edit.png"  [routerLink]="['/LatePunchIn',list.id]" style="width: 20px;">&nbsp;
+                        <!-- <img src="assets/images/dell.png" style="width: 20px;" (click)="DeleteDepartmentMaster(list.id)"> -->
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+</div>
+
+
+

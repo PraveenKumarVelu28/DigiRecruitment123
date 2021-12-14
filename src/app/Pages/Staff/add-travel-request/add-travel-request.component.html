@@ -1,0 +1,166 @@
+<div class="container-fluid card">
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <label class="page_SubHeading">TRANSPORTATION REQUEST</label>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Request By</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="staffName" name="requestBy" disabled>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Buildinng</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="buildingID" name="buildingID" (change)="getBuildingID($event)">
+                <option selected value="">Select Building</option>
+                <option *ngFor="let list of buildingList" value="{{list.id}}">{{list.name}}</option>
+
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Destination</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="destination" name="destination"
+                placeholder="Destination">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Departure Date</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="date" class="form-control" [(ngModel)]="departureDate">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Return Date</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="date" class="form-control" [(ngModel)]="returnDate" name="returnDate">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Travel Type</label>
+        </div>
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-lg-4">
+                    <!-- <input type="checkbox" [value]="data.value" (change)="onCheckboxChange($event)" />
+                    {{data.name}} -->
+
+
+                    <input type="checkbox" [(ngModel)]="air" />Air<br>
+
+                    <input type="checkbox" [(ngModel)]="travel" />Travel<br>
+
+                    <input type="checkbox" [(ngModel)]="hotel" />Hotel<br>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Project</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="projectID" name="project">
+                <option selected value="">Select Project</option>
+                <option *ngFor="let list of projectList" value="{{list.projectName}}">{{list.projectName}}</option>
+
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Type Of Vechile</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="typeOfVechile" name="typeOfVechile">
+                <option selected value="0">Select Vechile Type</option>
+                <option *ngFor="let list of vechileList" value="{{list.name}}">{{list.name}}</option>
+
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>PickUp Point</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="pickUpPoint" name="pickUpPoint"
+                placeholder="PickUp Point">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Approver</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" name="approver" [(ngModel)]="approverID">
+                <option selected value="">Select Approver</option>
+                <option *ngFor="let list of approverList" value="{{list.id}}">{{list.supervisorName}}</option>
+
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Notes</label>
+        </div>
+        <div class="col-lg-4">
+            <textarea type="text" rows="5" class="form-control" placeholder="Notes" [(ngModel)]="notes"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="insertDetails()">Save</button>
+        </div>
+    </div>
+    <br>

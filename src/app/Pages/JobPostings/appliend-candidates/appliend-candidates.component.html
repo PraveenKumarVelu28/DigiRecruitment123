@@ -1,0 +1,83 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+            <!-- <button type="button" class="addbtn" routerLink="/Postajob" >ADD</button> -->
+        </div>
+        <!-- <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()" >Export To Excel</button>
+        </div> -->
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">APPLIED CANDIDATES DASHBOARD</label>
+    <hr>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="term" name="term">
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" (change)="GetJobFilter($event)">
+                <option value="">Select</option>
+                <option *ngFor="let job of DropJobList" value="{{job.id}}">{{job.jobTitle}}</option>
+            </select>
+        </div>
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-3">
+            <h6 style="float:right">Count:{{count}}</h6>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Job Reference ID</th>
+                        <th>Job Title</th>
+                        <th>Candidate Name</th>
+                        <th>Phone No</th>
+                        <th>Email</th>
+                        <th>Total Years of Experience</th>
+                        <th>Relevant Experience</th>
+                        <th>City</th>
+                        <th>Resume</th>
+                        <th>Notes</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr *ngFor="let job of joblist|filter:term">
+                        <td>{{job.jobRefernceID}}</td>
+                        <td>{{job.jobTitle}}</td>
+                        <td>{{job.candidateName}}</td>
+                        <td>{{job.phoneNo}}</td>
+                        <td>{{job.email}}</td>
+                        <td>{{job.yearsofExp}}</td>
+                        <td>{{job.relavantExp}}</td>
+                        <td>{{job.city}}</td>
+                        <td>
+                            <img src="assets/images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.resumeUrl)">
+
+                        </td>
+                        <td>
+                            <textarea placeholder="Notes" *ngIf="job.accept=='0'&&job.reject=='0'" class="form-control" [(ngModel)]="job.shortlistionNotes" name="job.shortlistionNotes"></textarea>
+                        </td>
+                        <td>
+                            <img src="assets/images/acc.png" *ngIf="job.accept=='0'&&job.reject=='0'" tilte="Accept"
+                                style="width:20px;" (click)="Accept(job.id,job.shortlistionNotes)" />&nbsp;
+
+                            <img src="assets/images/can.png" *ngIf="job.accept=='0'&&job.reject=='0'" tilte="Reject"
+                                style="width:20px;" (click)="Reject(job.id,job.shortlistionNotes)" />
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+        <br>
+    </div><br>
+</div><br>

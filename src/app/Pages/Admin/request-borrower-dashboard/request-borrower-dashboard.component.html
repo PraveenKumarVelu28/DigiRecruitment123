@@ -1,0 +1,79 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()" >Export To Excel</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">BORROWINGS DASHBOARD</label>
+    <hr>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="status" name="status" (change)="getStatus($event)">
+                <option value="0" selected>Select Status</option>
+                <option value="Open" >Open</option>
+                <option value="Rejected" >Rejected</option>
+                <option value="Completed" >Completed</option>
+                <option value="Hold" >Hold</option>
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div>
+        <div class="col-lg-3">
+            <h4 style="float:right">Count:{{count}}</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="NewRequest" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Borrower Name</th>
+                        <th>Supervior</th>
+                        <th>Equipment Type</th>
+                        <th>Equipment Name</th>
+                        <th>Start Date</th>
+                        <th>Return Date</th>
+                        <th>Note</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr *ngFor="let list of filteredEventList|filter:search">
+                        <td>{{list.barrowerName}}</td>
+                        <td>{{list.supervisor}}</td>
+                        <td>{{list.short}}</td>
+                        <td>{{list.equipmentName}}</td>
+                        <td>{{list.startDate|date}}</td>
+                        <td>{{list.endDate|date}}</td>
+                        <td>{{list.notes}}</td>
+                        <td>{{list.approveStatus}}</td>
+                        <td><button  type="button" class="holdButton"  *ngIf="list.approveStatus!='Hold'"(click)="getStatusID(list.id)">Hold</button>
+                            <br>
+                            <br>
+                        <button  type="button" class="approveButton" *ngIf="list.approveStatus!='Approved'" (click)="getStatusIDForApprove(list.id)">Approve</button>
+                        <br>
+                        <br>
+                       <button  type="button" class="rejectButton" *ngIf="list.approveStatus!='Approved'||list.approveStatus!='Rejected'"  (click)="getStatusIDForreject(list.id)">Reject</button>
+                    </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br>
+    </div>
+    <br>
+</div>
+

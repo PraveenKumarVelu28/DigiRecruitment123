@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()" >Export To Excel</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">ASSETS DASHBOARD</label>
+    <hr>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="status" name="status" (change)="getStatus($event)">
+                <option value="0" selected>Select Status</option>
+                <option value="1" >Open</option>
+                <option value="2" >Rejected</option>
+                <option value="3" >Completed</option>
+            </select>
+        </div>
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-3">
+            <h4 style="float:right">Count:{{count}}</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="NewRequest" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Raised By</th>
+                        <th>Building Name</th>
+                        <th>AssetID</th>
+                        <th>Asset</th>
+                        <th>Issue Date</th>
+                        <th>Return Date</th>
+                    
+                        <th>Action</th>
+                    </tr>
+                    <tr *ngFor="let list of filteredEventList|filter:search">
+                        <td>{{list.name}}</td>
+                        <td>{{list.bname}}</td>
+                        <td>{{list.assetID}}</td>
+                        <td>{{list.assetname}}</td>
+                        <td>{{list.issueDate|date}}</td>
+                        <td>{{list.returnDate|date}}</td>
+                        
+                        <td><button class="holdButton"  type="button" >Hold</button>
+                            <br>
+                            <br>
+                        <button  type="button" class="approveButton" >Approve</button>
+                        <br>
+                        <br>
+                       <button  type="button" class="rejectButton">Reject</button>
+                    </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br>
+    </div>
+    <br>
+</div>
+

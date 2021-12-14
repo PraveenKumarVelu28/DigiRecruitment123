@@ -1,0 +1,107 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6">
+    </div>
+    <!-- <div class="col-lg-2">
+              <button type="button" class="addbtn" routerLink="/ResignedStaffDashboardForHr">Resigned Staff</button>
+          </div>
+          <div class="col-lg-2">
+              <button type="button" class="addbtn" routerLink="/NewStaff">New Staff</button>
+          </div>
+          <div class="col-lg-2">
+              <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+          </div> -->
+  </div>
+</div>
+<br>
+<div class="container-fluid card">
+  <br>
+  <label class="page_SubHeading">Payroll Report</label>
+  <hr>
+
+  <div class="row">
+    <div class="col-lg-3">
+      <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="Search">
+    </div>
+
+    <!-- <div class="col-lg-3">
+      <select class="form-control" [(ngModel)]="MonthID" name="MonthID" (change)="getMonthID($event)">
+        <option value="0" selected>Select Month</option>
+        <option value="1">Jan</option>
+        <option value="2">Feb</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">Sept</option>
+        <option value="10">Oct</option>
+        <option value="11">Nov</option>
+        <option value="12">Dec</option>
+
+      </select>
+    </div> -->
+    <!-- <div class="col-lg-3">
+              <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                  (ngModelChange)="selectedDate($event)">
+          </div> -->
+
+  </div>
+  <br>
+
+
+  <div class="row">
+    <div class="col-lg-12">
+      <table style="overflow: scroll;overflow-x: auto;white-space: nowrap;">
+        <tr>
+          <td>Employee ID</td>
+          <td>Employee Name</td>
+          <td>Start Date</td>
+          <td>End Date</td>
+          <td>No of Days</td>
+          <td>Leaves Per Year</td>
+          <td>Basic Salary </td>
+          <td>SSS Rate</td>
+          <td>Pagibig</td>
+          <td>Phill Health</td>
+          <td>LOP Days</td>
+          <td>LOP Amount</td>
+          <td>Net Pay</td>
+          <td>Actions</td>
+
+        </tr>
+        <tr *ngFor="let Staff of FilteredEmployeeSalary|filter:Search">
+          <td>{{Staff.employeeID}}</td>
+          <td>{{Staff.staffName}}</td>
+          <td>{{Staff.startdate |date}}</td>
+          <td>{{Staff.enddate|date}}</td>
+          <td>{{Staff.noofdays}}</td>
+          <td>{{Staff.leavesPerYear}}</td>
+          <td>{{Staff.basesal}}</td>
+          <td>{{Staff.sssRate}}</td>
+          <td>{{Staff.pagibigRate}}</td>
+          <td>{{Staff.philihealth}}</td>
+          <td>{{Staff.lopDays}}</td>
+          <td>{{Staff.lopAmount}}</td>
+          <td>{{Staff.netSalary}}</td>
+          <td>
+            <button (click)="SavePDF(Staff)" class="btn btn-primary editable-table-button btn-xs">Generate
+              Payslips
+            </button>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <!-- <div class="col-lg-12" style="text-align:right;">
+                  <pagination-controls (pageChange)="changepage($event)"></pagination-controls>
+              </div> -->
+
+
+    </div>
+  </div>
+  <br>
+</div>
+
+
+<!-- Modal -->

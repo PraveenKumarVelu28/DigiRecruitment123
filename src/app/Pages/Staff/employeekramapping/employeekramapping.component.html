@@ -1,0 +1,172 @@
+<div class="container-fluid card">
+  <br>
+  <div class="row">
+    <div class="col-lg-12">
+      <label class="page_SubHeading"> Employee Kra Mapping </label>
+      <hr>
+    </div>
+  </div>
+  <!-- <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>StaffType</label>
+    </div>
+    <div class="col-lg-4">
+      <select class="form-control" [(ngModel)]="staffID" name="staffID">
+        <option value="0" selected>Select StaffType</option>
+        <option *ngFor="let list of staffList" value="{{list.id}}">{{list.name}}</option>
+      </select>
+    </div>
+  </div>
+  <br> -->
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-3">
+      <label>Appraisal Cycle</label>
+    </div>
+    <div class="col-lg-4">
+      <select class="form-control"  (change)="GetAppraiselID($event)">
+        <option value="0" selected>Select Appraisal</option>
+        <option *ngFor="let list of kraList" value="{{list.id}}">{{list.appraiselCycleName}}</option>
+      </select>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-3">
+      <label>Role</label>
+    </div>
+    <div class="col-lg-4">
+      <select class="form-control" [(ngModel)]="designation" name="designation" (change)="GetRoleType($event)">
+        <option value="0" selected>Select Role</option>
+        <option *ngFor="let list of designationList" value="{{list.short}}">{{list.short}}</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>Staff</label>
+    </div>
+    <div class="col-lg-4">
+      <select class="form-control" [(ngModel)]="staffID" name="staffID">
+        <option value="0" selected>Select Staff</option>
+        <option *ngFor="let list of staffList" value="{{list.id}}">{{list.name}}</option>
+      </select>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>KRA</label>
+    </div>
+    <div class="col-lg-4">
+      <ng-multiselect-dropdown class="multiselect-dropdown" [placeholder]="'Select Kra'" [data]="projectList"
+        [(ngModel)]="projectList1" name='projectList' [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+        (onDeSelect)="onItemDeSelect($event)">
+      </ng-multiselect-dropdown>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>Approver 1</label>
+    </div>
+    <div class="col-lg-4">
+      <select class="form-control" [(ngModel)]="Approver1" name="Approver1">
+        <option value="0" selected>Select Approver 1</option>
+        <option *ngFor="let list of Approver1List" value="{{list.id}}">{{list.name}}</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>Approver 2</label>
+    </div>
+    <div class="col-lg-4">
+      <select class="form-control" [(ngModel)]="Approver2" name="Approver2">
+        <option value="0" selected>Select Approver 2</option>
+        <option *ngFor="let list of Approver2List" value="{{list.id}}">{{list.name}}</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>Approver 3</label>
+    </div>
+    <div class="col-lg-4">
+      <select class="form-control" [(ngModel)]="Approver3" name="Approver3">
+        <option value="0" selected>Select Approver 3</option>
+        <option *ngFor="let list of approver3ist" value="{{list.id}}">{{list.name}}</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <!-- 
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>Cycle Start Date</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="date" class="form-control" placeholder="Start Date" [(ngModel)]="sDate" name="sDate">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>Cycle End Date</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="date" class="form-control" placeholder="End Date" [(ngModel)]="eDate" name="eDate">
+    </div>
+  </div>
+  <br> -->
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>KRA Submission Date</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="date" class="form-control" placeholder="End Date" [(ngModel)]="AppraisalSubmitionDate"
+        name="AppraisalSubmitionDate">
+    </div>
+  </div>
+  <br>
+
+
+  <!-- 
+  <div class="row" *ngIf="ID!=undefined">
+    <div class="col-lg-5"></div>
+    <div class="col-lg-2">
+      <button type="button" class="addbtn" (click)="UpdateDetails()">Update</button>
+    </div>
+  </div> -->
+  <div class="row">
+    <div class="col-lg-5"></div>
+    <div class="col-lg-2">
+      <button type="button" class="addbtn" (click)="InsertDetails()">Save</button>
+    </div>
+  </div>
+  <br>
+</div>

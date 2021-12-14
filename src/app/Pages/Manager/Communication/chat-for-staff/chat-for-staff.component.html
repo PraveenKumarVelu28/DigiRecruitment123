@@ -1,0 +1,158 @@
+<div class="container-fluid">
+  <div class="messaging">
+    <div class="inbox_msg">
+      <div class="inbox_people">
+        <div class="headind_srch">
+          <div class="recent_heading">
+            <h4>Recent</h4>
+          </div>
+          <div class="srch_bar">
+            <div class="stylish-input-group">
+              <!-- <input type="text" class="search-bar" placeholder="Search" [(ngModel)]="Search"> -->
+              <span class="input-group-addon">
+                <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="inbox_chat" *ngFor="let list of GroupDetailsOfStaffLists|filter:Search">
+          <div class="chat_list active_chat">
+            <div class="chat_people">
+              <p (click)="GetGroupDetails(list)" class="notification">{{list.groupName}}
+                <span class="badge">{{list.Count}}</span>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- <div class="mesgs">
+        <div class="msg_history">
+          <div *ngFor="let list of chatList">
+
+            <div class="incoming_msg">
+              <div class="incoming_msg_img" *ngIf="list.position=='left'"> 
+                <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+              </div>
+              <div class="received_msg">
+                <p *ngIf="list.position=='left'">
+                  {{list.message}}
+                </p>
+              </div>
+            </div>
+            <div class="outgoing_msg">
+              <div class="sent_msg">
+                <p *ngIf="list.position=='right'">
+                  {{list.message}}
+                </p>
+              </div>
+            </div>
+          </div>
+          <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+        </div>
+        <div class="type_msg">
+          <div class="input_msg_write">
+            <input type="text" class="write_msg" placeholder="Type a message" [(ngModel)]="message" name="message"
+              required class="form-control" />
+            <button class="msg_send_btn" type="button" (click)="insertchatdetails()">
+              <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div> -->
+
+      <!--test-->
+      <div class="mesgs">
+        <div class="msg_history">
+          <div *ngFor="let list of chatList">
+
+            <div class="incoming_msg" *ngIf="list.position=='left'">
+              <div class="incoming_msg_img" *ngIf="list.position=='left'">
+                <img src="{{list.attachment}}" style="height: 60px; width: 60px;">&nbsp;
+              </div>
+
+              <div class="received_msg" *ngIf="list.message!=null">
+                <p *ngIf="list.position=='left'" style="margin-top: 1%;" id="color">
+                  {{list.message}}
+                  <br>
+                  <br>
+                  <labe>
+                    <span style="float: left;font-size: 12px;color: #797575;" *ngIf="list.name!=null">~ {{list.name}}</span>
+                    <span style="float: left;font-size: 12px;color: #797575;" *ngIf="list.name==null">Admin</span>
+                    <span style="float: right;font-size: 12px;color: #797575;">{{list.msgtime}}</span><br>
+                    <span style="float: right;font-size: 12px;color: #797575;">{{list.modifiedDate|date}}</span>
+                  </labe>
+                  <!-- <label
+                style="color: #696666;
+                font-size: 14px;
+                margin-left: 249px;
+                font-weight: 400;" *ngIf="list.name!=null">~ {{list.name}}</label>
+                 <label
+                 style="color: #696666;
+                 font-size: 14px;
+                 margin-left: 249px;
+                 font-weight: 400;" *ngIf="list.name==null">Admin</label>
+            </p>
+            <label style="margin-left: 322px;
+            font-size: 13px;">{{list.modifiedDate|date}}</label> -->
+                  <!-- {{list.modifiedDate|date}}&nbsp;&nbsp;&nbsp; -->
+              </div>
+            </div>
+            <div class="outgoing_msg">
+              <div class="sent_msg">
+                <p *ngIf="list.position=='right'">
+                  {{list.message}}
+                  <label style="    color: #696666;
+            font-size: 14px;
+            margin-left: 280px;
+            font-weight: 400;">{{list.modifiedDate|date}}</label>
+
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="type_msg">
+          <div class="input_msg_write">
+            <input type="text" class="write_msg" placeholder="Type a message" [(ngModel)]="message" name="message"
+              required class="form-control" />
+            <button class="msg_send_btn" type="button" (click)="insertchatdetails()">
+              <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!--test end-->
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () { scrollFunction() };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+</script>

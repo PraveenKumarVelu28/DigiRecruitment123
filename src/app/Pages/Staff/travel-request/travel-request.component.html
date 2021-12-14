@@ -1,0 +1,63 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/AddTravelRequest">ADD</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading"> TRAVEL REQUEST DASHBOARD</label>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search...">
+
+        </div>
+        <div class="col-lg-6">
+           
+
+        </div>
+        <div class="col-lg-3">
+           <h4 style="float: right;">Count:{{count}}</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                 
+                    <th>Raised By</th>
+                    <th>Destination</th>
+                    <th>Project Name</th>
+                    <th>Departure Date</th>
+                    <th>Return Date</th>
+                    <th>No Of Days</th>
+                    <th>Status</th>
+                    <th>Notes</th>
+                    <th>Reject Reason</th>
+                </tr>
+                <tr *ngFor="let list of travelRequset">
+                   
+                    <td>{{list.raisedBy}}</td>
+                    <td>{{list.destination}}</td>
+                    <td>{{list.projectName}}</td>
+                    <td>{{list.departureDateTime}}</td>
+                    <td>{{list.returnDateTime}}</td>
+                    <td>{{list.noOfDays}}</td>
+                    <td>{{list.approvalStatus}}</td>
+                    <td>{{list.specialInstructions}}</td>
+                    <td>{{list.rejectReason}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+</div>

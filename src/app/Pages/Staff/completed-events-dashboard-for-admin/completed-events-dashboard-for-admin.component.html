@@ -1,0 +1,66 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()" >Export To Excel</button>
+        </div>
+        <!-- <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/NewAnnouncements">New Announcement</button>
+        </div> -->
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">COMPLETED EVENTS DASHBOARD</label>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div>  
+    </div>
+    
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th>Announcement</th>
+                    <th>Building Name</th>
+                    <th>Floor</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Venue</th>
+                    <th>Comments</th>
+                    <!-- <th>Actions</th> -->
+                   
+                </tr>
+                <tr *ngFor="let list of announcementList|filter:search">
+                    <td>{{list.announcement}}</td>
+                    <td>{{list.buildingname}}</td>
+                    <td>{{list.floor}}</td>
+                    <td>{{list.details}}</td>
+                    <td>{{list.dateTime}}</td>
+                    <td>{{list.time}}</td>
+                    <td>{{list.venue}}</td>
+                    <td>{{list.reason}}</td>
+                   <!-- <td>
+                    <img src="assets/images/edit.png"  [routerLink]="['/NewAnnouncements',list.id]" style="width: 20px;">&nbsp; 
+                    <img src="assets/images/edit.png" style="height: 16px;width: 16px;">&nbsp;&nbsp; 
+                    <img src="assets/images/dell.png" style="width: 20px;" (click)="DeleteAnnouncement(list.id)"> 
+                   </td> -->
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+</div>
+
+

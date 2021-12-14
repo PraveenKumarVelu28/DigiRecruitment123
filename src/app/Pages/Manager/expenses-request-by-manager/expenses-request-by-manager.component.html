@@ -1,0 +1,128 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h6>EXPENSES REQUEST</h6>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Request By</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Staff Name" [(ngModel)]="name" name="name" disabled>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Project</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="projectName" name="projectName">
+                <option value="0" selected>Select Project</option>
+                <option *ngFor="let list of projectlist" value="{{list.projectName}}">{{list.projectName}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Expense Type</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="expenceType" name="expenceType">
+                <option value="0" selected>Select Expense Type</option>
+                <option *ngFor="let list of expenselist" value="{{list.id}}">{{list.expencesName}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Date</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="date" class="form-control" [(ngModel)]="date" name="date">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Expense Location</label>
+        </div>
+        <div class="col-lg-4">  
+            <input type="text" class="form-control" placeholder="Expense Location" [(ngModel)]="expenceLocation" name="expenceLocation">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Currency</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="currency" name="currency">
+                <option value="0" selected>Currency</option>
+                <option *ngFor="let list of currencylist" value="{{list.short}}">{{list.short}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Amount</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="ExpenceAmount" [(ngModel)]="expenceAmount" name="expenceAmount">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Approver</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="approver" name="Supervisor">
+                <option value="0" selected>Approver</option>
+                <option *ngFor="let list of supervisorList" value="{{list.supervisorName}}" >{{list.supervisorName}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Comments</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Comments" [(ngModel)]="comments" name="comments">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Invoice</label>
+        </div>
+        <div class="col-lg-5">
+            <ngx-dropzone (change)="onBrochureUpload($event)">
+                <ngx-dropzone-label>Drag and drop file here</ngx-dropzone-label>
+            </ngx-dropzone>
+        </div>
+        <div class="col-lg-4" *ngIf="paramID == undefined">
+            <img src="{{imagesurl}}">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" *ngIf="paramID==undefined"(click)="InsertDetails()">Save</button>
+            <button type="button" class="addbtns" *ngIf="paramID!=undefined">Update</button> 
+        </div>
+        <div class="col-lg-5"></div>
+    </div>
+    <br>
+</div>

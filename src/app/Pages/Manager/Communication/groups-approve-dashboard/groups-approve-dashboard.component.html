@@ -1,0 +1,54 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+        </div>
+    </div>
+</div>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">APPROVE GROUPS</label>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th>Group Name</th>
+                    <th>Created Date</th>
+                    <th>Choose Employees</th>
+                    <!-- <th>Selected Employees</th> -->
+                    <th>Action</th>
+                </tr>
+                <tr *ngFor="let list of chatGroupList|filter:search">
+                    <td>{{list.groupName}}</td>
+                    <td>{{list.modifiedDate|date}}</td>
+
+                    <td>
+                        <angular2-multiselect [data]="staffTypeList" [(ngModel)]="list.selectedItems"
+                            name="list.groupName" id="list.id" [settings]="dropdownSettings"
+                            (onSelect)="onItemSelect($event,list)">
+                        </angular2-multiselect>
+                        <!-- <select class="form-control" [(ngModel)]="employeeID" name="employee">
+                            <option value="0" selected>Select Employee</option>
+                            <option *ngFor="let list of staffTypeList" value="{{list.staffName}}">{{list.staffName}}</option>
+                        </select> -->
+                    </td>
+                    <!-- <td>{{list.SelectedItemsfordisplay}}</td> -->
+                    <td>
+                        <button class="btn primary btn-xs" (click)="approveGroup(list)">Approve</button>&nbsp;
+                        <button class="btn danger btn-xs" (click)="RejectChatGroup_Table(list.id)">Reject</button>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+</div>

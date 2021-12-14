@@ -1,0 +1,177 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8">
+        </div>
+        <div class="col-lg-2" *ngIf="Raised">
+            <button type="button" class="addbtn" (click)="raisedexportexcel()">Export To Excel</button>
+        </div>
+        <div class="col-lg-2" *ngIf="Completed">
+            <button type="button" class="addbtn" (click)="completedexportexcel()">Export To Excel</button>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/ExpensesRequest">New Request</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">STAFF EXPENSE DASHBOARD</label>
+    <hr>
+    <div class="tab">
+        <button class="tablinks" (click)="openCity($event, 'Approved')" id="def_open">Raised</button>
+        <button class="tablinks" (click)="openCity($event, 'Rejected')">Completed</button>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" [(ngModel)]="Search" placeholder="Search...">
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="expence" name="expence" (change)="getexpencesID($event)">
+                <option value="0" selected>Select Expense Head</option>
+                <option *ngFor="let list of dashboardExpenseList" value="{{list.expencesName}}">{{list.expencesName}}
+                </option>
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value" (ngModelChange)="selectedDate($event)">
+        </div>
+        <div class="col-lg-3">
+            <!-- <h4 style="float:right">Count :{{filteredExpenseList.length}}</h4> -->
+        </div>
+        <div class="col-lg-3">
+            <!-- <h4 style="float:right">Count :{{filteredCompletedExpenseList.length}}</h4> -->
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="Approved" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Actions</th>
+                        <!-- <th>Employee Name</th> -->
+                        <th>Expense Amount</th>
+                        <th>Expense Type</th>
+                        <th>Project Name</th>
+                        <th>Submitted Date</th>
+                        <th>Expense Location</th>
+                        <th>Currency</th>
+                        <th>Approver</th>
+                        <th>Status</th>
+                        <th>Comments</th>
+                        <th>Attachment</th>
+                    </tr>
+                    <tr *ngFor="let list of filteredExpenseList|filter:Search">
+                        <td>
+                        <!-- <img src="assets/images/edit.png" title="Update"  style="width: 20px;"> &nbsp; -->
+                        <img src="assets/images/dell.png" title="Delete"  style="width: 20px;" (click)="DeleteStaffExpences(list.id)">
+                    </td>
+                        <!-- <td>{{list.name}}</td> -->
+                        <td>{{list.expenceAmount}}</td>
+                        <td>{{list.expencesName}}</td>
+                        <td>{{list.project}}</td>
+                        <td>{{list.webdate|date}}</td>
+                        <td>{{list.expenceLocation}}</td>
+                        <td>{{list.currency}}</td>
+                        <td>{{list.supervisor}}</td>
+                        <td>{{list.approvalStatus}}</td>
+                        <td>{{list.comments}}</td>
+                        <td>
+                            <!-- <img src="assets/images/image.png" *ngIf="list.type==0" data-toggle="modal" data-target="#myModalupimage" (click)="GetImageURL(list)" title="invoice" style="width: 50px;">
+                            <img src="assets/images/pdf.jpg" *ngIf="list.type==1" data-toggle="modal" data-target="#myModalupimage" (click)="GetImageURL(list)" title="invoice" style="width: 50px;"> -->
+                            
+                            <img src="assets/images/pdf.jpg" *ngIf="list.type==0" data-toggle="modal"
+                            data-target="#myModalupimage" (click)="GetImageURL(list)" title="pdf"
+                            style="width: 50px;">
+                            <img src="assets/images/image.png" *ngIf="list.type==1" data-toggle="modal"
+                            data-target="#myModalupimage" (click)="GetImageURL(list)" title="image"
+                            style="width: 50px;">
+                            <img src="assets/images/noimage.png" *ngIf="list.type==2" data-toggle="modal"
+                            data-target="#myModalupimage" (click)="GetImageURL(list)" title="image"
+                            style="width: 50px;">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="Rejected" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Expense Amount</th>
+                        <th>Expense Head</th>
+                        <th>Project Name</th>
+                        <th>Submitted Date</th>
+                        <th>Expense Location</th>
+                        <th>Currency</th>
+                        <th>Approver</th>
+                        <th>Status</th>
+                        <th>Comments</th>
+                        <!-- <th>Attachment</th> -->
+                    </tr>
+                    <tr *ngFor="let list of filteredCompletedExpenseList|filter:Search">
+
+                        <td>{{list.expenceAmount}}</td>
+                        <td>{{list.expencesName}}</td>
+                        <td>{{list.project}}</td>
+                        <td>{{list.webdate|date}}</td>
+                        <td>{{list.expenceLocation}}</td>
+                        <td>{{list.currency}}</td>
+                        <td>{{list.supervisor}}</td>
+                        <td>{{list.approvalStatus}}</td>
+                        <td>{{list.comments}}</td>
+
+                        <!-- <td>
+                            <img src="assets/images/image.png" *ngIf="list.type==0"  data-toggle="modal" data-target="#myModalupimage"
+                                (click)="GetImageURL(list)" title="invoice" style="width: 50px;">
+
+                            <img src="assets/images/pdf.jpg" *ngIf="list.type==1" data-toggle="modal" data-target="#myModalupimage"
+                                (click)="GetImageURL(list)" title="invoice" style="width: 50px;">
+    
+                        </td> -->
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+<div class="modal fade" id="myModalupimage">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="margin-top: 15%;width: 588px;margin-left: 222px;">
+            <div class="modal-header">
+                <h4>Invoice</h4>
+
+                <button type="button" class="close " data-dismiss="modal">&times;</button>
+            </div>
+            <div class="row" style="margin-top:5%;">
+                <div class="col-lg-12">
+                    <div class="col-lg-2">
+                    </div>
+                    <div class="col-lg-8">
+                        <a href="{{invoiceURL}}" target="blank" *ngIf="pdf==0">
+                            <img src="{{invoiceURL}}" style="width: 200px;">
+                        </a>
+                        <a *ngIf="pdf==1" href="{{invoiceURL}}" download target="blank">
+                            <img src="assets/images/pdf.jpg" style="width: 200px;">
+                        </a>
+                    </div>
+                    <div class="col-lg-2">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-9"> </div>
+                <div class="col-lg-3">
+                    <button class="dashbutton " style="width: 69px;
+                         margin-right: 12px;" type="submit" data-dismiss="modal">Close</button>
+
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,77 @@
+.sidenav {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden;
+    padding-top: 10px;
+    margin-top: 10vh;
+    ;
+}
+
+.sidenav a {
+    padding: 3px 0px 9px 0px;
+    text-decoration: none;
+    font-size: 14px;
+    color: white;
+    display: block;
+}
+
+.active {
+    color: #5e9238;
+}
+
+.sidenav a:hover {
+    color: gray;
+    cursor: pointer;
+}
+
+.togglebtn {
+    background-color: #333333;
+    border: none;
+    color: aliceblue;
+    font-size: 15px;
+    padding-left: 7%;
+    width: 100%;
+    text-align: left;
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+
+/* Style the buttons inside the tab */
+
+.tab a {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    /* padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px; */
+}
+
+
+/* Change background color of buttons on hover */
+
+.tab a:hover {
+    background-color: #28365f;
+}
+
+
+/* Create an active/current tablink class */
+
+.tab a.active {
+    background-color: #21a4da;
+    color: white;
+    width: 100%;
+}

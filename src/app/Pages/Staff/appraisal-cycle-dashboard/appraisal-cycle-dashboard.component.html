@@ -1,0 +1,73 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <!-- <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="appliedexportexcel()">Export To Excel</button>
+        </div> -->
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/AppraisalCycle">ADD</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">APPRAISAL CYCLE DASHBOARD</label>
+    <hr>
+
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" [(ngModel)]="Search" placeholder="Search...">
+        </div>
+
+        <!-- <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div> -->
+        <div class="col-lg-7"></div>
+        <div class="col-lg-2">
+            <h6 style="float:right">Count : {{count}}</h6>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th>Appraisal Cycle Name</th>
+                    <th>Frequency Type</th>
+                    <th>Cycle Start Date</th>
+                    <th>Cycle End Date</th>
+                    <th>Actions</th>
+
+                </tr>
+                <tr *ngFor="let list of kraList|filter:Search">
+
+                    <td>{{list.appraiselCycleName}}</td>
+                    <td>{{list.frequencyType}}</td>
+                    <td>{{list.cycleStartDate|date}}</td>
+                    <td>{{list.cycleEndDate|date}}</td>
+                    <td>
+                        <ng-template #tipcontent1>Edit</ng-template>
+                        <a [ngbTooltip]="tipcontent1" [routerLink]="['/AppraisalCycle',list.id]" style="color:black">
+                            <img src="assets/images/edit.png" style="width: 18px">
+                        </a>
+                        &nbsp;
+                        <ng-template #tipcontent1>Delete</ng-template>
+                        <a [ngbTooltip]="tipcontent1" style="color:black">
+                            <img src="assets/images/dell.png" style="width: 18px" (click)="Delete(list.id)">
+                        </a>
+                    </td>
+
+
+                </tr>
+            </table>
+
+            <br>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <!-- <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/AddAssets">ADD</button>
+        </div> -->
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()" >Export To Excel</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">ASSETS DASHBOARD</label>
+    <hr>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div>
+        <!-- <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="status" name="status" (change)="getStatus($event)">
+                <option value="0" selected>Select Status</option>
+                <option value="1" >Open</option>
+                <option value="2" >Rejected</option>
+                <option value="3" >Completed</option>
+            </select>
+        </div> -->
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-3">
+            <h4 style="float:right">Count:{{count}}</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="NewRequest" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>AssetID</th>
+                        <th>Asset Name</th>
+                        <th>Staff Name</th>
+                        <th>Issue Date</th>
+                        <th>Return Date</th>
+
+                        <!-- <th>Asset Type</th> -->
+                        <th>Vendor Name</th>
+                        <th>Email</th>
+                        <th>Phone Numbers</th>
+                        <th>Purchase Date</th>
+                        <th>Status</th>
+                        
+                    </tr>
+                    <tr *ngFor="let list of filteredEventList|filter:search">
+                       
+                        <td>{{list.assetID}}</td>
+                        <td>{{list.assetName}}</td>
+                        <td>{{list.staffName}}</td>
+                        <td>{{list.issueDate|date}}</td>
+                        <td>{{list.returnDate|date}}</td>
+
+                        <!-- <td>{{list.short}}</td> -->
+                        <td>{{list.name}}</td>
+                        <td>{{list.emailID}}</td>
+                        <td>{{list.phoneNo}}</td>
+
+                        <td>{{list.purchaseDate|date}}</td>
+                        <td>{{list.status}}</td>
+                        
+                      
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br>
+    </div>
+    <br>
+</div>
+

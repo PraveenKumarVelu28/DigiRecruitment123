@@ -1,0 +1,118 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/VisitorRequestForManager">ADD</button>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">VISITOR REQUEST DASHBOARD</label>
+    <hr>
+    <div class="tab">
+        <button class="tablinks" (click)="openCity($event, 'Raised')" id="def_open">Yet To Visit</button>
+        <button class="tablinks" (click)="openCity($event, 'Completed')">Visited</button>
+        <button class="tablinks" (click)="openCity($event, 'NotVisited')">Not Visited</button>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" [(ngModel)]="search" placeholder="Search...">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div>
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-3">
+            <h4 style="float: right;" *ngIf="type=='Raised'">Count:{{yettovistcount}}</h4>
+            <h4 style="float: right;" *ngIf="type=='Completed'">Count:{{visitedcount}}</h4>
+            <h4 style="float: right;" *ngIf="type=='NotVisited'">Count:{{count}}</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="Raised" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Action</th>
+                        <th>Visitor Request</th>
+                        <th>Visiting Date</th>
+                        <th>Visiting Time</th>
+                        <th>Visiting Person Name</th>
+                        <th>Visiting For</th>
+                        <th>Status</th>
+                        <!-- <th>Action</th> -->
+                    </tr>
+                    <tr *ngFor="let list of filteredList|filter:search">
+                        <td>
+                            <!-- <img src="assets/images/edit.png" title="Update" [routerLink]="['/VisitorRequest',list.id]" style="width: 20px;"> &nbsp; -->
+                            <img src="assets/images/dell.png" style="width: 20px;" (click)="DeleteVisitorRequest(list.id)">&nbsp;&nbsp;
+                        </td>
+                        <td>{{list.name}}</td>
+                        <td>{{list.visitingDate}}</td>
+                        <td>{{list.visitingTime}}</td>
+                        <td>{{list.visitorFor}}</td>
+                        <td>{{list.reason}}</td>
+                        <td>{{list.status}}</td>
+                        <!-- <td>
+                            <button class="btn primary btn-xs"
+                                (click)="VisitedVisitorRequest(list.id)">Visited</button>&nbsp;
+                        </td> -->
+                    </tr>
+                </table>
+            </div>
+            <div id="Completed" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Visitor Request</th>
+                        <th>Visiting Date</th>
+                        <th>Visiting Time</th>
+                        <th>Visiting Person Name</th>
+                        <th>Visiting For</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr *ngFor="let list of filteredvisitedRequestList|filter:search">
+                        <td>{{list.visitorName}}</td>
+                        <td>{{list.visitingDate}}</td>
+                        <td>{{list.visitingTime}}</td>
+                        <td>{{list.visitorFor}}</td>
+                        <td>{{list.reason}}</td>
+                        <td>{{list.status}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="NotVisited" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Visitor Name</th>
+                        <th>Visiting Date</th>
+                        <th>Visiting Time</th>
+                        <th>Visiting Person</th>
+                        <th>Visiting For</th>
+                        <!-- <th>Status</th>-->
+
+                    </tr>
+                    <tr *ngFor="let list of NotvisitedRequestList|filter:search">
+                        <td>{{list.name}}</td>
+                        <td>{{list.visitingDate}}</td>
+                        <td>{{list.visitingTime}}</td>
+                        <td>{{list.visitorFor}}</td>
+                        <td>{{list.reason}}</td>
+                        <!-- <td>{{list.status}}</td>-->
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>

@@ -1,0 +1,96 @@
+<div class="container-fluid card">
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <label class="page_SubHeading">INVENTORY</label>
+            <hr>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Inventory Type</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="typeID" name="typeID" >
+                <option value="0" selected>Select Inventory Type</option>
+                <option *ngFor="let list of inventoryList" value="{{list.id}}">{{list.inventoryType}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Inventory Name</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="inventoryNameID" name="inventoryNameID" (change)="getinventoryNameID($event)">
+                <option value="0" selected>Select Inventory Name</option>
+                <option *ngFor="let list of inventoryNameList" value="{{list.id}}">{{list.inventoryName}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Total Quantity</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="quantity" name="quantity"
+                placeholder="Quantity" disabled>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Consume</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="consumeCount" name="consumeCount" placeholder="consume" (ngModelChange)="CheckQuantity()" >
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Vendor Name</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="vendorName" name="vendorName"
+                placeholder="Vendor Name">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Vendor PhoneNo</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="vendorPhoneNo" name="vendorPhoneNo"
+                placeholder="Vendor PhoneNo">
+        </div>
+    </div>
+    <br>
+  
+   
+   
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" *ngIf="paramID == undefined" (click)="InsertDetails()">Save</button>
+            <button type="button" class="addbtn" *ngIf="paramID != undefined" (click)="updatedetails()">Update</button>
+           
+        </div>
+    </div>
+    <br>

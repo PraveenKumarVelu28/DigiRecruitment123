@@ -1,0 +1,21 @@
+.maindiv{
+    background-color: #fff;
+   padding: 3%;
+   border-radius: 5px; 
+   border: 1px solid rgba(22,50,92,.09);
+   cursor: pointer;  
+   margin-top: 10px;
+   /* width: 100%;
+   background-color: #fff;
+   border: 1px solid rgba(22,50,92,.09);
+  
+   position: relative;
+   cursor: pointer;  */
+
+
+/* 
+   text-shadow: none;
+   transition: color .1s linear 0s,background-color .1s linear 0s,opacity .2s linear 0s; */
+
+ }
+ 

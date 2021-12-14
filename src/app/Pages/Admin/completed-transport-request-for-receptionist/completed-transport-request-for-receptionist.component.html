@@ -1,0 +1,67 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">COMPLETED TRANSPORT REQUEST DASHBOARD</label>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" [(ngModel)]="search" placeholder="Search...">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div>
+        <div class="col-lg-3">
+            <!-- <select class="form-control" [(ngModel)]="status" name="status" (change)="getstatus($event)">
+                <option selected value="0">Select Status</option>
+                <option value="Yet To Complete">Yet To Complete</option>
+                <option value="Completed">Completed</option>
+            </select> -->
+        </div>
+       
+        <div class="col-lg-3">
+            <h4 style="float: right;">Count:{{count}}</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th>Raised By</th>
+                    <th>Departure Date</th>
+                    <th>Return Date</th>
+                    <th>Type Of Vechile</th>
+                    <th>ProjectName</th>
+                    <th>Pick Up Point</th>
+                    <th>Destination</th>
+                    <th>Status</th>
+
+                </tr>
+                <tr *ngFor="let list of filteredList|filter:search">
+                    <td>{{list.raisedby}}</td>
+                    <td>{{list.departureDateTime}}</td>
+                    <td>{{list.returnDateTime}}</td>
+                    <td>{{list.typeOfVechile}}</td>
+                    <td>{{list.projectName}}</td>
+                    <td>{{list.pickUpPoint}}</td>
+                    <td>{{list.destination}}</td>
+                    <td>{{list.status}}</td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+</div>
+
+

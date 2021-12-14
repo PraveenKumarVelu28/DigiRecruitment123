@@ -1,0 +1,18 @@
+.dash_Header{
+    color: #7d7d7d;
+    font-size: 20px;
+    font-weight: 500px;
+    height: 5vh; 
+    padding: 10px;
+    float: left; 
+}
+.dashCardBody{
+    color: #7d7d7d;
+    font-size: 53px;
+    font-weight: 500px;
+    height: 10vh;
+    text-align: center;
+    line-height: 2.5;
+    display: inline-block;
+    vertical-align: middle;
+}

@@ -1,0 +1,173 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn"  routerLink="/StaffLookup">ADD</button>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">STAFF LOOKUP DASHBOARD</label>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" [(ngModel)]="search" placeholder="Search...">
+        </div>
+        <div class="col-lg-6"></div>
+        <div class="col-lg-3">
+            <h4 style="float: right;">Count:{{count}}</h4>
+         </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Designation</th>
+                    <th>Department</th>
+                    <th>Action</th>
+                    
+                  
+                </tr>
+                <tr *ngFor="let list of staffLookUpList|filter:search">
+                  
+                    <td>{{list.name}}</td>
+                    <td>{{list.phoneNumber}}</td>
+                    <td>{{list.email}}</td>
+                    <td>{{list.designation}}</td>
+                    <td>{{list.department}}</td>
+                    <td>
+                        <button  (click)="sendMail(Detail.id)" data-toggle="modal" data-target="#attachment" class="sendbtn">Send Mail</button>
+                        <br>
+                        <br>
+                        <!-- <button type="button" routerLink="/ChatMaster" class="sendbtn">Chat</button> -->
+                    </td>                                     
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+</div>
+
+<!-- Mail -->
+<div id="attachment" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Send Attachments</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <label>From </label>
+                    </div>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" placeholder="From" [(ngModel)]="fromMail" name="fromMail" disabled>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <label>To </label>
+                    </div>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" placeholder="To" [(ngModel)]="tomail" name="tomail">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <label>Subject</label>
+                    </div>
+                    <div class="col-lg-8">
+                        <input type="text" class="form-control" placeholder="Subject" [(ngModel)]="subject" name="subject">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <label>Message</label>
+                    </div>
+                    <div class="col-lg-8">
+                        <textarea rows="5" class="form-control" placeholder="Message" [(ngModel)]="message" name="message"></textarea>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <label>Attachment</label>
+                    </div>
+                    <div class="col-lg-8">
+                        <!-- <dropzone [message]="'Click or drag images here'" (success)="onattachmentUpload($event)">
+                        </dropzone> -->
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-2">
+                        <button type="button" class="addbtns" (click)="insertSendMail()">Send Mail</button>
+                    </div>
+                    <div class="col-lg-5"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <table>
+                            <tr>
+                                
+                                <th>Subject</th>
+                                <th>Message</th>
+                                <th>Attachments</th>
+                            </tr>
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button type="button"  data-toggle="modal" data-target="#emailAttachment">View</button>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="emailAttachment" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Attachments</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img src="" style="width: 100%;height: auto;">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

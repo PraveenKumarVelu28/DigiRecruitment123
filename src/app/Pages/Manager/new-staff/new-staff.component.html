@@ -1,0 +1,496 @@
+<div class="container-fluid card">
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <label class="page_SubHeading">ADD STAFF</label>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Building</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="buildingID" name="buildingID" (change)="getBuildingID($event)">
+                <option selected value=0>Select Building</option>
+                <option *ngFor="let list of buildingList" value="{{list.id}}">{{list.name}}</option>
+
+            </select>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Manager</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control"  name="approverID" [(ngModel)]="approverID" (change)="getmanagerid($event)">
+                <option selected value=0>Select Approver</option>
+                <option *ngFor="let list of approverList" value="{{list.id}}">{{list.name}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Employee ID</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="employeeID" name="employeeID" placeholder="EmployeeID">
+        </div>
+    </div>
+
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Name</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="name" name="name" placeholder="Name">
+        </div>
+    </div>
+
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Phone Number</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="phoneNumber" name="phoneNumber"
+                placeholder="phoneNumber">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Personal Email ID</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="email" placeholder="Email">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Official ID</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="officialID" placeholder="Official ID">
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Designation</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" name="roleID" [(ngModel)]="roleID">
+                <option selected value="0">Select User Role</option>
+                <option *ngFor="let list of userRoleList" value="{{list.id}}">{{list.short}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Present Address</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="address" placeholder="Address">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Permanent Address</label>
+        </div>
+        <div class="col-lg-4">
+            <textarea type="text" rows="5" class="form-control" placeholder="PermanentAddress"
+                [(ngModel)]="permanentAddress"></textarea>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>DOB</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="date" class="form-control" [(ngModel)]="dateOfBirth">
+        </div>
+    </div>
+    <br>
+    
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Joining Date</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="date" class="form-control" [(ngModel)]="joiningDate">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Father's Name</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="fathersName" placeholder="Fathers Name">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Mother's Name</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="mothersName" placeholder="Mothers Name">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Spouse Name</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="spouseName" placeholder="Spouse Name">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Parent's Contact</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="parentsContact" name="parentsContact"
+                placeholder="Parents Contact">
+        </div>
+    </div>
+    <br>
+   
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Blood Group</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="bloodGroup" placeholder="Blood Group">
+        </div>
+    </div>
+    <br>
+   
+    <!-- <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Passport Number</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="passportNo" placeholder="Passport Number">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Aadhar Card</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="aadharCard" placeholder="AadharCard">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Pancard Number</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="panCardNumber" placeholder="PanCard Number">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Driving Licence</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="drivingLicence" placeholder="Driving Licence">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Vehicle Number</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="vehicleNumber" placeholder="Vehicle Number">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Official Bank Name</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="officialBankName" placeholder="Official Bank Name">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Official Bank Account Number</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="officialBankAccountNo" placeholder="Official Bank Account Number">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>IFSC Code</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="iFSCCode" placeholder="IFSC Code">
+        </div>
+    </div>
+    <br> -->
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Leaves Per Year</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="leavesPerYear" placeholder="Leaves Per Year">
+        </div>
+    </div>
+    <br>
+  
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Work Timings</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="workTimings" placeholder="Work Timings">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Emergency Contact Name</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="emergencyContactName" placeholder="Emergency Contact Name">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Emergency Contact Number</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="emergencyContactNumber"
+                placeholder="Emergency Contact Number">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Alternate Emergency Number</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="alternateEmergencyNumber" placeholder="Alternate Emergency Number">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Basic Salary</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="basicSalary" Name="basicSalary" placeholder="Basic Salary" (ngModelChange)="getbasicsalary(basicSalary)"  >
+        </div>
+    </div>
+    <br>
+    <!-- <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>SSS Rate</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="sssRate" placeholder="SSS Rate" disabled>
+        </div>
+    </div>
+    <br> -->
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Pagibig Rate</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="pagBig" placeholder="Pagibig Rate" disabled>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Philhealth</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="philHealthContribution" placeholder="Philhealth" disabled>
+        </div>
+    </div>
+    <br>
+    <!-- <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Allowance</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="allowance" placeholder="Allowance" disabled>
+        </div>
+    </div>
+    <br> -->
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Net Salary</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="netMonthSalary" placeholder="Net Salary">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Employee Photo</label>
+        </div>
+        <div class="col-lg-4">
+            <ngx-dropzone (change)="onattachmentUpload($event)">
+                <ngx-dropzone-label>Drag and drop file here</ngx-dropzone-label>
+            </ngx-dropzone>
+        </div>
+        <div class="col-lg-4" >
+            <img src="{{attachmentsurl}}" style="height: 40vh;width: 100%;">
+        </div>
+    </div>
+    <br>
+    <!-- <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Project List</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" name="projectID" [(ngModel)]="projectID">
+                <option selected value=0>Select Project</option>
+                <option *ngFor="let list of projectList" value="{{list.id}}">{{list.projectName}}</option>
+
+            </select>
+        </div>
+    </div>
+    <br> -->
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Department List</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" name="departmentID" [(ngModel)]="departmentID">
+                <option selected value=0>Select Department</option>
+                <option *ngFor="let list of departmentList" value="{{list.id}}">{{list.shorts}}</option>
+
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Login As</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" name="loginTypeID" [(ngModel)]="loginTypeID">
+                <option selected value=0>Select Login Type</option>
+                <option *ngFor="let list of loginTypeList" value="{{list.id}}">{{list.loginType}}</option>
+
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" *ngIf="paramID==undefined" (click)="insertDetails()">Save</button>
+     
+            <button type="button" class="addbtn" *ngIf="paramID != undefined" (click)="updatedetails()">Update</button>
+        </div>
+    </div>
+    <br>

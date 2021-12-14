@@ -1,0 +1,130 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+            <!-- <button type="button" class="addbtn" routerLink="/NewVisitor">New Visitor</button> -->
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">FEEDBACK DASHBOARD</label>
+    <hr>
+    <div class="tab">
+        <button class="tablinks" (click)="openCity($event, 'NewRequest')" id="def_open">Raised</button>
+        <button class="tablinks" (click)="openCity($event, 'completed')">Completed</button>
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="buildingid" name="buildingid" (change)="getbuildingID($event)">
+                <option value="0" selected>Select Building</option>
+                <option *ngFor="let list of buildingList" value="{{list.id}}">{{list.name}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="NewRequest" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Request Name</th>
+                        <th>Date</th>
+                        <th>Building</th>
+                        <th>Raised By</th>
+                        <th>Status</th>
+                        <th>Photo</th>
+                        <th>Actions</th>
+
+                    </tr>
+                    <tr *ngFor="let list of complaintList|filter:search">
+                        <td>{{list.requestFor}}</td>
+                        <td>{{list.modifiedDate|date}}</td>
+                        <td>{{list.building}}</td>
+                        <td>{{list.raisedByName}}</td>
+                        <td>{{list.statusName}}</td>
+                        <td>
+                            <img src="{{list.photoUrl}}" style="height: 100px;width:100px;" /></td>
+                        <td>
+
+                            <img src="assets/images/copyright.png" data-toggle="modal" data-target="#myModal"
+                                title="Update" style="height: 45px; width:45px;" (click)="completeComplaints(list.id)">
+                            <!-- <img src="assets/images/copyright.png" style="height: 50px; width:50px;"/> -->
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="completed" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Feedback</th>
+                        <th>Building</th>
+                        <th>Raised By</th>
+                        <th>Status</th>
+                        <th>Photo</th>
+
+
+                    </tr>
+                    <tr *ngFor="let list of completedComplaintList|filter:Search">
+                        <td>{{list.requestFor}}</td>
+                        <td>{{list.building}}</td>
+                        <td>{{list.raisedByName}}</td>
+                        <td>{{list.statusName}}</td>
+                        <td>
+                            <img src="{{list.photoUrl}}" style="height: 100px;width:100px;" /></td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Complete Status</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    
+                    <div class="col-lg-3">
+                        <label>Notes :</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <textarea type="text" rows="5" class="form-control" [(ngModel)]="notes" placeholder="Reason"></textarea>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                   
+                    <div class="col-lg-3">
+                        <label>Attachment :</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <ngx-dropzone (change)="onBrochureUpload($event)">
+                            <ngx-dropzone-label>Drag and drop file here</ngx-dropzone-label>
+                        </ngx-dropzone>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn primary btn-xs" data-dismiss="modal" (click)="ClosedComplaints()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

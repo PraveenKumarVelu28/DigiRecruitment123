@@ -1,0 +1,104 @@
+<div class="container-fluid card">
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <label class="page_SubHeading">Inventory Purchase Details</label>
+            <hr> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Inventory Type</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="inventoryTypeID" name="inventoryTypeID" >
+                <option value="0" selected>Select Inventory Type</option>
+                <option *ngFor="let list of inventoryList" value="{{list.id}}">{{list.inventoryType}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Inventory Name</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="inventoryNameID" name="inventoryNameID" >
+                <option value="0" selected>Select Inventory Name</option>
+                <option *ngFor="let list of inventoryNameList" value="{{list.id}}">{{list.inventoryName}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Quantity</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" name="quantity"  [(ngModel)]="quantity" placeholder="quantity">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Unit</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" name="unit"  [(ngModel)]="unit" placeholder="unit">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Purchase Date</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="date" class="form-control" [(ngModel)]="purchaseDate" name="purchaseDate">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Vendor Name</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="vendorName" name="vendorName"
+                placeholder="Vendor Name">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Vendor PhoneNo</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="vendorPhoneNo" name="vendorPhoneNo"
+                placeholder="Vendor PhoneNo">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" *ngIf="paramID==undefined"(click)="InsertDetails()">Save</button>
+            <button type="button" class="addbtn" *ngIf="paramID != undefined" (click)="updatedetails()">Update</button>
+           
+           
+        </div>
+    </div>
+    <br>
+</div>

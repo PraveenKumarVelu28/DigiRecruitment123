@@ -1,0 +1,170 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h6>STAFF LEAVE</h6>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Building</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="buildingID" name="buildingID">
+                <option value="0" selected>Select Building</option>
+                <option *ngFor="let list of buildinglist" value="{{list.id}}">{{list.name}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Staff Name</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Staff Name" [(ngModel)]="staffName" name="staffName"
+                disabled>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Paid Leave</label>
+        </div>
+        <div class="col-lg-4">
+            <label class="switch">
+                <input type="checkbox" checked (change)="GetPaidBit($event)">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Leave Type</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="leaveTypeID" name="leaveTypeID">
+                <option value="0" selected>Select Leave Type</option>
+                <option *ngFor="let list of leaveTypeList" value="{{list.id}}">{{list.short}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row" *ngIf="halfDayBit">
+        <div class="col-lg-3">
+            <label>Half Day</label>
+        </div>
+        <div class="col-lg-4">
+            <label class="switch">
+                <input type="checkbox" unchecked (change)="GetHalfDayBit($event)">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
+    <br>
+    <div class="row" *ngIf="halfday">
+        <div class="col-lg-3">
+            <label>AM/PM</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="AMPMText">
+                <option value="0" selected>Select Type</option>
+                <option value="1">AM</option>
+                <option value="2">PM</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Start Date</label>
+        </div>
+        <div class="col-lg-4">
+
+            <input type="date" class="form-control" placeholder="Start Date" min="{{todaydate}}"
+                [(ngModel)]="sDateOfLeave" name="sDateOfLeave">
+
+        </div>
+    </div>
+    <br>
+    <div class="row" *ngIf="endDate">
+        <div class="col-lg-3">
+            <label>End Date</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="date" class="form-control" placeholder="End Date" [disabled]="sDateOfLeave==undefined"
+                min="{{sDateOfLeave}}" [(ngModel)]="eDateOfLeave" name="eDateOfLeave" (change)="getDay($event)">
+
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Approver</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="Supervisor">
+                <option value="0" selected>Approver</option>
+                <option *ngFor="let list of supervisorList" value="{{list.supervisorName}}">{{list.supervisorName}}
+                </option>
+            </select>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Covering Staff</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="name" name="name">
+                <option value="0" selected>Select Covering Staff</option>
+                <option *ngFor="let list of stafflist" value="{{list.name}}">{{list.name}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Reason</label>
+        </div>
+        <div class="col-lg-4">
+            <textarea type="text" class="form-control" rows="5" placeholder="Reason" [(ngModel)]="leaveReason"
+                name="leaveReason"></textarea>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Attachment</label>
+        </div>
+        <div class="col-lg-5">
+            <ngx-dropzone (change)="onBrochureUpload($event)">
+                <!-- <ngx-dropzone-preview *ngFor="let f of brochures" [removable]="true" (removed)="onRemove(f)">
+                </ngx-dropzone-preview> -->
+                <ngx-dropzone-label>Drag and drop file here</ngx-dropzone-label>
+            </ngx-dropzone>
+        </div>
+        <div class="col-lg-4" *ngIf="paramID == undefined">
+            <img src="{{imagesurl}}" style="height: 100px;">
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" *ngIf="paramID==undefined" (click)="InsertDetails()">Save</button>
+            <button type="button" class="addbtns" *ngIf="paramID!=undefined">Update</button>
+        </div>
+        <div class="col-lg-5"></div>
+    </div>
+    <br>
+</div>

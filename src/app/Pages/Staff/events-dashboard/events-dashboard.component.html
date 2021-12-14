@@ -1,0 +1,59 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <!-- <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/Events">ADD</button>
+        </div> -->
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">COMPLETED EVENTS DASHBOARD</label>
+    <hr>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value" (ngModelChange)="selectedDate($event)">
+        </div>
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-3">
+            <h4 style="float:right">Count:{{count}}</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="NewRequest" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Date</th>
+                        <th>Event Name</th>
+                        <th>Venue</th>
+                        <th>Description</th>
+                        <th>Terms And Conditions</th>
+
+                    </tr>
+                    <tr *ngFor="let list of filteredEventList|filter:search">
+
+                        <td>{{list.dateTime}}</td>
+                        <td>{{list.name}}</td>
+                        <td>{{list.venue}}</td>
+                        <td>{{list.description}}</td>
+                        <td>{{list.modifiedBy}}</td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>

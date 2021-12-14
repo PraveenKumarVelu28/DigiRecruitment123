@@ -1,0 +1,1264 @@
+<div class="row tab">
+  <div class="col-md-2 sidenav" style="overflow-y: auto;height: 90vh;">
+    <p style="color: white;margin-top: 3px;">
+      Welcome {{username}}
+    </p>
+    <hr style="color: aliceblue;border: solid 1px;" />
+
+
+
+    <!------------------------------------------------- Receptionist Login ------------------------------------------------------>
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'" data-target="#receptionistchatgroup">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; Communication
+        </a>
+        <div id="receptionistchatgroup" class="collapse" *ngIf="roleID=='1'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/Addgroup">
+                &nbsp;&nbsp;Create Chat Group
+            </a>
+            <a class="tablinks" (click)="openCity($event)" routerLink="/JoingGroupChatForAdmin">
+                &nbsp;&nbsp; Join Group Chat
+            </a>
+            <br>
+        </div>
+
+        <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'" data-target="#VisitorRequestForAdmin">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; Visitor Request
+        </a>
+        <div id="VisitorRequestForAdmin" class="collapse" *ngIf="roleID=='1'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/VisitorRequestForAdmin">
+                <i class="fa fa-user"></i>&nbsp;&nbsp; Visitor Request
+            </a>
+            <a class="tablinks" (click)="openCity($event)" routerLink="/VisitorParkingDashboard">
+                <i class="fa fa-user"></i>&nbsp;&nbsp; Visitor Parking
+            </a>
+        </div>
+
+        <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'" data-target="#StaffManagement">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; Staff Management
+        </a>
+        <div id="StaffManagement" class="collapse" *ngIf="roleID=='1'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/StaffManagementDashboardFoReceptionist">
+                &nbsp;&nbsp; Staff Management
+            </a>
+        </div>
+        <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'" data-target="#StaffAttendance">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; All Staff Attendance
+        </a>
+        <div id="StaffAttendance" class="collapse" *ngIf="roleID=='1'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/StaffAttendance">
+                &nbsp;&nbsp; Attendance
+            </a>
+        </div>
+        <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'" data-target="#masterForReceptionist">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; Masters
+        </a>
+        <div id="masterForReceptionist" class="collapse" *ngIf="roleID=='1'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/ExpenseTypeDashboard">
+                &nbsp;&nbsp; Expense Type
+            </a>
+            <a class="tablinks" (click)="openCity($event)" routerLink="/LeaveTypeDashboard">
+                &nbsp;&nbsp; Leave Type
+            </a>
+
+            <a class="tablinks" (click)="openCity($event)" routerLink="/ProjectIDTypeDashboard">
+                &nbsp;&nbsp; Project ID Type
+            </a>
+        </div>
+        <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'" data-target="#StaffLeaveFoReceptionist">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; All Staff Leave
+        </a>
+        <div id="StaffLeaveFoReceptionist" class="collapse" *ngIf="roleID=='1'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/AllStaffLeaveFoReceptionist">
+                &nbsp;&nbsp; All Staff Leave
+            </a>
+        </div>
+        <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'"
+            data-target="#locatorDashboardForReceptionist">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; All Staff Locator Request
+        </a>
+        <div id="locatorDashboardForReceptionist" class="collapse" *ngIf="roleID=='1'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/AllLocatorDashboardForReceptionist">
+                &nbsp;&nbsp; All Staff Locator Request
+            </a>
+        </div>
+        <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'" data-target="#ExpenseForReceptionist">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; All Staff Expense
+        </a>
+        <div id="ExpenseForReceptionist" class="collapse" *ngIf="roleID=='1'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/AllExpenseForReceptionist">
+                &nbsp;&nbsp; All Staff Expense
+            </a>
+        </div>
+        <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'"
+            data-target="#TimeSheetsForReceptioninst">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; All Staff Timesheet
+        </a>
+        <div id="TimeSheetsForReceptioninst" class="collapse" *ngIf="roleID=='1'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/TimeSheets">
+                &nbsp;&nbsp; Timesheet
+            </a>
+        </div>
+        <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'" data-target="#transportRequest">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; Transport Request
+        </a>
+        <div id="transportRequest" class="collapse" *ngIf="roleID=='1'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/RaisedTransportRequestForReceptionist">
+                &nbsp;&nbsp; Raised Transport Request
+            </a>
+            <a class="tablinks" (click)="openCity($event)" routerLink="/BookedTransportRequestForReceptionist">
+                &nbsp;&nbsp; Booked Transport Request
+            </a>
+            <a class="tablinks" (click)="openCity($event)" routerLink="/CompletedTransportRequestForReceptionist">
+                &nbsp;&nbsp; Completed Transport Request
+            </a>
+            <a class="tablinks" (click)="openCity($event)" routerLink="/CancelledTransportRequestForReceptionist">
+                &nbsp;&nbsp; Cancelled Transport Request
+            </a>
+        </div>
+
+        <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='1'" routerLink="/EventDashboardForReceptionist">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; Events
+        </a>
+
+        <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'" data-target="#announcements">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; Announcements
+        </a>
+        <div id="announcements" class="collapse" *ngIf="roleID=='1'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/UpcomingAnnouncementsDashboardForReceptionist">
+                &nbsp;&nbsp; Announcements
+            </a>
+        </div>
+
+        <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'"
+            data-target="#FeedbackDahsboardForReceptionist">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; Feedback
+        </a>
+        <div id="FeedbackDahsboardForReceptionist" class="collapse" *ngIf="roleID=='1'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/FeedbackDahsboardForReceptionist">
+                &nbsp;&nbsp; Feedback
+            </a>
+        </div> -->
+
+    <!---------------------------------------------- CEO Login ---------------------------------------------------------------------->
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'" data-target="#Appresal">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Appraisal
+    </a>
+    <div id="Appresal" class="collapse" style="padding-left: 7%;" *ngIf="roleID=='1'">
+      <div id="Appresal" class="collapse" style="padding-left: 7%;" *ngIf="roleID=='1'"></div>
+      <a class="tablinks" (click)="openCity($event)" routerLink="/Approver3ratingpagedashboard">
+        &nbsp;&nbsp; Staff Appraisal
+      </a>
+
+    </div>
+
+    <!---------------------------------------------- HR Login ---------------------------------------------------------------------->
+    <!-- <a class="tablinks" (click)="openCity($event)" routerLink="/HRProfile" *ngIf="profile=='1'&&roleID=='2'">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Profile
+      &nbsp;&nbsp;
+    </a>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="timesheets=='1'&&roleID=='2'"
+      data-target="#TimeSheetsForHr">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Time Sheets
+    </a>
+    <div id="TimeSheetsForHr" class="collapse" *ngIf="timesheets=='1'&&roleID=='2'" style="padding-left: 7%;">
+
+      <a class="tablinks" (click)="openCity($event)" routerLink="/TimeSheetsForHr">
+        &nbsp;&nbsp; Time Sheets
+      </a>
+    </div>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="attendence=='1'&&roleID=='2'"
+      data-target="#AttendanceDashboardForHR">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; All Staff Attendance
+    </a>
+    <div id="AttendanceDashboardForHR" class="collapse" *ngIf="attendence=='1'&&roleID=='2'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/AttendanceDashboardForAdmin">
+        &nbsp;&nbsp; Attendance
+      </a>
+    </div> -->
+    <!-- <a class="tablinks" (click)="openCity($event)" routerLink="/Myprojects" *ngIf="roleID=='2'">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; My Project
+      &nbsp;&nbsp;
+    </a> -->
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="allstaff=='1'&&roleID=='2'" data-target="#allStaff">
+      <i class="fa fa-user"></i>&nbsp;&nbsp;All Staff
+    </a>
+    <div id="allStaff" class="collapse" *ngIf="staffmanagement=='1'&&roleID=='2'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/AllStaffDashboard">
+        &nbsp;&nbsp;Staff Management
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="payroll=='1'" routerLink="/StaffPayRoll">
+        &nbsp;&nbsp; Payroll
+      </a>
+    </div>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="projectmapping=='1'&&roleID=='2'"
+      data-target="#mappedProject">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Project Mapping
+    </a>
+    <div id="mappedProject" class="collapse" *ngIf="projectmapping=='1'&&roleID=='2'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/StaffProjectMappingDashboard">
+        &nbsp;&nbsp; Project Mapping
+      </a>
+    </div>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="workschedule=='1'&&roleID=='2'"
+      data-target="#workplacerequset">
+      <i class="fa fa-user"></i>&nbsp;&nbsp;Work Schedule
+    </a>
+    <div id="workplacerequset" class="collapse" *ngIf="workschedule=='1'&&roleID=='2'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/WorkPlaceRequest">
+        &nbsp;&nbsp; Work Schedule
+      </a>
+    </div>
+
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="leave=='1'&&roleID=='2'" data-target="#HRstaffLeave">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Leave
+    </a>
+    <div id="HRstaffLeave" class="collapse" *ngIf="myleave=='1'&&roleID=='2'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/HRLeaveDashboard">
+        &nbsp;&nbsp;
+        My Leave
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="mystaffleave=='1'&&roleID=='2'"
+        routerLink="/AppliedHRStaffLeave">
+        &nbsp;&nbsp;
+        My Staff Leave
+      </a>
+
+      <a class="tablinks" (click)="openCity($event)" *ngIf="approvedleave=='1'&&roleID=='2'"
+        routerLink="/ApprovedHRStaffLeaveDashboard">
+        &nbsp;&nbsp;
+        Approved Leave
+      </a>
+
+      <a class="tablinks" (click)="openCity($event)" *ngIf="rejectedleave=='1'&&roleID=='2'"
+        routerLink="/RejectedHRStaffLeaveDashboard">
+        &nbsp;&nbsp;
+        Rejected Leave
+      </a>
+    </div>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="allstaffleave=='1'&&roleID=='2'"
+      data-target="#allstaffleave">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; All Staff Leave
+    </a>
+    <div id="allstaffleave" class="collapse" style="padding-left: 7%;">
+
+      <a class="tablinks" (click)="openCity($event)" *ngIf="appliedstaffleave=='1'&&roleID=='2'"
+        routerLink="/AppliedStaffLeaveDashboardForHR">
+        &nbsp;&nbsp;
+        Applied Staff Leave
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="approvedstaffleave=='1'&&roleID=='2'"
+        routerLink="/AllStaffApprovedLeave">
+        &nbsp;&nbsp;
+        Approved Staff Leave
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="rejectedstaffleave=='1'&&roleID=='2'"
+        routerLink="/AllStaffRejectLeave">
+        &nbsp;&nbsp;
+        Reject Staff Leave
+      </a>
+    </div> -->
+
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='2'" data-target="#TimeSheetsForHr">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Time Sheets
+    </a>
+    <div id="TimeSheetsForHr" class="collapse" *ngIf="roleID=='2'" style="padding-left: 7%;">
+
+      <a class="tablinks" (click)="openCity($event)" routerLink="/TimeSheetsForHr">
+        &nbsp;&nbsp; Time Sheets
+      </a>
+    </div> -->
+
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="announcements=='1'&&roleID=='2'"
+      data-target="#accouncment">
+      <i class="fa fa-user"></i>&nbsp;&nbsp;Announcements
+    </a>
+    <div id="accouncment" class="collapse" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" *ngIf="upcomingannounsements=='1'&&roleID=='2'"
+        routerLink="/UpcomingAnnouncementsDashboardForHr">
+        &nbsp;&nbsp; Upcoming Announcements
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="completedannounsements=='1'&&roleID=='2'"
+        routerLink="/AnnouncementsDashboard">
+        &nbsp;&nbsp; Completed Announcements
+      </a>
+    </div> -->
+
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='2'" data-target="#VisitorRequestForAdmin">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; Visitor Request
+        </a>
+        <div id="VisitorRequestForAdmin" class="collapse" *ngIf="roleID=='2'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/VisitorRequestForAdmin">
+                <i class="fa fa-user"></i>&nbsp;&nbsp; Visitor Request
+            </a> -->
+    <!-- <a class="tablinks" (click)="openCity($event)" routerLink="/VisitorParkingDashboard">
+                <i class="fa fa-user"></i>&nbsp;&nbsp; Visitor Parking
+            </a> -->
+    <!-- </div> -->
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='2'" data-target="#StaffLeaveDetails">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; All Satff Leave
+        </a>
+        <div id="StaffLeaveDetails" class="collapse" *ngIf="roleID=='2'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/StaffLeaveDetailsDashboard">
+                &nbsp;&nbsp;
+                All Staff Leave
+            </a>
+        </div> -->
+
+<!-- 
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="user=='1'&&roleID=='2'" data-target="#User">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; User
+    </a>
+    <div id="User" class="collapse" style="padding-left: 7%;" *ngIf="roleID=='2'">
+
+      <a class="tablinks" (click)="openCity($event)" *ngIf="user=='1'" routerLink="/UserDashboard">
+        &nbsp;&nbsp; User
+      </a>
+    </div>
+
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="appraisal=='1'&&roleID=='2'" data-target="#Appresalss">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Appraisal
+    </a>
+    <div id="Appresalss" class="collapse" style="padding-left: 7%;">
+      <div id="Appresalss" class="collapse" style="padding-left: 7%;" *ngIf="myappraisal=='1'&&roleID=='2'"></div>
+      <a class="tablinks" (click)="openCity($event)" routerLink="/SelfRatingDash">
+        &nbsp;&nbsp; My Appraisal
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="staffappraisal=='1'&&roleID=='2'"
+        routerLink="/Approver2ratingpagedashboard">
+        &nbsp;&nbsp; Staff Appraisal
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="staffappraisalreports=='1'&&roleID=='2'"
+        routerLink="/StaffScoreReport">
+        &nbsp;&nbsp; Staff Appraisal Reports
+      </a>
+
+    </div>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="vendor=='1'&&roleID=='2'" data-target="#VendorDashboard">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Vendor
+    </a>
+    <div id="VendorDashboard" class="collapse" style="padding-left: 7%;">
+
+      <a class="tablinks" *ngIf="vendor=='1'&&roleID=='2'" (click)="openCity($event)" routerLink="/VendorDashboard">
+        &nbsp;&nbsp; Vendor
+      </a>
+    </div>
+
+
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="assets=='1'&&roleID=='2'" data-target="#Assets">
+      <i class="fa fa-user"></i>&nbsp;&nbsp;Assets
+    </a>
+    <div id="Assets" class="collapse" *ngIf="assignedassets=='1'&&roleID=='2'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/HRAssetsDashboard">
+        &nbsp;&nbsp; Assigned Assets
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="genaralassets=='1'&&roleID=='2'"
+        routerLink="/GeneralAssetsDashboard">
+        &nbsp;&nbsp; General Asset
+      </a>
+
+    </div> -->
+
+
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="jobrecruitments=='1'&&roleID=='2'"
+      data-target="#JobRecruitements">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Job Recruitements
+    </a>
+    <div id="JobRecruitements" class="collapse" style="padding-left: 7%;">
+
+      <a class="tablinks" (click)="openCity($event)" *ngIf="jobrecruitmentsss=='1'&&roleID=='2'"
+        routerLink="/Postajobdash">
+        <i class="fa fa-user"></i> &nbsp;&nbsp; Job Recruitements
+      </a>
+
+      <a class="tablinks" (click)="openCity($event)" *ngIf="appliedcandidates=='1'&&roleID=='2'"
+        routerLink="/AppliendCandidates">
+        <i class="fa fa-user"></i> &nbsp;&nbsp; Applied Candidates
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="shortlistedcandidates=='1'&&roleID=='2'"
+        routerLink="/ShortlistedCandidates">
+        <i class="fa fa-user"></i> &nbsp;&nbsp; Shortlisted Candidates
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="shortlistedcandidates=='1'&&roleID=='2'"
+        routerLink="/ScheduledInterviews">
+        <i class="fa fa-user"></i> &nbsp;&nbsp; Scheduled Interviews
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="selectedcandidates=='1'&&roleID=='2'"
+        routerLink="/SelectedCandidates">
+        <i class="fa fa-user"></i> &nbsp;&nbsp; Selected Candidates
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="offeredcandidates=='1'&&roleID=='2'"
+        routerLink="/OfferedCandidates">
+        <i class="fa fa-user"></i> &nbsp;&nbsp; Offered Candidates
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="joinedcandidates=='1'&&roleID=='2'"
+        routerLink="/JoinedCandidates">
+        <i class="fa fa-user"></i> &nbsp;&nbsp; Joined Candidates
+      </a>
+      <br>
+
+      <a class="tablinks" (click)="openCity($event)" *ngIf="droppedcandidates=='1'&&roleID=='2'"
+        routerLink="/DropedCandidates">
+        <i class="fa fa-user"></i> &nbsp;&nbsp; Dropped Candidates
+      </a>
+    </div>
+
+<!-- 
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="inventory=='1'&&roleID=='2'" data-target="#Inventory">
+      <i class="fa fa-user"></i>&nbsp;&nbsp;Inventory
+    </a>
+    <div id="Inventory" class="collapse" *ngIf="inventory=='1'&&roleID=='2'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/InventoryDashboard">
+        &nbsp;&nbsp; Inventory
+      </a>
+
+    </div>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="events=='1'&&roleID=='2'" data-target="#Events">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Events
+    </a>
+    <div id="Events" class="collapse" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" *ngIf="upcomingevents=='1'&&roleID=='2'"
+        routerLink="/UpComingEventsDashboardForHR">
+        &nbsp;&nbsp; UpComing Events
+      </a>
+
+      <a class="tablinks" (click)="openCity($event)" *ngIf="completedevents=='1'&&roleID=='2'"
+        routerLink="/EventsDashboard">
+        &nbsp;&nbsp; Completed Events
+      </a>
+    </div>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="borrowings=='1'&&roleID=='2'" data-target="#Borrowings">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Borrowings
+    </a>
+    <div id="Borrowings" class="collapse" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" *ngIf="borrowings=='1'&&roleID=='2'"
+        routerLink="/BorrowingsDashboardForHR">
+        &nbsp;&nbsp; Borrowings
+      </a>
+    </div>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="feedback=='1'&&roleID=='2'" data-target="#HRFeedback">
+      <i class="fa fa-user"></i>&nbsp;&nbsp;Feedback
+    </a>
+    <div id="HRFeedback" class="collapse" *ngIf="feedback=='1'&&roleID=='2'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/ComplaintDashboard">
+        &nbsp;&nbsp;Raised By
+      </a>
+    </div>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="communication=='1'&&roleID=='2'"
+      data-target="#ManagerCommunication">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Communication
+    </a>
+    <div id="ManagerCommunication" class="collapse" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" *ngIf="createchatgrououp=='1'&&roleID=='2'" routerLink="/Addgroup">
+        &nbsp;&nbsp;Create Chat Group
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="approvechatgroup=='1'&&roleID=='2'"
+        routerLink="/GroupsApproveDashboard">
+        &nbsp;&nbsp;Approve Chat Group
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="viewchatgroup=='1'&&roleID=='2'" routerLink="/ViewGroup">
+        &nbsp;&nbsp;View Chat Group
+      </a>
+    </div>
+
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="visitorrequest=='1'&&roleID=='2'"
+      data-target="#VisitorRequestForAdmin">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Visitor Request
+    </a>
+    <div id="VisitorRequestForAdmin" class="collapse" *ngIf="visitorrequest=='1'&&roleID=='2'"
+      style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/VisitorRequestForAdmin">
+        <i class="fa fa-user"></i>&nbsp;&nbsp; Visitor Request
+      </a>
+    </div>
+
+
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="masters=='1'&&roleID=='2'" data-target="#master">
+      <i class="fa fa-user"></i>&nbsp;&nbsp;Masters
+    </a> -->
+
+    <div id="master" class="collapse" style="padding-left: 7%;">
+      <!-- <a class="tablinks" (click)="openCity($event)" routerLink="/InventoryItemDashboard">
+                &nbsp;&nbsp; Inventory Items
+            </a> -->
+      <!-- <a class="tablinks" (click)="openCity($event)" routerLink="/AssetDashboard">
+                &nbsp;&nbsp; Asset Type
+            </a>
+
+            <a class="tablinks" (click)="openCity($event)" routerLink="/ExpenseTypeDashboard">
+                &nbsp;&nbsp; Expense Type
+            </a> -->
+      <!-- <a class="tablinks" (click)="openCity($event)" *ngIf="holidaylist=='1'&&roleID=='2'"
+        routerLink="/HolidayListDashboard">
+        &nbsp;&nbsp; Holiday List
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="leavetype=='1'&&roleID=='2'"
+        routerLink="/LeaveTypeDashboard">
+        &nbsp;&nbsp; Leave Type
+      </a> -->
+
+      <!-- <a class="tablinks" (click)="openCity($event)" routerLink="/ProjectIDTypeDashboard">
+                &nbsp;&nbsp; Project ID Type
+            </a> -->
+      <!-- <a class="tablinks" (click)="openCity($event)" *ngIf="projectslst=='1'&&roleID=='2'"
+        routerLink="/ProjectListDashboard">
+        &nbsp;&nbsp;Project List
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="designationtype=='1'&&roleID=='2'"
+        routerLink="/DesignationDashboard">
+        &nbsp;&nbsp; Designation Type
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="departmentmaster=='1'&&roleID=='2'"
+        routerLink="/DepartmentMasterDashboard">
+        &nbsp;&nbsp; Department Master
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="latepunchin=='1'&&roleID=='2'"
+        routerLink="/LatePunchInDashbaord">
+        &nbsp;&nbsp; Late Punch-In
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="appraisalcycle=='1'&&roleID=='2'"
+        routerLink="/AppraisalCycleDashboard">
+        &nbsp;&nbsp; Appraisal Cycle
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="keyresultarea=='1'&&roleID=='2'"
+        routerLink="/KeyResultAreaDashboard">
+        &nbsp;&nbsp; Key Result Area
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="kpi=='1'&&roleID=='2'"
+        routerLink="/PerformanceIndicatorDashboard">
+        &nbsp;&nbsp; KPI
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="employeekramapping=='1'&&roleID=='2'"
+        routerLink="/Employeekramappingdashboard">
+        &nbsp;&nbsp; Employee KRA Mapping
+      </a> -->
+
+    </div>
+
+
+    <!------------------------------------------- Staff Login ------------------------------------------------------>
+    <!-- <a class="tablinks" (click)="openCity($event)" routerLink="/Myprojects" *ngIf="roleID=='3'&&myproject=='1'">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; My Project
+      &nbsp;&nbsp;
+    </a>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='3'&&mydetails=='1'" data-target="#employee"
+      routerLink="/LoginDashboard">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; My Details
+    </a> -->
+
+    <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='3'" routerLink="/ScheduledInterviews">
+      <i class="fa fa-user"></i> &nbsp;&nbsp; Scheduled Interviews
+    </a>
+    <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='3'" routerLink="/StaffCalender">
+      <i class="fa fa-user"></i> &nbsp;&nbsp; Calender
+    </a>
+
+
+    <!-- <div id="employee" class="collapse" style="padding-left: 7%;"> -->
+      <!-- <a class="tablinks" (click)="openCity($event)" routerLink="/Home">
+                <img src="assets/images/common.png" style="width: 20px;" />&nbsp; Home
+            </a> -->
+      <!-- <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='3'&&myattendence=='1'"
+        routerLink="/StaffAttendance">
+        &nbsp;&nbsp; My Attendance
+      </a>
+      <br>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='3'&&leaves=='1'" routerLink="/LeaveRequests">
+        &nbsp;&nbsp; Leave
+      </a>
+      <br> -->
+      <!-- <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='3'" routerLink="/LocatorRequests">
+                &nbsp;&nbsp; Locator
+            </a> -->
+      <!-- <br>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='3'&&timesheets=='1'" routerLink="/TimeSheets">
+        &nbsp;&nbsp; Timesheet
+      </a>
+      <br> -->
+      <!-- <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='3'" routerLink="/Expenses">
+                &nbsp;&nbsp; Expense
+            </a>
+            <br> -->
+      <!-- <a class="tablinks" (click)="openCity($event)" routerLink="/StaffPayRoll">
+                &nbsp;&nbsp; Payroll
+            </a> -->
+      <!-- <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='3'" routerLink="/TravelRequest">
+                &nbsp;&nbsp; Travel Request
+            </a> -->
+      <!-- <br>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='3'&&workschedule=='1'"
+        routerLink="/WorkPlaceRequest">
+        &nbsp;&nbsp; Work Schedule
+      </a>
+      <br> -->
+
+
+
+      <!-- <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='3'" routerLink="/VisitorRequestDashboard">
+                &nbsp;&nbsp; Visitor Request
+            </a> -->
+      <!-- <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='3'" routerLink="/AssetsDashboard">
+                &nbsp;&nbsp; Assets
+            </a>
+
+            <a class="tablinks" (click)="openCity($event)" routerLink="/BorrowingsDashboardForStaff">
+                &nbsp;&nbsp; Borrowings
+            </a>
+            <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='3'" routerLink="/TransportRequestDashboard">
+                &nbsp;&nbsp; Transport Request
+            </a> -->
+      <!-- <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='3'" routerLink="/TechnologyRequestDashboard">
+                &nbsp;&nbsp; Technology Request
+            </a> -->
+      <!-- <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='3'" routerLink="/StaffLookUpDashboard">
+                &nbsp;&nbsp; Staff LookUp
+            </a> -->
+
+      <!-- <a class="tablinks" (click)="openCity($event)" routerLink="/EventsDashboard">
+                &nbsp;&nbsp; Events
+            </a> -->
+<!-- 
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='3'&&announcements=='1'"
+        routerLink="/UpcomingAnnouncementsDashboardForStaff">
+        &nbsp;&nbsp; Announcements
+      </a> -->
+      <!-- <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='3'" routerLink="/Feedback">
+                &nbsp;&nbsp; Feedback
+            </a> -->
+      <!-- <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='3'" routerLink="/ChatForStaff">
+                &nbsp;&nbsp; Staff Chat
+            </a> -->
+    <!-- </div> -->
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='3'&&appraisal=='1'" data-target="#Appresal">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Appraisal
+    </a>
+    <div id="Appresal" class="collapse" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='3'&&myappraisal=='1'" routerLink="/SelfRatingDash">
+        &nbsp;&nbsp; My Appraisal
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='3'&&staffappraisal=='1'" routerLink="/Approver1ratingdashboard">
+        &nbsp;&nbsp; Staff Appraisal
+      </a>
+    </div> -->
+   
+
+    <!------------------------------------------ Manager Login --------------------------------------------------->
+    <a class="tablinks" (click)="openCity($event)" routerLink="/Myprojects" *ngIf="roleID=='4'&&myproject==1">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; My Project
+      &nbsp;&nbsp;
+    </a>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='4'&&appraisal=='1'" data-target="#Appresal">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Appraisal
+    </a>
+    <div id="Appresal" class="collapse" style="padding-left: 7%;" *ngIf="roleID=='4'&&appraisalcycle=='1'">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/AppraisalCycleDashboard">
+        &nbsp;&nbsp; Appraisal Cycle
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='4'&&keyresultarea=='1'"
+        routerLink="/KeyResultAreaDashboard">
+        &nbsp;&nbsp; Key Result Area
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='4'&&kpi=='1'"
+        routerLink="/PerformanceIndicatorDashboard">
+        &nbsp;&nbsp; KPI
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='4'&&employeekramapping=='1'"
+        routerLink="/Employeekramappingdashboard">
+        &nbsp;&nbsp; Employee KRA Mapping
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='4'&&myappraisal=='1'" routerLink="/SelfRatingDash">
+        &nbsp;&nbsp; My Appraisal
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='4'&&staffappraisal=='1'"
+        routerLink="/Approver1ratingdashboard">
+        &nbsp;&nbsp; Staff Appraisal
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='4'&&staffappraisalreports=='1'"
+        routerLink="/StaffScoreReport">
+        &nbsp;&nbsp; Appraisal Reports
+      </a>
+      <!-- <a class="tablinks" (click)="openCity($event)" routerLink="/AppraisalReports">
+        &nbsp;&nbsp; Appraisal Reports
+      </a> -->
+    </div>
+
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='4'&&myattendence=='1'"
+      data-target="#staffAttendance">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Attendance
+    </a>
+    <div id="staffAttendance" class="collapse" *ngIf="roleID=='4'&&myattendence=='1'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/ManagerStaffAttendanceDashboard">
+        &nbsp;&nbsp;My Attendance
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='4'&&myattendence=='1'"
+        routerLink="/AllStaffAttendanceDashboard">
+        &nbsp;&nbsp;Staff Attendance
+      </a>
+    </div>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='4'&&workschedule=='1'"
+      data-target="#WorkSpacemanagerEmployee">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Work Schedule
+    </a>
+
+    <div id="WorkSpacemanagerEmployee" class="collapse" *ngIf="roleID=='4'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/WorkSpaceDashboardForManager">
+        &nbsp;&nbsp; My Work Schedule
+      </a>
+      <a class="tablinks" (click)="openCity($event)" routerLink="/WorkPlaceRequest">
+        &nbsp;&nbsp; My Team Work Schedule
+      </a>
+    </div>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='4'&&timesheets=='1'"
+      data-target="#TimeSheetsForManager">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Time Sheets
+    </a>
+    <div id="TimeSheetsForManager" class="collapse" *ngIf="roleID=='4'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/TimeSheetsForManager">
+        &nbsp;&nbsp; My Time Sheets
+      </a>
+      <a class="tablinks" (click)="openCity($event)" routerLink="/TimeSheets">
+        &nbsp;&nbsp; My Team Time Sheets
+      </a>
+    </div>
+
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='4'&&leave=='1'" data-target="#staffLeave">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Leave
+    </a>
+    <div id="staffLeave" class="collapse" *ngIf="roleID=='4'&&leave=='1'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='4'&&myleave=='1'"
+        routerLink="/ManagerLeaveDashboard">
+        &nbsp;&nbsp;
+        My Leave
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='4'&&mystaffleave=='1'"
+        routerLink="/AppliedStaffLeaveDashboard">
+        &nbsp;&nbsp;
+        Team Leave
+      </a>
+      <br>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='4'&&approvedleave=='1'"
+        routerLink="/StaffLeaveDashboard">
+        &nbsp;&nbsp; Approved Leave
+      </a>
+      <br>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='4'&&rejectedleave=='1'"
+        routerLink="/RejectedStaffLeaveDashboard">
+        &nbsp;&nbsp; Rejected Leave
+      </a>
+    </div>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='4'&&announcements=='1'"
+      data-target="#announcements">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Announcements
+    </a>
+    <div id="announcements" class="collapse" *ngIf="roleID=='4'&&upcomingannounsements=='1'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/UpcomingAnnouncementsDashboardForManager">
+        &nbsp;&nbsp; Upcoming Announcements
+      </a>
+
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='4'&&completedannounsements=='1'"
+        routerLink="/AnnouncementsDashboard">
+        &nbsp;&nbsp; Completed Announcements
+      </a>
+    </div>
+
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='4'" data-target="#managerEmployee">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; My Team Staff
+    </a>
+    <div id="managerEmployee" class="collapse" *ngIf="roleID=='4'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/MyStaffDashboard">
+        &nbsp;&nbsp; Staff
+      </a>
+    </div>
+
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='4'" data-target="#AssignedTask">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; Task
+        </a>
+        <div id="AssignedTask" class="collapse" *ngIf="roleID=='4'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/AssignedTaskDashboard">
+                &nbsp;&nbsp; Assigned Task
+            </a>
+            <a class="tablinks" (click)="openCity($event)" routerLink="/CompletedTaskDashboard">
+                &nbsp;&nbsp; Completed Task
+            </a>
+        </div> -->
+
+
+
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='4'"
+            data-target="#VisitorRequestDashboardForManager">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; Visitor Request
+        </a>
+        <div id="VisitorRequestDashboardForManager" class="collapse" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/VisitorRequestDashboardForManager">
+                &nbsp;&nbsp; Visitor Request
+            </a>
+        </div> -->
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='4'" data-target="#staffLocator">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; Locator
+        </a>
+        <div id="staffLocator" class="collapse" *ngIf="roleID=='4'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/ManagerLocatorDashboard">
+                &nbsp;&nbsp; My Locator
+            </a>
+            <a class="tablinks" (click)="openCity($event)" routerLink="/TeamLocatorDashboardForManager">
+                &nbsp;&nbsp; Team Locator
+            </a>
+            <a class="tablinks" (click)="openCity($event)" routerLink="/LocatorDashboard">
+                &nbsp;&nbsp; Approved
+            </a>
+            <br>
+            <a class="tablinks" (click)="openCity($event)" routerLink="/RejectLocatorDashboardForManager">
+                &nbsp;&nbsp; Rejected
+            </a>
+            <br>
+        </div> -->
+
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='4'" data-target="#staffExpenses">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; Expenses
+        </a>
+        <div id="staffExpenses" class="collapse" *ngIf="roleID=='4'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/ManagerExpenseDashboard">
+                &nbsp;&nbsp; My Expense
+            </a>
+            <a class="tablinks" (click)="openCity($event)" routerLink="/RasiedExpenseForManagerDashboard">
+                &nbsp;&nbsp; Team Raised Expense
+            </a>
+            <a class="tablinks" (click)="openCity($event)" routerLink="/ApprovedStaffExpenseForManagerDashbaord">
+                &nbsp;&nbsp; Team Approved Expense
+            </a>
+            <br>
+            <a class="tablinks" (click)="openCity($event)" routerLink="/RejectedStaffExpenseForManagerDashboard">
+                &nbsp;&nbsp; Team Rejected Expense
+            </a>
+            <br>
+        </div> -->
+
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='4'" data-target="#ManagerCommunication">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; Communication
+        </a>
+        <div id="ManagerCommunication" class="collapse" *ngIf="roleID=='4'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/Addgroup">
+                &nbsp;&nbsp;Create Chat Group
+            </a>
+            <a class="tablinks" (click)="openCity($event)" routerLink="/GroupsApproveDashboard">
+                &nbsp;&nbsp;Approve Chat Group
+            </a>
+            <a class="tablinks" (click)="openCity($event)" routerLink="/ViewGroup">
+                &nbsp;&nbsp;View Chat Group
+            </a>
+        </div> -->
+
+
+
+
+
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='4'" data-target="#events">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; Events
+        </a>
+        <div id="events" class="collapse" *ngIf="roleID=='4'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/UpComingEventsDashboardForManager">
+                &nbsp;&nbsp; UpComing Events
+            </a>
+
+            <a class="tablinks" (click)="openCity($event)" routerLink="/EventsDashboard">
+                &nbsp;&nbsp; Completed Events
+            </a>
+        </div> -->
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='4'" data-target="#StaffLeave">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; All Satff Leave
+        </a>
+        <div id="StaffLeave" class="collapse" *ngIf="roleID=='4'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/StaffLeaveDetailsDashboard">
+                &nbsp;&nbsp;
+                All Staff Leave
+            </a>
+        </div> -->
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='4'" data-target="#AssetsManager">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; Assets
+        </a>
+        <div id="AssetsManager" class="collapse" *ngIf="roleID=='4'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='4'" routerLink="/AssetsDashboard">
+                &nbsp;&nbsp; Assets
+            </a>
+        </div>
+
+        <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='4'" data-target="#MRFeedback">
+            <i class="fa fa-user"></i>&nbsp;&nbsp;Feedback
+        </a>
+        <div id="MRFeedback" class="collapse" *ngIf="roleID=='4'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='4'" routerLink="/Feedback">
+                &nbsp;&nbsp; Feedback
+            </a>
+        </div> -->
+
+
+    <!------------------------------------------------ Finance Login ----------------------------------------------------------------->
+
+    <a class="tablinks" (click)="openCity($event)" routerLink="/HRProfile" *ngIf="roleID=='5'&&profile=='1'">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Profile
+      &nbsp;&nbsp;
+    </a>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='5'&&timesheets=='1'"
+      data-target="#TimeSheetForFinance">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Time Sheet
+    </a>
+    <div id="TimeSheetForFinance" class="collapse" *ngIf="roleID=='5'&&timesheets=='1'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/TimeSheetForFinance">
+        &nbsp;&nbsp; Time Sheet
+      </a>
+    </div>
+
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="expenses=='1'" data-target="#financeasset">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Expenses
+    </a>
+    <div id="financeasset" class="collapse" *ngIf="myexpence=='1'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/AccountsExpenseDashboard">
+        &nbsp;&nbsp; My Expense
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="companyexpense=='1'"
+        routerLink="/ExpensesDashboardForFinance">
+        &nbsp;&nbsp; Company Expense
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="staffexpense=='1'" routerLink="/AllRaisedExpense">
+        &nbsp;&nbsp; Staff Expense
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="inventorypurchase=='1'"
+        routerLink="/InventoryNamePurchaseDetailsDashboard">
+        &nbsp;&nbsp; Inventory Purchase Details
+      </a>
+
+      <a class="tablinks" (click)="openCity($event)" *ngIf="teamraisedexpnce=='1'"
+        routerLink="/RasiedExpenseForFinanceDashboard">
+        &nbsp;&nbsp; Team Raised Expense
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="teamapprovedexpense=='1'"
+        routerLink="/ApprovedStaffExpenseForFinanceDashbaord">
+        &nbsp;&nbsp; Team Approved Expense
+      </a>
+      <br>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="teamrejectedexpense=='1'"
+        routerLink="/RejectedStaffExpenseForFinanceDashboard">
+        &nbsp;&nbsp; Team Rejected Expense
+      </a>
+      <br>
+    </div>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='5'&&vendor=='1'"
+      data-target="#VendorDashboardforfinance">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Vendor
+    </a>
+    <div id="VendorDashboardforfinance" class="collapse" style="padding-left: 7%;" *ngIf="roleID=='5'&&vendor=='1'">
+
+      <a class="tablinks" (click)="openCity($event)" routerLink="/VendorDashboard">
+        &nbsp;&nbsp; Vendor
+      </a>
+    </div>
+
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='5'&&projectlist=='1'"
+      data-target="#ProjectListForFinance">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Add/Remove Project
+    </a>
+    <div id="ProjectListForFinance" class="collapse" *ngIf="roleID=='5'&&projectlist=='1'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/ProjectListForAdmin">
+        &nbsp;&nbsp; Project List
+      </a>
+
+    </div>
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='5'" data-target="#financestaffAttendance">
+          <i class="fa fa-user"></i>&nbsp;&nbsp; All Attendance
+        </a> -->
+    <div id="financestaffAttendance" class="collapse" *ngIf="roleID=='5'&&myattendence=='1'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/ManagerStaffAttendanceDashboard">
+        &nbsp;&nbsp; Attendance
+      </a>
+    </div>
+
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='5'&&leave=='1'"
+      data-target="#financeHRstaffLeave">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Leave
+    </a>
+    <div id="financeHRstaffLeave" class="collapse" *ngIf="roleID=='5'&&myleave=='1'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/FinanceLeaveDashboard">
+        &nbsp;&nbsp;
+        My Leave
+      </a>
+      <!-- <a class="tablinks" (click)="openCity($event)" routerLink="/AppliedStaffLeaveDashboardForFinance">
+            &nbsp;&nbsp;
+            Team Leave
+          </a>
+          <a class="tablinks" (click)="openCity($event)" routerLink="/ApprovedStaffLeaveDashboardForFinance">
+            &nbsp;&nbsp;
+            Approved Leave
+          </a>
+          <a class="tablinks" (click)="openCity($event)" routerLink="/RejectedStaffLeaveDashboardForFinance">
+            &nbsp;&nbsp;
+            Rejected Leave
+          </a> -->
+    </div>
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='5'" data-target="#AllStaffLeaveForFinance">
+          <i class="fa fa-user"></i>&nbsp;&nbsp; All Staff Leave
+        </a>
+        <div id="AllStaffLeaveForFinance" class="collapse" *ngIf="roleID=='5'" style="padding-left: 7%;">
+          <a class="tablinks" (click)="openCity($event)" routerLink="/AllStaffLeaveForFinance">
+            &nbsp;&nbsp;All Staff Leave
+          </a>
+        </div> -->
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='5'"
+          data-target="#AllLocatorDashboardForFinance">
+          <i class="fa fa-user"></i>&nbsp;&nbsp; All Staff Locator Request
+        </a>
+        <div id="AllLocatorDashboardForFinance" class="collapse" *ngIf="roleID=='5'" style="padding-left: 7%;">
+          <a class="tablinks" (click)="openCity($event)" routerLink="/AllLocatorDashboardForFinance">
+            &nbsp;&nbsp; All Staff Locator Request
+          </a>
+        </div> -->
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='5'" data-target="#AllRaisedExpense">
+          <i class="fa fa-user"></i>&nbsp;&nbsp; All Staff Expense
+        </a>
+        <div id="AllRaisedExpense" class="collapse" *ngIf="roleID=='5'" style="padding-left: 7%;">
+          <a class="tablinks" (click)="openCity($event)" routerLink="/AllRaisedExpense">
+            &nbsp;&nbsp; All Staff Expense
+          </a>
+        </div> -->
+
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='5'&&announcements=='1'"
+      data-target="#financeannouncements">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Announcements
+    </a>
+    <div id="financeannouncements" class="collapse" *ngIf="roleID=='5'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='5'&&upcomingannounsements=='1'"
+        routerLink="/UpcomingAnnouncementsDashboardForFinance">
+        &nbsp;&nbsp; Upcoming Announcements
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='5'&&completedannounsements=='1'"
+        routerLink="/AnnouncementsDashboardForHR">
+        &nbsp;&nbsp; Completed Announcements
+      </a>
+    </div>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='5'" data-target="#financeworkplacerequset">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Work Place Request
+    </a>
+    <div id="financeworkplacerequset" class="collapse" *ngIf="roleID=='5'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/WorkPlaceRequest">
+        &nbsp;&nbsp; Work Place Request
+      </a>
+    </div>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='5'&&visitorrequest=='1'"
+      data-target="#financeVisitorRequest">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Visitor Request
+    </a>
+    <div id="financeVisitorRequest" class="collapse" *ngIf="roleID=='5'&&visitorrequest=='1'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/VisitorRequestDashboard">
+        &nbsp;&nbsp; Visitor Request
+      </a>
+    </div>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='5'&&assets=='1'" data-target="#financeAssets">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Assets
+    </a>
+    <div id="financeAssets" class="collapse" *ngIf="roleID=='5'&&assets=='1'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/AssetsDashboard">
+        &nbsp;&nbsp; Assets
+      </a>
+    </div>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='5'&&borrowings=='1'"
+      data-target="#financeBorrowings">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Borrowings
+    </a>
+    <div id="financeBorrowings" class="collapse" *ngIf="roleID=='5'&&borrowings=='1'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/BorrowingsDashboard">
+        &nbsp;&nbsp; Borrowings
+      </a>
+    </div>
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='5'" data-target="#financestaffLookUP">
+          <i class="fa fa-user"></i>&nbsp;&nbsp; Staff LookUp
+        </a>
+        <div id="financestaffLookUP" class="collapse" *ngIf="roleID=='5'" style="padding-left: 7%;">
+          <a class="tablinks" (click)="openCity($event)" routerLink="/StaffLookUpDashboard">
+            &nbsp;&nbsp;
+            Staff LookUp
+          </a>
+        </div> -->
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='5'&&feedback=='1'"
+      data-target="#FeedbackDahsboardForFinance">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Feedback
+    </a>
+    <div id="FeedbackDahsboardForFinance" class="collapse" *ngIf="roleID=='5'&&feedback=='1'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/FeedbackDahsboardForReceptionist">
+        &nbsp;&nbsp; Raised By
+      </a>
+    </div>
+<!-- 
+    <a class="tablinks" (click)="openCity($event)"  routerLink="/MenuMappingdash">
+      &nbsp;&nbsp; Role Menu Mapping
+    </a> -->
+
+
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='5'" data-target="#financeEvents">
+          <i class="fa fa-user"></i>&nbsp;&nbsp; Events
+        </a>
+        <div id="financeEvents" class="collapse" *ngIf="roleID=='5'" style="padding-left: 7%;">
+          <a class="tablinks" (click)="openCity($event)" routerLink="/UpComingEventsDashboardForFinance">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; UpComing Events
+          </a>
+
+          <a class="tablinks" (click)="openCity($event)" routerLink="/EventsDashboard">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; Completed Events
+          </a>
+        </div> -->
+
+    <!----------------------------------------------------Admin Login------------------------------------------------------------------->
+
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'&&timesheets=='1'"
+      data-target="#TimeSheetsForCEO">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Time Sheets
+    </a>
+    <div id="TimeSheetsForCEO" class="collapse" *ngIf="roleID=='1'&&timesheets=='1'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/TimeSheetsForCEO">
+        &nbsp;&nbsp; Time Sheets
+      </a>
+    </div>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'" data-target="#AllStaff">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; All Staff
+    </a>
+    <div id="AllStaff" class="collapse" *ngIf="roleID=='1'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/AllStaffForAdmin">
+        &nbsp;&nbsp;All Staff
+      </a>
+    </div>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="task=='1'" data-target="#TLTask">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Task
+    </a>
+    <div id="TLTask" class="collapse" *ngIf="assignedtask=='1'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/AssignedTaskForTLDashboard">
+        &nbsp;&nbsp; Assigned Task
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="completedtask=='1'"
+        routerLink="/CompletedTaskForTlDashboard">
+        &nbsp;&nbsp; Completed Task
+      </a>
+    </div>
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'" data-target="#adminchatgroup">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; Communication
+        </a>
+        <div id="adminchatgroup" class="collapse" *ngIf="roleID=='1'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/Addgroup">
+            &nbsp;&nbsp;Create Chat Group
+        </a>
+            <a class="tablinks" (click)="openCity($event)" routerLink="/JoingGroupChatForAdmin">
+                &nbsp;&nbsp; Join Group Chat
+            </a>
+            <br>
+        </div> -->
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'" data-target="#AllExpense">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; All Expense
+        </a>
+        <div id="AllExpense" class="collapse" *ngIf="roleID=='1'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/AllExpenseForAdmin">
+                &nbsp;&nbsp; Staff Expense
+            </a>
+            <a class="tablinks" (click)="openCity($event)" routerLink="/CompanyExpenseForAdmin">
+                &nbsp;&nbsp; Company Expense
+            </a>
+
+        </div> -->
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'" data-target="#AllStaffLeave">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; All Staff Leave
+    </a>
+    <div id="AllStaffLeave" class="collapse" *ngIf="roleID=='1'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/AllStaffLeaveForAdmin">
+        &nbsp;&nbsp;All Staff Leave
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='1'" routerLink="/AdminStaffLeave">
+        &nbsp;&nbsp; My Staff Leave
+      </a>
+
+
+    </div>
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'" data-target="#AllAssets">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; All Assets
+        </a>
+        <div id="AllAssets" class="collapse" *ngIf="roleID=='1'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/AllAssetsForAdmin">
+                &nbsp;&nbsp;All Assets
+            </a>
+        </div>
+
+        <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'" data-target="#AllVisitorRequestforAdmin">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; All Visitor
+        </a>
+        <div id="AllVisitorRequestforAdmin" class="collapse" *ngIf="roleID=='1'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/AllVisitorRequestforAdmin">
+                &nbsp;&nbsp; All Visitor
+            </a>
+        </div> -->
+
+    <!-- <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'"
+            data-target="#AllLocatorDashboardForAdmin">
+            <i class="fa fa-user"></i>&nbsp;&nbsp; All Locator
+        </a>
+        <div id="AllLocatorDashboardForAdmin" class="collapse" *ngIf="roleID=='1'" style="padding-left: 7%;">
+            <a class="tablinks" (click)="openCity($event)" routerLink="/AllLocatorDashboardForAdmin">
+                &nbsp;&nbsp;All Locator
+            </a>
+        </div> -->
+
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'" data-target="#WorkPlaceRequestForAdmin">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Work Place Request
+    </a>
+    <div id="WorkPlaceRequestForAdmin" class="collapse" *ngIf="roleID=='1'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/WorkPlaceRequestForAdmin">
+        &nbsp;&nbsp;Work Place Request
+      </a>
+    </div>
+
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'&&attendence=='1'"
+      data-target="#AttendanceDashboardForAdmin">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; All Staff Attendance
+    </a>
+    <div id="AttendanceDashboardForAdmin" class="collapse" *ngIf="roleID=='1'&&attendence=='1'"
+      style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/AttendanceDashboardForAdmin">
+        &nbsp;&nbsp; Attendance
+      </a>
+    </div>
+
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'&&events=='1'"
+      data-target="#EventsDashboardForAdmin">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Events
+    </a>
+    <div id="EventsDashboardForAdmin" class="collapse" *ngIf="roleID=='1'&&upcomingevents=='1'"
+      style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='1'&&upcomingevents=='1'"
+        routerLink="/UpcomingEventsDashboardForAdmin">
+        &nbsp;&nbsp; Upcoming Events
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='1'&&completedevents=='1'"
+        routerLink="/CompletedEventsDashboardForAdmin">
+        &nbsp;&nbsp; Completed Events
+      </a>
+    </div>
+
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'&&announcements=='1'"
+      data-target="#AnnouncementsDashboardForAdmin">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Announcements
+    </a>
+    <div id="AnnouncementsDashboardForAdmin" class="collapse" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='1'&&upcomingannounsements=='1'"
+        routerLink="/UpcomingAnnouncementsDashboardForAdmin">
+        &nbsp;&nbsp; Upcoming Announcements
+      </a>
+      <a class="tablinks" (click)="openCity($event)" *ngIf="roleID=='1'&&completedannounsements=='1'"
+        routerLink="/CompletedAnnouncementsDashboardForAdmin">
+        &nbsp;&nbsp; Completed Announcements
+      </a>
+    </div>
+    <a data-toggle="collapse" class="togglebtn button" *ngIf="roleID=='1'&&projectslst=='1'"
+      data-target="#ProjectListForAdmin">
+      <i class="fa fa-user"></i>&nbsp;&nbsp; Project List
+    </a>
+    <div id="ProjectListForAdmin" class="collapse" *ngIf="roleID=='1'&&projectslst=='1'" style="padding-left: 7%;">
+      <a class="tablinks" (click)="openCity($event)" routerLink="/ProjectListForAdmin">
+        &nbsp;&nbsp; Project List
+      </a>
+
+    </div>
+  </div>
+</div>

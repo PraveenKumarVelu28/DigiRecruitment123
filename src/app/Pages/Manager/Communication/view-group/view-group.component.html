@@ -1,0 +1,14 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3" *ngFor="let list of groupList" >
+         <div class="card" style="text-align: center;" >
+            <img src="{{list.photoUrl}}" style="    height: 20vh;
+            width: 100%;">
+            <br>
+            <h3 style="text-align: center;" style="font-size: 15px;">{{list.groupName}}</h3>
+            <buton type="button" style="color:rgb(57, 57, 168)" (click)="joinGroup(list.id)" [routerLink]="['/GroupChat',list.id]" ><u>Login</u></buton>
+         </div>
+          
+        </div>
+    </div>
+</div>

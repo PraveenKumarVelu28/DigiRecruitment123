@@ -1,0 +1,77 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/NewVendor">ADD</button>
+        </div>
+        <!-- <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+        </div> -->
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">VENDOR DASHBOARD</label>
+    <hr>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+        </div>
+        <div class="col-lg-6">
+
+        </div>
+        <div class="col-lg-3">
+            <h4 style="float:right">Count:{{count}}</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="NewRequest" class="tabcontent" >
+                <table style="overflow: scroll;display: block;overflow-x: auto;white-space: nowrap;">
+                    <tr>
+                        <th>Vendor Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Vendor Supply</th>
+                        <th>Account Number</th>
+                        <th>Account Type</th>
+                        <th>Bank Address</th>
+                        <th>Branch Name</th>
+                        <th>Payment Terms</th>
+                        <th>Action</th>
+                       
+                    </tr>
+                    <tr
+                        *ngFor="let list of vendorList|filter:search">
+                        
+                        <td>{{list.vendorName}}</td>
+                        <td>{{list.emailID}}</td>
+                        <td>{{list.phoneNo}}</td>
+                        <td>{{list.vendorSupply}}</td>
+                        <td>{{list.accountNumber}}</td>
+                        <td>{{list.accountType}}</td>
+                        <td>{{list.bankAddress}}</td>
+                        <td>{{list.branchName}}</td>
+                        <td>{{list.paymentTerms}}</td>
+                        <td>
+                            <img src="assets/images/activate.png" *ngIf="list.status=='Enabled' || list.status== null" tilte="Deactivate"
+                            style="width:50px;" (click)="DisableVendor(list.id)" />
+                        <img src="assets/images/deactivate.png" *ngIf="list.status=='Disabled'" style=" width:50px;"
+                            tilte="Activate" (click)="EnableVendor(list.id)" />
+                        </td>
+                        
+
+                        
+                    </tr>
+                </table>
+                <br>
+               
+            </div>
+        </div>
+        <br>
+    </div>
+</div>

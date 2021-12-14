@@ -1,0 +1,102 @@
+
+<div class="container-fluid card">
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <label class="page_SubHeading">GENERAL ASSET</label>
+            <hr> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Asset Type</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="assetTypeID" name="assetTypeID">
+                <option value="0" selected>Select Asset Type</option>
+                <option *ngFor="let list of assetTypeList" value="{{list.id}}">{{list.assetType}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Asset ID</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" name="assetID"  [(ngModel)]="assetID" placeholder="Asset ID">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Asset Name</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" name="assetName"  [(ngModel)]="assetName" placeholder="Asset Name">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Vendor name</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="vendorID" name="vendorID" >
+                <option value="0" selected>Select Vendor</option>
+                <option *ngFor="let list of vendorList" value="{{list.id}}">{{list.vendorName}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Purchase Date</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="date" class="form-control" [(ngModel)]="purchaseDate" name="purchaseDate">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Quantity</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" name="quantity"  [(ngModel)]="quantity" placeholder="Quantity">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Warranty Till Date</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="date" class="form-control" [(ngModel)]="warrantyTillDate" name="warrantyTillDate">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+         <button type="button" class="addbtn" *ngIf="paramID == undefined" (click)="InsertDetails()">Save</button>
+            <button type="button" class="addbtn" *ngIf="paramID != undefined" (click)="updatedetails()">Update</button> 
+        </div>
+    </div>
+    <br>
+</div>
+

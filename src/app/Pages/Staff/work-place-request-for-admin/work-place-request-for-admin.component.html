@@ -1,0 +1,80 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+      
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading"> WORK PLACE REQUEST DASHBOARD</label>
+    <hr>
+    
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" [(ngModel)]="Search" placeholder="Search...">
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="buildingID" name="buildingID" (change)="getbuildingID($event)">
+                <option value=0 selected>Select Building</option>
+                <option *ngFor="let list of buildingList" value="{{list.id}}">{{list.name}}</option>
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="project" name="project" (change)="getproject($event)">
+                <option value="0" selected>Select Project</option>
+                <option *ngFor="let list of projectlist" value="{{list.projectName}}">{{list.projectName}}</option>
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div>
+    </div>
+    <br>
+   
+    <br>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div>
+                <table>
+                    <tr>
+                     
+                        <th>Building</th>
+                        <!-- <th>Room Type</th> -->
+                        <th>Room Name</th>
+                        <th>Project</th>
+                        <th>Request For</th>
+                        <th>Start Date</th>
+                        <th>Start Time</th>
+                        <th>End Date</th>
+                        <th>End Time</th>
+                    </tr>
+                    <tr *ngFor="let list of workSpaceRequest|filter:Search">
+                       
+                        <td>{{list.buildingName}}</td>
+                        <!-- <td>{{list.workStationName}}</td> -->
+                        <td>Conference Room</td>
+                        <!-- <td>{{list.workSpaceID}}</td> -->
+                        <td>{{list.project}}</td>
+                        <td>{{list.requestFor}}</td>
+                        <td>{{list.startDate|date}}</td>
+                        <td>{{list.startTime}}</td>
+                        <td>{{list.endDate|date}}</td>
+                        <td>{{list.endTime}}</td>
+
+
+                    </tr>
+                </table>
+            </div>
+           
+        </div>
+    </div>
+    <br>
+</div>

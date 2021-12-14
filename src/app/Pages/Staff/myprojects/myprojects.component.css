@@ -1,0 +1,14 @@
+.packcard {
+    height: 66vh;
+    margin-top: 10%;
+    background-color: #ffff;
+    box-shadow: 1px 1px 5px 1px #cccccc;
+    border-radius: 10px;
+    text-align: left;
+    padding: 5%;
+}
+.maincard {
+    text-align: start;
+    height: 50vh;
+    overflow-y: auto;
+}

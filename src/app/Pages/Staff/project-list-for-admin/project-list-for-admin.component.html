@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/NewProject">New Project</button>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn">Export To Excel</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">PROJECT LIST DASHBOARD</label>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" [(ngModel)]="search" placeholder="Search...">
+        </div>
+        <div class="col-lg-6"></div>
+        <div class="col-lg-3">
+            <h4 style="float: right;">Count:{{count}}</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th>Project ID</th>
+                    <th>Project Name</th>
+                    <!-- <th>Project Type</th>
+                    <th>Project Status</th> -->
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+                <tr *ngFor="let list of projectList|filter:search">
+                    <td>{{list.projectCode}}</td>
+                    <td>{{list.projectName}}</td>
+                    <!-- <td>{{list.projectIDType}}</td>
+                    <td>{{list.projectStatus}}</td> -->
+                    <td>{{list.description}}</td>
+                    <td>
+                        <img src="assets/images/edit.png" title="Update" [routerLink]="['/NewProject',list.id]"
+                            style="width: 20px;"> &nbsp;
+                        <img src="assets/images/dell.png" style="width: 20px;" (click)="Delete(list.id)">
+                        <img src="assets/images/activate.png" *ngIf="list.status!='Ongoing' || list.status=='Enabled'" tilte="Deactivate"
+                        style="width:50px;" (click)="DisableProjectMaster(list.id)" />
+                    <img src="assets/images/deactivate.png" *ngIf="list.status=='Ongoing' || list.status=='Disabled'" style=" width:50px;"
+                        tilte="Activate" (click)="EnableProjectMaster(list.id)" />
+                    <br>&nbsp;&nbsp;&nbsp;
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+</div>

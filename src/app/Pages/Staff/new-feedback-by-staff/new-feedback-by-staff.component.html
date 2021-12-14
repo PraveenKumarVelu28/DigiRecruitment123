@@ -1,0 +1,65 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h6>FEEDBACK</h6>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Staff Name</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Staff Name" [(ngModel)]="staffName" name="staffName">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Building</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="buildingID" name="buildingID" >
+                <option value="0" selected>Select Building</option>
+                <option *ngFor="let list of buildinglist" value="{{list.id}}">{{list.name}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Attachment</label>
+        </div>
+        <div class="col-lg-5">
+            <ngx-dropzone (change)="onBrochureUpload($event)">
+                <ngx-dropzone-label>Drag and drop file here</ngx-dropzone-label>
+            </ngx-dropzone>
+        </div>
+        <div class="col-lg-4" *ngIf="paramID == undefined">
+            <img src="{{photoUrl}}" style="height: 100px;">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Request For</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Request For" [(ngModel)]="requestFor" name="requestFor">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" *ngIf="paramID==undefined"(click)="InsertDetails()">Save</button>
+            <button type="button" class="addbtns" *ngIf="paramID!=undefined">Update</button> 
+        </div>
+        <div class="col-lg-5"></div>
+    </div>
+    <br>
+</div>

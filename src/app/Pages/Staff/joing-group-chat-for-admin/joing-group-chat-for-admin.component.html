@@ -1,0 +1,62 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+        </div>
+    </div>
+</div>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">JOIN GROUPS</label>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th>Group Name</th>
+                    <th>Created Date</th>
+                    <th>Action</th>
+                </tr>
+                <tr *ngFor="let list of chatGroupList|filter:search">
+                    <td>{{list.groupName}}</td>
+                    <td>{{list.modifiedDate|date}}</td>
+
+                   
+                    <td>
+                        <button class="btn primary btn-xs" (click)="joinGroup(list.id)" [routerLink]="['/GroupChatForAdmin',list.id]" >Join Group</button>&nbsp;
+                       
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+</div>
+
+
+
+<!-- <div class="container">
+    <div class="messages">
+      <p
+        *ngFor="let message of messages"
+        [ngClass]="{ ownMessage: message.sender.uid === currentUser.uid }"
+      >
+        <i>{{ message.sender.uid }}</i> <br/> {{ message.text }}
+      </p>
+    </div>
+  
+    <div class="messageInput">
+      <input type="text" placeholder="enter a text message" #messageText />
+      <button (click)="sendMessage(messageText.value); messageText.value = ''">
+        Send
+      </button>
+    </div>
+  </div> -->

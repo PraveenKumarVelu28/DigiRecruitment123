@@ -1,0 +1,74 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-10">
+    </div>
+    <div class="col-lg-2">
+      <button type="button" class="addbtn" routerLink="/Employeekramapping">ADD</button>
+    </div>
+  </div>
+</div>
+<br>
+<div class="container-fluid card">
+  <br>
+  <label class="page_SubHeading">Employee KRA Mapping Dashboard</label>
+  <hr>
+  <div class="row">
+    <div class="col-lg-3">
+      <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+    </div>
+    <div class="col-lg-3">
+      <select class="form-control" [(ngModel)]="staffid" name="staffid" (change)="getstaffID($event)">
+        <option value="0" selected>Select Staff</option>
+        <option *ngFor="let list of staffList" value="{{list.id}}">{{list.name}}</option>
+      </select>
+    </div>
+    <div class="col-lg-3">
+      <select class="form-control"  (change)="GetAppraiselID($event)">
+        <option value="0" selected>Select Appraisal</option>
+        <option *ngFor="let list of kraList" value="{{list.id}}">{{list.appraiselCycleName}}</option>
+      </select>
+
+    </div>
+    <div class="col-lg-1">
+
+    </div>
+    <div class="col-lg-2">
+      <h6>Count : {{count}}</h6>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-12">
+      <table>
+        <tr>
+          <th>Action</th>
+          <th>Appraisal Cycle Name</th>
+          <th>Staff</th>
+          <th>KRA</th>
+          <!-- <th>Start Date</th>
+          <th>End Date</th> -->
+          <th>Submission Date</th>
+          <th>Approver 1</th>
+          <th>Approver 2</th>
+          <th>Approver 3</th>
+        </tr>
+        <tr *ngFor="let list of mappedProjectList|filter:search">
+          <td>
+            <img src="assets/images/dell.png" style="width: 20px;"
+              (click)="DeleteWorkplaceRequest(list.id)">&nbsp;&nbsp;
+          </td>
+          <td>{{list.appraiselCycleName}}</td>
+          <td>{{list.name}}</td>
+          <td>{{list.kraName}}</td>
+          <!-- <td>{{list.cycleStartDate|date}}</td>
+          <td>{{list.cycleEndDate|date}}</td> -->
+          <td>{{list.appraisalSubmitionDate|date}}</td>
+          <td>{{list.approvers1}}</td>
+          <td>{{list.approvers2}}</td>
+          <td>{{list.approvers3}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <br>
+</div>

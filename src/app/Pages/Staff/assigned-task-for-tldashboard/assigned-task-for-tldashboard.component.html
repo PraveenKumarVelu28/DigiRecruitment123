@@ -1,0 +1,81 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="appliedexportexcel()">Export To Excel</button>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/AssignedTaskByManager/s">Add Task</button>
+        </div> 
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">ASSIGN TASK DASHBOARD</label>
+    <hr>
+
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" [(ngModel)]="Search" placeholder="Search...">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="managerStaffID" name="managerStaffID"
+            (change)="getstaffID($event)">
+            <option value="0" selected>Select Employee</option>
+            <option *ngFor="let list of staffList" value="{{list.id}}">{{list.name}}</option>
+        </select>   
+        </div>
+        <div class="col-lg-3">
+            <h4 style="float:right">Count : {{count}}</h4>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th>Staff Name</th>
+                    <th>Task</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Notes</th>
+                    <th>Status</th>
+                    <th>Aging</th>
+                    <th>Action</th>
+                </tr>
+
+                <!-- <tr *ngFor="let project of FilteredProjectTimelineLists | filter:Block" [class.bgred]="project.text=='0' && project.accomplishment!='100'" [class.bggreen]="project.text=='1' && project.accomplishment=='100'"> -->
+                
+                    <tr  *ngFor= "let list of filteredtaskList|filter:Search">
+                    <td  [ngStyle]="{'background-color': list.bgcolor}">{{list.name}}</td>
+                    <td  [ngStyle]="{'background-color': list.bgcolor}">{{list.taskName}}</td>
+                    <td  [ngStyle]="{'background-color': list.bgcolor}">{{list.startDate|date}}</td>
+                    <td  [ngStyle]="{'background-color': list.bgcolor}">{{list.endDate|date}}</td>
+                    <td  [ngStyle]="{'background-color': list.bgcolor}">{{list.notes}}</td>
+                    <td  [ngStyle]="{'background-color': list.bgcolor}">{{list.status}}</td>
+                    <td  [ngStyle]="{'background-color': list.bgcolor}">{{list.aging}}</td>
+                    <td [ngStyle]="{'background-color': list.bgcolor}">
+                        <img src="assets/images/edit.png" (click)="copy(list,'e')" style="width: 20px;">&nbsp;
+                        <img src="assets/images/dell.png" style="width: 20px;"
+                            (click)="Delete(list.id)">
+                            <br>
+                            <br>
+                        <button type="button" class="btn btn-primary " (click)="copy(list,'s')"
+                            data-toggle="modal" data-target="#myModal">COPY</button>
+                    </td>
+                </tr>
+            </table>
+
+            <br>
+        </div>
+    </div>
+</div>

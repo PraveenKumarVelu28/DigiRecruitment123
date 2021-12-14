@@ -1,0 +1,59 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/GeneralAsset">ADD</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">GENERAL ASSET DASHBOARD</label>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..."[(ngModel)]="search">
+        </div>
+        <div class="col-lg-6"></div>
+        <div class="col-lg-3">
+            <h4 style="float:right">Count:{{count}}</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th >Asset Type </th>
+                    <th >Asset ID </th>
+                    <th >Asset Name </th>
+                    <th >Purchase Date</th>
+                    <th >Vendor Name</th>
+                    <th >Email ID</th>
+                    <th >Phone Number</th>
+                    <th >WarrantyTillDate</th>
+                    <th>Action</th>
+                </tr>
+                <tr *ngFor="let list of expenseList|filter:search">
+                    <td>{{list.assetType}}</td>
+                    <td>{{list.assetID}}</td>
+                    <td>{{list.assetName}}</td>
+                    <td>{{list.purchaseDate}}</td>
+                    <td>{{list.vendorName}}</td>
+                    <td>{{list.vendorEmailID}}</td>
+                    <td>{{list.vendorPhoneNo}}</td>
+                    <td>{{list.warrantyTillDate}}</td>
+                    <td>
+                        <img src="assets/images/edit.png"  [routerLink]="['/GeneralAsset',list.id]" style="width: 20px;">&nbsp;
+                        <img src="assets/images/dell.png" style="width: 20px;" (click)="Delete(list.id)">
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+</div>

@@ -1,0 +1,172 @@
+<div class="container-fluid card">
+  <br>
+  <div class="row">
+    <div class="col-lg-12">
+      <label class="page_SubHeading">WORK ALLOCATION</label>
+      <hr>
+    </div>
+  </div>
+  <!-- <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Building</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="buildingID" name="buildingID" (change)="getBuildingID($event)">
+                <option selected value=0>Select Building</option>
+                <option *ngFor="let list of buildingList" value="{{list.id}}">{{list.name}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Floor</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="floorID" name="floorID" (change)="getFloorID($event)">
+                <option selected value=0>Select Floor</option>
+                <option *ngFor="let list of floorList" value="{{list.id}}">{{list.floor}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Type</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="roomTypeID" name="roomTypeID" (change)="getRoomTypeID($event)">
+                <option selected value=0>Select Type </option>
+                <option *ngFor="let list of roomTypeList" value="{{list.id}}">{{list.short}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Conference Room</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="workSpaceID" name="workSpaceID">
+                <option selected value=0>Select Conference Room </option>
+                <option *ngFor="let list of conferenceRoomList" value="{{list.id}}">{{list.workSpaceID}}</option>
+            </select>
+        </div>
+    </div>
+    <br> -->
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>Project</label>
+    </div>
+    <div class="col-lg-4">
+      <select class="form-control" [(ngModel)]="projectName" name="projectName" id="projectName">
+        <option selected value=0>Select Project</option>
+        <option *ngFor="let list of projectList1" value="{{list.projectName}}">{{list.projectName}}</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>Staff</label>
+    </div>
+    <div class="col-lg-4">
+      <select class="form-control" [(ngModel)]="AssignedTo" name="AssignedTo" id="AssignedTo">
+        <option selected value=0>Select Staff</option>
+        <option *ngFor="let list of allStaffList" value="{{list.id}}">{{list.name}}</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>Work Title</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="text" class="form-control" [(ngModel)]="purpose" name="purpose" placeholder="Work Title">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>Start Date</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="date" class="form-control" placeholder="Start Date" min="{{todaydate}}" [(ngModel)]="startDate"
+        name="startDate" (ngModelChange)="setstarttime()">
+      <!-- <input type="date" class="form-control" [(ngModel)]="startDate"> -->
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>End Date</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="date" class="form-control" placeholder="End Date" min="{{startDate}}" [(ngModel)]="endDate"
+        name="endDate">
+      <!-- <input type="date" class="form-control" min={{startDate}} [(ngModel)]="endDate" name="endDate"> -->
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>Start Time</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="time" class="form-control" [(ngModel)]="startTime" name="startTime" min="{{mintime}}"
+        (ngModelChange)="checktinme()">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>End Time</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="time" class="form-control" [(ngModel)]="endTime" name="endTime">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>work Description</label>
+    </div>
+    <div class="col-lg-4">
+      <textarea type="text" rows="5" class="form-control" placeholder="comments" [(ngModel)]="comments"></textarea>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-5"></div>
+    <div class="col-lg-2">
+      <button type="button" class="addbtn" *ngIf="paramID==undefined" (click)="InsertDetails()">Save</button>
+      <button type="button" class="addbtn" *ngIf="paramID!=undefined" (click)="updatedetails()">Update</button>
+
+    </div>
+  </div>
+  <br>

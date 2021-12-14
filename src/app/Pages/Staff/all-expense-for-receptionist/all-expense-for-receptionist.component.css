@@ -1,0 +1,10 @@
+.primary{
+    width: 80px;
+    height: 35px;
+    background-color: #22a4da;
+}
+.danger{
+    width: 80px;
+    height: 35px;
+    background-color: #dd6226;
+}

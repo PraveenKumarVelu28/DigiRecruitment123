@@ -1,0 +1,167 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h6>Job Requisition</h6>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Job Title</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Job Title" [(ngModel)]="jobtitile" name="jobtitile">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Skill / Technology</label>
+        </div>
+        <div class="col-lg-4">
+
+            <textarea class="form-control" rows="4" placeholder="Skill / Technology" [(ngModel)]="skills" name="skills">
+
+            </textarea>
+
+        </div>
+    </div>
+    <br>
+    <div class="row">
+
+        <div class="col-lg-3">
+            <label>Total Years of Experience</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Total Years of Experience" [(ngModel)]="yearsofexp"
+                name="yearsofexp">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+
+        <div class="col-lg-3">
+            <label>Years of Relavant Experience</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Years of Relavant Experience"
+                [(ngModel)]="yearsofrelavantexp" name="yearsofrelavantexp">
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+
+        <div class="col-lg-3">
+            <label>Job Description</label>
+        </div>
+        <div class="col-lg-4">
+
+            <textarea placeholder="Job Description" class="form-control" [(ngModel)]="jobdescription"
+                name="jobdescription"></textarea>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Job Location</label>
+        </div>
+        <div class="col-lg-4">
+
+            <textarea class="form-control" placeholder="Job Location" [(ngModel)]="joblocation"
+                name="joblocation"></textarea>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>No of Positions</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="No of Positions" [(ngModel)]="noofpositions"
+                name="noofpositions">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Company Name</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Company Name" [(ngModel)]="companyname"
+                name="companyname">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Maximun CTC Offered</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Maximun CTC Offered" [(ngModel)]="package"
+                name="package">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Hiring Manager</label>
+        </div>
+        <div class="col-lg-4">
+
+            <select class="form-control" (change)="GetHrName($event)">
+                <option value="">Select</option>
+                <option *ngFor="let hr of hrlist" value="{{hr.name}}">{{hr.name}}</option>
+            </select>
+            <!-- <input type="text" class="form-control" placeholder="Hiring Manager" [(ngModel)]="hiringmanager"
+                name="hiringmanager"> -->
+        </div>
+    </div>
+    <br>
+    <!-- <div class="row">
+        <div class="col-lg-3">
+            <label>Location </label>
+        </div>
+        <div class="col-lg-4">
+          
+            <textarea class="form-control" placeholder="Location"></textarea>
+        </div>
+    </div>
+    <br> -->
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Other Required Conditions </label>
+        </div>
+        <div class="col-lg-4">
+
+
+            <textarea class="form-control" placeholder="Other Required Conditions" [(ngModel)]="otherreqconditions"
+                name="otherreqconditions" rows="4">
+                </textarea>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Resource Manager </label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Resource Manager" [(ngModel)]="resourcemanager"
+                name="resourcemanager">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="insertdetails()">Save</button>
+
+        </div>
+        <div class="col-lg-5"></div>
+    </div>
+    <br>
+</div>

@@ -1,0 +1,79 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <label class="page_SubHeading"> EVENT DASHBOARD</label>
+            <hr>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Name</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control"  placeholder="Name" [(ngModel)]="name" name="name">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Description</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control"  placeholder="Description" [(ngModel)]="description" name="description">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        
+        <div class="col-lg-3">
+            <label>Attachment</label>
+        </div>
+        <div class="col-lg-4">
+            <ngx-dropzone (change)="onBrochureUpload($event)">
+                <ngx-dropzone-label>Drag and drop file here</ngx-dropzone-label>
+            </ngx-dropzone>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Date</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="date" class="form-control" [(ngModel)]="date" name="date">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Venue</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Venue" [(ngModel)]="venue" name="venue">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <label>Terms And Conditions</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Terms And Conditions" [(ngModel)]="modifiedBy" name="modifiedBy">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="InsertDetails()">Save</button>
+            <!-- <button type="button" class="addbtns" >Update</button>  -->
+        </div>
+        <div class="col-lg-5"></div>
+    </div>
+    <br>
+</div>

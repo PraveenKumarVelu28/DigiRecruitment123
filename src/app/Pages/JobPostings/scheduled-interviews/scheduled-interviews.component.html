@@ -1,0 +1,91 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+            <!-- <button type="button" class="addbtn" routerLink="/Postajob" >ADD</button> -->
+        </div>
+        <!-- <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()" >Export To Excel</button>
+        </div> -->
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">SCHEDULED INTERVIEWS DASHBOARD</label>
+    <hr>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" [(ngModel)]="search" name="search" placeholder="Search...">
+        </div>
+        <div class="col-lg-3">
+            <!-- <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)"> -->
+        </div>
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-3">
+            <h6 style="float:right">Count:{{count}}</h6>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12" style="overflow: auto;">
+            <div class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Job Reference ID</th>
+                        <th>Interview Date</th>
+                        <th>Time</th>
+                        <th>Interviewer</th>
+                        <th>Job Title</th>
+                        <th>Candidate Name</th>
+                        <th>Phone No</th>
+                        <th>Email</th>
+                        <th>Total Years of Experience</th>
+                        <th>Relevant Experience</th>
+
+                        <th>Resume</th>
+                        <th>Comments</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr *ngFor="let job of joblist|filter:search">
+                        <td>{{job.jobRefernceID}}</td>
+                        <td>{{job.date}}</td>
+                        <td>{{job.slotTime}}</td>
+                        <td>{{job.staffname}}</td>
+                        <td>{{job.jobTitle}}</td>
+                        <td>{{job.candidateName}}</td>
+                        <td>{{job.phoneNo}}</td>
+                        <td>{{job.email}}</td>
+                        <td>{{job.yearsofExp}}</td>
+                        <td>{{job.relavantExp}}</td>
+                        <td>
+                            <img src="assets/images/pdf.png" style="width: 30px;" (click)="GetOfferLetter(job.offerLetter)">
+                        </td>
+                        <td>
+                            <textarea placeholder="Comments" class="form-control" [(ngModel)]="job.interviewercomments" name="job.interviewercomments"></textarea>
+                        </td>
+
+                        <td>
+
+                            <button class="btn btn-primary"
+                                *ngIf="job.interviewRejected=='0'&&job.interviewSelected=='0'"
+                                (click)="Accept(job.id,job.interviewercomments)">Selected</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                            <button class="btn btn-danger"
+                                *ngIf="job.interviewRejected=='0'&&job.interviewSelected=='0'"
+                                (click)="Reject(job.id,job.interviewercomments)">Rejected</button>
+
+
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+        <br>
+    </div><br>
+</div><br>

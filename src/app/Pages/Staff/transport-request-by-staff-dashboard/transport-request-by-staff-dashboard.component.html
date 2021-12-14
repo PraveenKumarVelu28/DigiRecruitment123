@@ -1,0 +1,129 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/AddTravelRequest">ADD</button>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">TRANSPORT REQUEST DASHBOARD</label>
+    <hr>
+    <div class="tab">
+        <button class="tablinks" (click)="openCity($event, 'Raised')" id="def_open">Raised</button>
+        <button class="tablinks" (click)="openCity($event, 'Approved')">Approved</button>
+        <button class="tablinks" (click)="openCity($event, 'Completed')">Completed</button>
+    </div>
+    <br>
+    <div class="row">
+        <!-- <div class="col-lg-3">
+            <input type="search" class="form-control" [(ngModel)]="search" placeholder="Search...">
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="project" name="project" (change)="getproject($event)">
+                <option value="0" selected>Select Project</option>
+                <option *ngFor="let list of projectlist" value="{{list.projectName}}">{{list.projectName}}</option>
+            </select>
+        </div> -->
+        <div class="col-lg-9"></div>
+        <div class="col-lg-3">
+            <h4 style="float: right;">Count:{{count}}</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="Raised" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Raised By</th>
+                        <th>Destination</th>
+                        <th>Project Name</th>
+                        <th>Departure Date</th>
+                        <th>Return Date</th>
+                        <th>No. Of Days</th>
+                        <th>Status</th>
+                        <th>Remark</th>
+                    </tr>
+                    <tr *ngFor="let list of raisedFilteredList|filter:search">
+                        <td>{{list.raisedby}}</td>
+                        <td>{{list.destination}}</td>
+                        <td>{{list.projectName}}</td>
+                        <td>{{list.departureDateTime}}</td>
+                        <td>{{list.returnDateTime}}</td>
+                        <td>{{list.noOfDays}}</td>
+                        <td>{{list.status}}</td>
+                        <td>{{list.remark}}</td>
+                    </tr>
+                </table>
+
+            </div>
+            <div id="Approved" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Raised By</th>
+                        <th>Destination</th>
+                        <th>Project Name</th>
+                        <th>Departure Date</th>
+                        <th>Return Date</th>
+                        <th>No. Of Days</th>
+                        <th>Status</th>
+                        <th>Remark</th>
+
+                    </tr>
+                    <tr *ngFor="let list of approvedFilteredList|filter:search">
+
+                        <td>{{list.raisedby}}</td>
+                        <td>{{list.destination}}</td>
+                        <td>{{list.projectName}}</td>
+                        <td>{{list.departureDateTime}}</td>
+                        <td>{{list.returnDateTime}}</td>
+                        <td>{{list.noOfDays}}</td>
+                        <td>{{list.status}}</td>
+                        <td>{{list.remark}}</td>
+
+
+                    </tr>
+                </table>
+
+            </div>
+            <div id="Completed" class="tabcontent">
+                <table>
+                    <tr>
+                        <th>Raised By</th>
+                        <th>Destination</th>
+                        <th>Project Name</th>
+                        <th>Departure Date</th>
+                        <th>Return Date</th>
+                        <th>No. Of Days</th>
+                        <th>Status</th>
+                        <th>Remark</th>
+
+
+                    </tr>
+                    <tr *ngFor="let list of completedFilteredList|filter:search">
+
+                        <td>{{list.raisedby}}</td>
+                        <td>{{list.destination}}</td>
+                        <td>{{list.projectName}}</td>
+                        <td>{{list.departureDateTime}}</td>
+                        <td>{{list.returnDateTime}}</td>
+                        <td>{{list.noOfDays}}</td>
+                        <td>{{list.status}}</td>
+                        <td>{{list.remark}}</td>
+
+
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <br>
+</div>

@@ -1,0 +1,66 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="appliedexportexcel()">Export To Excel</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">COMPLETED TASK DASHBOARD</label>
+    <hr>
+
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" [(ngModel)]="Search" placeholder="Search...">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="managerStaffID" name="managerStaffID"
+            (change)="getstaffID($event)">
+            <option value="0" selected>Select Employee</option>
+            <option *ngFor="let list of staffList" value="{{list.id}}">{{list.name}}</option>
+        </select>   
+        </div>
+        <div class="col-lg-3">
+            <h4 style="float:right">Count : {{filteredtaskList.length}}</h4>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th>Staff Name</th>
+                    <th>Task</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Notes</th>
+                    <th>Aging</th>
+                    <th>Status</th>
+                </tr>
+                <tr *ngFor="let list of filteredtaskList|filter:Search">
+                    <td>{{list.name}}</td>
+                    <td>{{list.taskName}}</td>
+                    <td>{{list.startDate|date}}</td>
+                    <td>{{list.endDate|date}}</td>
+                    <td>{{list.notes}}</td>
+                    <td >{{list.aging}}</td>
+                    <td>{{list.status}}</td>
+                   
+                </tr>
+            </table>
+
+            <br>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" routerLink="/InventoryItems">ADD</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">INVENTORY ITEMS DASHBOARD</label>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..."[(ngModel)]="search">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th>Inventory Type</th>
+                    <th>Inventory Name</th>
+                    <th>Available</th>
+                    <th>Quantity</th>
+                </tr>
+                <tr *ngFor="let list of inventoryItemList|filter:search">
+                    <td>{{list.typename}}</td>
+                    <td>{{list.inventoryName}}</td>
+                    <td>{{list.available}}</td>
+                    <td>{{list.quantity}}</td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+</div>

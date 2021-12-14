@@ -1,0 +1,86 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+        </div>
+        <!-- <div class="col-lg-2"> 
+            <button type="button" class="addbtn" routerLink="/AddLocatorRequest">New Request</button>
+        </div> -->
+    </div>
+</div>
+<br>
+
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">TEAM LOCATOR DASHBOARD</label>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div>
+        <div class="col-lg-3"></div>
+        <div class="col-lg-3">
+            <h4 style="float:right">Count : {{locatorRequestsList.length}}</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+
+                    <th>Name</th>
+                    <th>Project</th>
+                    <th>Transportation Type</th>
+                    <th>Date</th>
+                    <th>Purpose</th>
+                    <th>Contact Person</th>
+                    <th>Contact PhNo</th>
+                    <th>Time Of Departure</th>
+                    <th>Time Of Return</th>
+                    <th>Destination</th>
+                    <th>No Of Hrs</th>
+                    <th>Status</th>
+                    <th>Action</th>
+
+                </tr>
+                <tr *ngFor="let list of filteredlocatorRequestsList|filter:search">
+                    <td>{{list.name}}</td>
+                    <td>{{list.project}}</td>
+                    <td>{{list.transportationType}}</td>
+                    <td>{{list.date|date}}</td>
+                    <td>{{list.purpose}}</td>
+                    <td>{{list.contactPerson}}</td>
+                    <td>{{list.contactPhNo}}</td>
+                    <td>{{list.timeOfDeparture}}</td>
+                    <td>{{list.timeOfReturn}}</td>
+                    <td>{{list.destination}}</td>
+                    <td>{{list.hourDiff}}</td>
+                    <td>
+                        <p *ngIf="list.status=='Approved'">Approved</p>
+                        <p *ngIf="list.status==' Reject '">Rejected</p>
+                        <p *ngIf="list.status==NULL">Not yet Approved</p>
+
+                    </td>
+                    <td>
+                        <button *ngIf="list.status==NULL" class="btn primary btn-xs"
+                            (click)="ApprovedLocatorTable(list.id)">Approve</button>
+                           <p *ngIf="list.status!=NULL">--</p>
+                        <br><br>
+                        <button *ngIf="list.status==NULL" class="btn danger btn-xs"
+                            (click)="RejctedLocatorTable(list.id)">Reject</button>
+                          <p *ngIf="list.status!=NULL">--</p>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+</div>

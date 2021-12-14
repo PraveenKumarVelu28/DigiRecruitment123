@@ -1,0 +1,55 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-10">
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+  </div>
+</div>
+<br>
+<div class="container-fluid card">
+  <br>
+  <label class="page_SubHeading">Staff Appraisal</label>
+  <hr>
+  <div class="row">
+    <div class="col-lg-3">
+      <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-12">
+      <table>
+        <tbody>
+          <tr class="tableheader tableheaderfont">
+            <!-- <td>Staff Type </td> -->
+            <td>Appraisal Name</td>
+            <td>Staff Name</td>
+           
+            <td>From Date</td>
+            <td>To Date</td>
+            <td>Appraisal Date</td>
+            <td>Actions</td>
+          </tr>
+          <tr *ngFor="let Result of StaffAppraisalList |filter:search">
+            <!-- <td>{{Result.short}}</td> -->
+            <td>{{Result.appraiselCycleName}}</td>
+            <td>{{Result.name}}</td>
+           
+            <td>{{Result.appraisalStartDate|date}}</td>
+            <td>{{Result.apprasailEnddate|date}}</td>
+            <td>{{Result.appraisalSubmitionDate|date}}</td>
+            <td>
+              <button [routerLink]="['/Approver2ratingpage', Result.id,Result.id ]" (click)="insertdetails1(Result)"
+                class="btn btn-primary editable-table-button btn-xs">Conduct Appraisal</button>
+              <!-- <td>{{avg}}</td> -->
+              <!-- <label >Score:{{Result.totalScore}}</label> -->
+            </td>
+
+          </tr>
+      </table>
+    </div>
+  </div>
+  <br>
+</div>

@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="row card" style="height: 5vh;background-color: #21a4da;;">
+        <h4 style="color: white; padding: 10px;
+        float: left;"><b>Dashboard</b></h4>
+    </div>
+</div>
+<br>
+<div class="row">
+    <!-- <div class="col-lg-3">
+        <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search">
+    </div> -->
+    <div class="col-lg-3">
+        <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value" (ngModelChange)="selectedDate($event)">
+    </div>
+</div>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3" *ngFor="let list of staffcountList" style="padding-left: 0px;" (click)="gotolink(list.type)" >
+            <div>
+                <div class="card">
+                    <p>
+                        <span class="dash_Header"><b>{{list.name}}</b></span>
+                        <img src="assets/images/das_view.png" style="width: 35px;float: right; padding: 5px;">
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 class="dashCardBody">{{list.count}}</h3>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-6"></div>
+                        <div class="col-lg-6">
+                            <h6 style="float:right;padding: 10px;">Total Request</h6>
+                        </div>
+                    </div>
+                   
+                </div>
+              
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+

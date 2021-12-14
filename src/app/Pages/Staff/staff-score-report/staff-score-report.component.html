@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-10">
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+  </div>
+</div>
+<br>
+<div class="container-fluid card">
+  <br>
+  <label class="page_SubHeading">Staff Score Details</label>
+  <hr>
+  <div class="row">
+    <div class="col-lg-3">
+      <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="search" >
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-12">
+      <table>
+        <tbody>
+          <tr class="tableheader tableheaderfont">
+            <td>Actions</td>
+            <!-- <td>Staff Type </td> -->
+            <td>Staff Name</td>
+            <!-- <td>Appraisal Manager</td> -->
+           
+            <td>Cycle Start Date</td>
+            <td>Cycle End Date</td>
+            <td>Submission Date</td>
+
+          </tr>
+          <tr *ngFor="let Result of FilteredStaffAppraisalList|filter:search">
+            <td>
+              <button class="btn btn-primary editable-table-button btn-xs" (click)="ViewScores(Result)">View Details
+              </button>
+            </td>
+            <!-- <td>{{Result.short}}</td> -->
+            <td>{{Result.name}}</td>
+            <!-- <td>{{Result.superviosrName}}</td> -->
+          
+            <td>{{Result.appraisalStartDate|date}}</td>
+            <td>{{Result.apprasailEnddate|date}}</td>
+            <td>{{Result.appraisalSubmitionDate|date}}</td>
+
+          </tr>
+      </table>
+    </div>
+  </div>
+  <br>
+</div>

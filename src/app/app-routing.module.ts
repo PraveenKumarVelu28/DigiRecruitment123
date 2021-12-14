@@ -1,0 +1,590 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { AppliedStaffLeaveDashboardForReceptionistComponent } from './Pages/Admin/applied-staff-leave-dashboard-for-receptionist/applied-staff-leave-dashboard-for-receptionist.component';
+import { ApprovedLocatorRequestForAdminComponent } from './Pages/Admin/approved-locator-request-for-admin/approved-locator-request-for-admin.component';
+import { ApprovedStaffExpenseForAdminDashbaordComponent } from './Pages/Admin/approved-staff-expense-for-admin-dashbaord/approved-staff-expense-for-admin-dashbaord.component';
+import { ApprovedStaffLeaveDashboardForReceptionistComponent } from './Pages/Admin/approved-staff-leave-dashboard-for-receptionist/approved-staff-leave-dashboard-for-receptionist.component';
+import { BookedTransportRequestForReceptionistComponent } from './Pages/Admin/booked-transport-request-for-receptionist/booked-transport-request-for-receptionist.component';
+import { CancelledTransportRequestForReceptionistComponent } from './Pages/Admin/cancelled-transport-request-for-receptionist/cancelled-transport-request-for-receptionist.component';
+import { CompletedTransportRequestForReceptionistComponent } from './Pages/Admin/completed-transport-request-for-receptionist/completed-transport-request-for-receptionist.component';
+import { HomeDashboardForAdminComponent } from './Pages/Admin/home-dashboard-for-admin/home-dashboard-for-admin.component';
+import { LocatorRequestDashboardComponent } from './Pages/Admin/locator-request-dashboard/locator-request-dashboard.component';
+import { RaisedStaffExpenseForAdminDashboardComponent } from './Pages/Admin/raised-staff-expense-for-admin-dashboard/raised-staff-expense-for-admin-dashboard.component';
+import { RaisedTransportRequestForReceptionistComponent } from './Pages/Admin/raised-transport-request-for-receptionist/raised-transport-request-for-receptionist.component';
+import { RejectedLocatorRequestForAdminComponent } from './Pages/Admin/rejected-locator-request-for-admin/rejected-locator-request-for-admin.component';
+import { RejectedStaffExpenseForAdminDashboardComponent } from './Pages/Admin/rejected-staff-expense-for-admin-dashboard/rejected-staff-expense-for-admin-dashboard.component';
+
+import { RejectedStaffLeaveDashboardForReceptionistComponent } from './Pages/Admin/rejected-staff-leave-dashboard-for-receptionist/rejected-staff-leave-dashboard-for-receptionist.component';
+import { RequestBorrowerDashboardComponent } from './Pages/Admin/request-borrower-dashboard/request-borrower-dashboard.component';
+import { RequestedAssetsDashboardComponent } from './Pages/Admin/requested-assets-dashboard/requested-assets-dashboard.component';
+import { TransportRequestForAdminComponent } from './Pages/Admin/transport-request-for-admin/transport-request-for-admin.component';
+import { VisitorRequestForAdminComponent } from './Pages/Admin/visitor-request-for-admin/visitor-request-for-admin.component';
+import { HomeComponent } from './Pages/home/home.component';
+import { AppliendCandidatesComponent } from './Pages/JobPostings/appliend-candidates/appliend-candidates.component';
+import { ApplyJobsComponent } from './Pages/JobPostings/apply-jobs/apply-jobs.component';
+import { DropedCandidatesComponent } from './Pages/JobPostings/droped-candidates/droped-candidates.component';
+import { JoinedCandidatesComponent } from './Pages/JobPostings/joined-candidates/joined-candidates.component';
+import { OfferedCandidatesComponent } from './Pages/JobPostings/offered-candidates/offered-candidates.component';
+import { PostajobComponent } from './Pages/JobPostings/postajob/postajob.component';
+import { PostajobdashComponent } from './Pages/JobPostings/postajobdash/postajobdash.component';
+import { ScheduledInterviewsComponent } from './Pages/JobPostings/scheduled-interviews/scheduled-interviews.component';
+import { SelectedCandidatesComponent } from './Pages/JobPostings/selected-candidates/selected-candidates.component';
+import { ShortlistedCandidatesComponent } from './Pages/JobPostings/shortlisted-candidates/shortlisted-candidates.component';
+import { StaffCalenderComponent } from './Pages/JobPostings/staff-calender/staff-calender.component';
+import { LoginComponent } from './Pages/login/login.component';
+//import { AddNewAssestsComponent } from './Pages/Manager/add-new-assests/add-new-assests.component';
+import { AllStaffAttendanceDashboardComponent } from './Pages/Manager/all-staff-attendance-dashboard/all-staff-attendance-dashboard.component';
+
+import { AllStaffDashboardComponent } from './Pages/Manager/all-staff-dashboard/all-staff-dashboard.component';
+import { AllStaffExpencesDashComponent } from './Pages/Manager/all-staff-expences-dash/all-staff-expences-dash.component';
+import { AllStaffExpensesComponent } from './Pages/Manager/all-staff-expenses/all-staff-expenses.component';
+import { AllStaffLeavesDashboradComponent } from './Pages/Manager/all-staff-leaves-dashborad/all-staff-leaves-dashborad.component';
+import { AllStaffLocatorRequestsDashboardComponent } from './Pages/Manager/all-staff-locator-requests-dashboard/all-staff-locator-requests-dashboard.component';
+import { AnnouncementsDashboardComponent } from './Pages/Manager/announcements-dashboard/announcements-dashboard.component';
+import { ApprovedStaffExpenseForManagerDashbaordComponent } from './Pages/Manager/approved-staff-expense-for-manager-dashbaord/approved-staff-expense-for-manager-dashbaord.component';
+import { CEOProfileComponent } from './Pages/Manager/ceoprofile/ceoprofile.component';
+import { AddgroupComponent } from './Pages/Manager/Communication/addgroup/addgroup.component';
+import { ChatForStaffComponent } from './Pages/Manager/Communication/chat-for-staff/chat-for-staff.component';
+import { GroupChatComponent } from './Pages/Manager/Communication/group-chat/group-chat.component';
+
+import { GroupsApproveDashboardComponent } from './Pages/Manager/Communication/groups-approve-dashboard/groups-approve-dashboard.component';
+import { ViewGroupComponent } from './Pages/Manager/Communication/view-group/view-group.component';
+import { ComplaintDashboardComponent } from './Pages/Manager/complaint-dashboard/complaint-dashboard.component';
+import { ExpensesDashboardForFinanceComponent } from './Pages/Manager/expenses-dashboard-for-finance/expenses-dashboard-for-finance.component';
+import { ExpensesDashboardHRComponent } from './Pages/Manager/expenses-dashboard-hr/expenses-dashboard-hr.component';
+import { ExpensesRequestByManagerComponent } from './Pages/Manager/expenses-request-by-manager/expenses-request-by-manager.component';
+import { HRLeaveDashboardComponent } from './Pages/Manager/hrleave-dashboard/hrleave-dashboard.component';
+import { LeaveReportDashboardComponent } from './Pages/Manager/leave-report-dashboard/leave-report-dashboard.component';
+import { ManagerExpenseDashboardComponent } from './Pages/Manager/manager-expense-dashboard/manager-expense-dashboard.component';
+import { ManagerLocatorDashboardComponent } from './Pages/Manager/manager-locator-dashboard/manager-locator-dashboard.component';
+import { ManagerStaffAttendanceDashboardComponent } from './Pages/Manager/manager-staff-attendance-dashboard/manager-staff-attendance-dashboard.component';
+import { AssetDashboardComponent } from './Pages/Manager/Masters/asset-dashboard/asset-dashboard.component';
+import { AssetsMasterComponent } from './Pages/Manager/Masters/assets-master/assets-master.component';
+import { DepartmentMasterDashboardComponent } from './Pages/Manager/Masters/department-master-dashboard/department-master-dashboard.component';
+import { ExpenseTypeDashboardComponent } from './Pages/Manager/Masters/expense-type-dashboard/expense-type-dashboard.component';
+import { ExpenseTypeComponent } from './Pages/Manager/Masters/expense-type/expense-type.component';
+
+import { GeneralAssetComponent } from './Pages/Manager/Masters/general-asset/general-asset.component';
+import { GeneralAssetsDashboardComponent } from './Pages/Manager/Masters/general-assets-dashboard/general-assets-dashboard.component';
+import { HolidayListDashboardComponent } from './Pages/Manager/Masters/holiday-list-dashboard/holiday-list-dashboard.component';
+import { HolidayListComponent } from './Pages/Manager/Masters/holiday-list/holiday-list.component';
+import { LeaveTypeDashboardComponent } from './Pages/Manager/Masters/leave-type-dashboard/leave-type-dashboard.component';
+import { LeaveTypeComponent } from './Pages/Manager/Masters/leave-type/leave-type.component';
+import { ManagerLeaveComponent } from './Pages/Manager/Masters/manager-leave/manager-leave.component';
+import { MasterTypeDashboardComponent } from './Pages/Manager/Masters/master-type-dashboard/master-type-dashboard.component';
+import { NewDepartmentMasterComponent } from './Pages/Manager/Masters/new-department-master/new-department-master.component';
+import { ProjectIDTypeDashboardComponent } from './Pages/Manager/Masters/project-idtype-dashboard/project-idtype-dashboard.component';
+import { ProjectListDashboardComponent } from './Pages/Manager/Masters/project-list-dashboard/project-list-dashboard.component';
+import { ProjectListComponent } from './Pages/Manager/Masters/project-list/project-list.component';
+import { ProjectTypeIDComponent } from './Pages/Manager/Masters/project-type-id/project-type-id.component';
+import { StaffLeaveDetailsDashboardComponent } from './Pages/Manager/Masters/staff-leave-details-dashboard/staff-leave-details-dashboard.component';
+import { AppliedStaffLeaveDashboardForHRComponent } from './Pages/Manager/MyTeam/applied-staff-leave-dashboard-for-hr/applied-staff-leave-dashboard-for-hr.component';
+
+import { AppliedStaffLeaveDashboardComponent } from './Pages/Manager/MyTeam/applied-staff-leave-dashboard/applied-staff-leave-dashboard.component';
+import { AssignedTaskByManagerComponent } from './Pages/Manager/MyTeam/assigned-task-by-manager/assigned-task-by-manager.component';
+import { AssignedTaskDashboardComponent } from './Pages/Manager/MyTeam/assigned-task-dashboard/assigned-task-dashboard.component';
+import { CompletedTaskDashboardComponent } from './Pages/Manager/MyTeam/completed-task-dashboard/completed-task-dashboard.component';
+import { LocatorDashboardComponent } from './Pages/Manager/MyTeam/locator-dashboard/locator-dashboard.component';
+import { LocatorComponent } from './Pages/Manager/MyTeam/locator/locator.component';
+import { ManagerLeaveDashboardComponent } from './Pages/Manager/MyTeam/manager-leave-dashboard/manager-leave-dashboard.component';
+import { MyStaffDashboardComponent } from './Pages/Manager/MyTeam/my-staff-dashboard/my-staff-dashboard.component';
+import { NewStaffLeaveComponent } from './Pages/Manager/MyTeam/new-staff-leave/new-staff-leave.component';
+import { RejectLocatorDashboardForManagerComponent } from './Pages/Manager/MyTeam/reject-locator-dashboard-for-manager/reject-locator-dashboard-for-manager.component';
+import { RejectedStaffLeaveDashboardComponent } from './Pages/Manager/MyTeam/rejected-staff-leave-dashboard/rejected-staff-leave-dashboard.component';
+import { StaffDashbaordComponent } from './Pages/Manager/MyTeam/staff-dashbaord/staff-dashbaord.component';
+import { StaffLeaveDashboardComponent } from './Pages/Manager/MyTeam/staff-leave-dashboard/staff-leave-dashboard.component';
+import { StaffexpensesdashboardComponent } from './Pages/Manager/MyTeam/staffexpensesdashboard/staffexpensesdashboard.component';
+import { TeamLocatorDashboardForManagerComponent } from './Pages/Manager/MyTeam/team-locator-dashboard-for-manager/team-locator-dashboard-for-manager.component';
+import { TravelRequestForManagerComponent } from './Pages/Manager/MyTeam/travel-request-for-manager/travel-request-for-manager.component';
+import { UpcomingAnnouncementsDashboardForFinanceComponent } from './Pages/Manager/MyTeam/upcoming-announcements-dashboard-for-finance/upcoming-announcements-dashboard-for-finance.component';
+import { WorkSpaceDashboardForManagerComponent } from './Pages/Manager/MyTeam/work-space-dashboard-for-manager/work-space-dashboard-for-manager.component';
+import { NewAnnouncementsComponent } from './Pages/Manager/new-announcements/new-announcements.component';
+import { NewStaffComponent } from './Pages/Manager/new-staff/new-staff.component';
+import { NewUserComponent } from './Pages/Manager/new-user/new-user.component';
+import { RasiedExpenseForManagerDashboardComponent } from './Pages/Manager/rasied-expense-for-manager-dashboard/rasied-expense-for-manager-dashboard.component';
+import { RejectedStaffExpenseForManagerDashboardComponent } from './Pages/Manager/rejected-staff-expense-for-manager-dashboard/rejected-staff-expense-for-manager-dashboard.component';
+import { UnApprovedExpensesDashboardComponent } from './Pages/Manager/un-approved-expenses-dashboard/un-approved-expenses-dashboard.component';
+import { UpComingEventsDashboardForManagerComponent } from './Pages/Manager/up-coming-events-dashboard-for-manager/up-coming-events-dashboard-for-manager.component';
+import { UpcomingAnnouncementsDashboardForHrComponent } from './Pages/Manager/upcoming-announcements-dashboard-for-hr/upcoming-announcements-dashboard-for-hr.component';
+import { UpcomingAnnouncementsDashboardForManagerComponent } from './Pages/Manager/upcoming-announcements-dashboard-for-manager/upcoming-announcements-dashboard-for-manager.component';
+import { UserDashboardComponent } from './Pages/Manager/user-dashboard/user-dashboard.component';
+import { NewVisitorComponent } from './Pages/Manager/Visitor/new-visitor/new-visitor.component';
+import { VisitorDashboardComponent } from './Pages/Manager/Visitor/visitor-dashboard/visitor-dashboard.component';
+import { VisitorParkingDashboardComponent } from './Pages/Manager/Visitor/visitor-parking-dashboard/visitor-parking-dashboard.component';
+import { WorkPlaceAllocationComponent } from './Pages/Manager/work-place-allocation/work-place-allocation.component';
+import { WorkSpaceAllocationDashboardComponent } from './Pages/Manager/work-space-allocation-dashboard/work-space-allocation-dashboard.component';
+import { MenuMappingdashComponent } from './Pages/MenuMapping/menu-mappingdash/menu-mappingdash.component';
+import { RoleMenuMappingComponent } from './Pages/MenuMapping/role-menu-mapping/role-menu-mapping.component';
+import { SidebarComponent } from './Pages/sidebar/sidebar.component';
+import { AccountsExpenseDashboardComponent } from './Pages/Staff/accounts-expense-dashboard/accounts-expense-dashboard.component';
+import { AccountsExpenseComponent } from './Pages/Staff/accounts-expense/accounts-expense.component';
+import { AddAssetsByHRComponent } from './Pages/Staff/add-assets-by-hr/add-assets-by-hr.component';
+import { AddAssetsComponent } from './Pages/Staff/add-assets/add-assets.component';
+import { AddFeedbackComponent } from './Pages/Staff/add-feedback/add-feedback.component';
+import { AddInventoryComponent } from './Pages/Staff/add-inventory/add-inventory.component';
+import { AddLocatorByStaffComponent } from './Pages/Staff/add-locator-by-staff/add-locator-by-staff.component';
+import { AddLocatorRequestComponent } from './Pages/Staff/add-locator-request/add-locator-request.component';
+import { AddTimeSheetForHRComponent } from './Pages/Staff/add-time-sheet-for-hr/add-time-sheet-for-hr.component';
+import { AddTimeSheetComponent } from './Pages/Staff/add-time-sheet/add-time-sheet.component';
+import { AddTimeSheetsForManagerComponent } from './Pages/Staff/add-time-sheets-for-manager/add-time-sheets-for-manager.component';
+import { AddTravelRequestComponent } from './Pages/Staff/add-travel-request/add-travel-request.component';
+import { AddWorkPlaceRequestComponent } from './Pages/Staff/add-work-place-request/add-work-place-request.component';
+import { AdminStaffLeaveComponent } from './Pages/Staff/admin-staff-leave/admin-staff-leave.component';
+import { AllAssetsForAdminComponent } from './Pages/Staff/all-assets-for-admin/all-assets-for-admin.component';
+import { AllExpenseForAdminComponent } from './Pages/Staff/all-expense-for-admin/all-expense-for-admin.component';
+import { AllExpenseForReceptionistComponent } from './Pages/Staff/all-expense-for-receptionist/all-expense-for-receptionist.component';
+import { AllLocatorDashboardForAdminComponent } from './Pages/Staff/all-locator-dashboard-for-admin/all-locator-dashboard-for-admin.component';
+import { AllLocatorDashboardForFinanceComponent } from './Pages/Staff/all-locator-dashboard-for-finance/all-locator-dashboard-for-finance.component';
+import { AllLocatorDashboardForReceptionistComponent } from './Pages/Staff/all-locator-dashboard-for-receptionist/all-locator-dashboard-for-receptionist.component';
+import { AllRaisedExpenseComponent } from './Pages/Staff/all-raised-expense/all-raised-expense.component';
+import { AllStaffApprovedLeaveComponent } from './Pages/Staff/all-staff-approved-leave/all-staff-approved-leave.component';
+import { AllStaffForAdminComponent } from './Pages/Staff/all-staff-for-admin/all-staff-for-admin.component';
+import { AllStaffLeaveFoReceptionistComponent } from './Pages/Staff/all-staff-leave-fo-receptionist/all-staff-leave-fo-receptionist.component';
+import { AllStaffLeaveForAdminComponent } from './Pages/Staff/all-staff-leave-for-admin/all-staff-leave-for-admin.component';
+import { AllStaffLeaveForFinanceComponent } from './Pages/Staff/all-staff-leave-for-finance/all-staff-leave-for-finance.component';
+import { AllStaffRejectLeaveComponent } from './Pages/Staff/all-staff-reject-leave/all-staff-reject-leave.component';
+import { AllVisitorRequestforAdminComponent } from './Pages/Staff/all-visitor-requestfor-admin/all-visitor-requestfor-admin.component';
+import { AnnouncementsDashboardForHRComponent } from './Pages/Staff/announcements-dashboard-for-hr/announcements-dashboard-for-hr.component';
+import { AppliedHRStaffLeaveComponent } from './Pages/Staff/applied-hrstaff-leave/applied-hrstaff-leave.component';
+import { AppliedStaffLeaveDashboardForFinanceComponent } from './Pages/Staff/applied-staff-leave-dashboard-for-finance/applied-staff-leave-dashboard-for-finance.component';
+import { AppraisalCycleDashboardComponent } from './Pages/Staff/appraisal-cycle-dashboard/appraisal-cycle-dashboard.component';
+import { AppraisalCycleComponent } from './Pages/Staff/appraisal-cycle/appraisal-cycle.component';
+import { AppraisalReportsComponent } from './Pages/Staff/appraisal-reports/appraisal-reports.component';
+import { ApprovedHRStaffLeaveDashboardComponent } from './Pages/Staff/approved-hrstaff-leave-dashboard/approved-hrstaff-leave-dashboard.component';
+import { ApprovedStaffExpenseForFinanceDashbaordComponent } from './Pages/Staff/approved-staff-expense-for-finance-dashbaord/approved-staff-expense-for-finance-dashbaord.component';
+import { ApprovedStaffLeaveDashboardForFinanceComponent } from './Pages/Staff/approved-staff-leave-dashboard-for-finance/approved-staff-leave-dashboard-for-finance.component';
+import { Approver1ratingComponent } from './Pages/Staff/approver1rating/approver1rating.component';
+import { Approver1ratingdashboardComponent } from './Pages/Staff/approver1ratingdashboard/approver1ratingdashboard.component';
+import { Approver2ratingpageComponent } from './Pages/Staff/approver2ratingpage/approver2ratingpage.component';
+import { Approver2ratingpagedashboardComponent } from './Pages/Staff/approver2ratingpagedashboard/approver2ratingpagedashboard.component';
+import { Approver3ratingpageComponent } from './Pages/Staff/approver3ratingpage/approver3ratingpage.component';
+import { Approver3ratingpagedashboardComponent } from './Pages/Staff/approver3ratingpagedashboard/approver3ratingpagedashboard.component';
+import { AssetsDashboardComponent } from './Pages/Staff/assets-dashboard/assets-dashboard.component';
+import { AssignedTaskByCEOComponent } from './Pages/Staff/assigned-task-by-ceo/assigned-task-by-ceo.component';
+import { AssignedTaskForTLDashboardComponent } from './Pages/Staff/assigned-task-for-tldashboard/assigned-task-for-tldashboard.component';
+import { AttendanceDashboardForAdminComponent } from './Pages/Staff/attendance-dashboard-for-admin/attendance-dashboard-for-admin.component';
+import { BorrowingsBYHRComponent } from './Pages/Staff/borrowings-byhr/borrowings-byhr.component';
+import { BorrowingsBYStaffComponent } from './Pages/Staff/borrowings-bystaff/borrowings-bystaff.component';
+import { BorrowingsDashboardForHRComponent } from './Pages/Staff/borrowings-dashboard-for-hr/borrowings-dashboard-for-hr.component';
+import { BorrowingsDashboardForStaffComponent } from './Pages/Staff/borrowings-dashboard-for-staff/borrowings-dashboard-for-staff.component';
+import { BorrowingsDashboardComponent } from './Pages/Staff/borrowings-dashboard/borrowings-dashboard.component';
+import { BorrowingsComponent } from './Pages/Staff/borrowings/borrowings.component';
+import { ChatMasterComponent } from './Pages/Staff/chat-master/chat-master.component';
+import { CheckedStaffExpenseComponent } from './Pages/Staff/checked-staff-expense/checked-staff-expense.component';
+import { CompanyExpenseForAdminComponent } from './Pages/Staff/company-expense-for-admin/company-expense-for-admin.component';
+import { CompletedAnnouncementsDashboardForAdminComponent } from './Pages/Staff/completed-announcements-dashboard-for-admin/completed-announcements-dashboard-for-admin.component';
+import { CompletedEventsDashboardForAdminComponent } from './Pages/Staff/completed-events-dashboard-for-admin/completed-events-dashboard-for-admin.component';
+import { CompletedTaskForTlDashboardComponent } from './Pages/Staff/completed-task-for-tl-dashboard/completed-task-for-tl-dashboard.component';
+import { DesignationDashboardComponent } from './Pages/Staff/designation-dashboard/designation-dashboard.component';
+import { EmployeekramappingComponent } from './Pages/Staff/employeekramapping/employeekramapping.component';
+import { EmployeekramappingdashboardComponent } from './Pages/Staff/employeekramappingdashboard/employeekramappingdashboard.component';
+import { EventDashboardForReceptionistComponent } from './Pages/Staff/event-dashboard-for-receptionist/event-dashboard-for-receptionist.component';
+import { EventsDashboardComponent } from './Pages/Staff/events-dashboard/events-dashboard.component';
+import { EventsComponent } from './Pages/Staff/events/events.component';
+import { ExpensesRequestByFinanceComponent } from './Pages/Staff/expenses-request-by-finance/expenses-request-by-finance.component';
+import { ExpensesRequestComponent } from './Pages/Staff/expenses-request/expenses-request.component';
+import { ExpensesComponent } from './Pages/Staff/expenses/expenses.component';
+import { FeedbackDahsboardForReceptionistComponent } from './Pages/Staff/feedback-dahsboard-for-receptionist/feedback-dahsboard-for-receptionist.component';
+import { FeedbackComponent } from './Pages/Staff/feedback/feedback.component';
+import { FinanceLeaveDashboardComponent } from './Pages/Staff/finance-leave-dashboard/finance-leave-dashboard.component';
+import { FinanceLeaveComponent } from './Pages/Staff/finance-leave/finance-leave.component';
+import { GeneralAssetTypeIDComponent } from './Pages/Staff/general-asset-type-id/general-asset-type-id.component';
+import { GroupChatForAdminComponent } from './Pages/Staff/group-chat-for-admin/group-chat-for-admin.component';
+import { HRAssetsDashboardComponent } from './Pages/Staff/hrassets-dashboard/hrassets-dashboard.component';
+import { HRLeaveComponent } from './Pages/Staff/hrleave/hrleave.component';
+import { HRProfileComponent } from './Pages/Staff/hrprofile/hrprofile.component';
+import { InventoryDashboardComponent } from './Pages/Staff/inventory-dashboard/inventory-dashboard.component';
+import { InventoryItemDashboardComponent } from './Pages/Staff/inventory-item-dashboard/inventory-item-dashboard.component';
+import { InventoryItemsComponent } from './Pages/Staff/inventory-items/inventory-items.component';
+import { InventoryNamePurchaseDetailsDashboardComponent } from './Pages/Staff/inventory-name-purchase-details-dashboard/inventory-name-purchase-details-dashboard.component';
+import { InventoryNamePurchaseDetailsComponent } from './Pages/Staff/inventory-name-purchase-details/inventory-name-purchase-details.component';
+import { JoingGroupChatForAdminComponent } from './Pages/Staff/joing-group-chat-for-admin/joing-group-chat-for-admin.component';
+import { KeyResultAreaDashboardComponent } from './Pages/Staff/key-result-area-dashboard/key-result-area-dashboard.component';
+import { KeyResultAreaComponent } from './Pages/Staff/key-result-area/key-result-area.component';
+import { LateAttendanceDashboardComponent } from './Pages/Staff/late-attendance-dashboard/late-attendance-dashboard.component';
+import { LateAttendancePunchOutDashboardComponent } from './Pages/Staff/late-attendance-punch-out-dashboard/late-attendance-punch-out-dashboard.component';
+import { LatePunchInDashbaordComponent } from './Pages/Staff/late-punch-in-dashbaord/late-punch-in-dashbaord.component';
+import { LatePunchInComponent } from './Pages/Staff/late-punch-in/late-punch-in.component';
+import { LeaveRequestsComponent } from './Pages/Staff/leave-requests/leave-requests.component';
+import { LocatorDashboardForAdminComponent } from './Pages/Staff/locator-dashboard-for-admin/locator-dashboard-for-admin.component';
+import { LocatorRequestsComponent } from './Pages/Staff/locator-requests/locator-requests.component';
+
+import { LoginDashboardComponent } from './Pages/Staff/login-dashboard/login-dashboard.component';
+import { MyprojectsComponent } from './Pages/Staff/myprojects/myprojects.component';
+import { NewDesignationComponent } from './Pages/Staff/new-designation/new-designation.component';
+import { NewFeedbackByStaffComponent } from './Pages/Staff/new-feedback-by-staff/new-feedback-by-staff.component';
+import { NewProjectComponent } from './Pages/Staff/new-project/new-project.component';
+import { NewVendorComponent } from './Pages/Staff/new-vendor/new-vendor.component';
+import { PayrollreportsComponent } from './Pages/Staff/payrollreports/payrollreports.component';
+import { PerformanceIndicatorDashboardComponent } from './Pages/Staff/performance-indicator-dashboard/performance-indicator-dashboard.component';
+import { PerformanceIndicatorComponent } from './Pages/Staff/performance-indicator/performance-indicator.component';
+import { ProjectListForAdminComponent } from './Pages/Staff/project-list-for-admin/project-list-for-admin.component';
+import { RasiedExpenseForFinanceDashboardComponent } from './Pages/Staff/rasied-expense-for-finance-dashboard/rasied-expense-for-finance-dashboard.component';
+import { RejectedHRStaffLeaveDashboardComponent } from './Pages/Staff/rejected-hrstaff-leave-dashboard/rejected-hrstaff-leave-dashboard.component';
+import { RejectedStaffExpenseForFinanceDashboardComponent } from './Pages/Staff/rejected-staff-expense-for-finance-dashboard/rejected-staff-expense-for-finance-dashboard.component';
+import { RejectedStaffLeaveDashboardForFinanceComponent } from './Pages/Staff/rejected-staff-leave-dashboard-for-finance/rejected-staff-leave-dashboard-for-finance.component';
+import { ResignedStaffDashboardForHrComponent } from './Pages/Staff/resigned-staff-dashboard-for-hr/resigned-staff-dashboard-for-hr.component';
+import { ResignedStaffComponent } from './Pages/Staff/resigned-staff/resigned-staff.component';
+import { SelfRatingDashComponent } from './Pages/Staff/self-rating-dash/self-rating-dash.component';
+import { SelfRatingPageComponent } from './Pages/Staff/self-rating-page/self-rating-page.component';
+import { StaffAttendanceComponent } from './Pages/Staff/staff-attendance/staff-attendance.component';
+import { StaffLeaveComponent } from './Pages/Staff/staff-leave/staff-leave.component';
+import { StaffLookUpDashboardComponent } from './Pages/Staff/staff-look-up-dashboard/staff-look-up-dashboard.component';
+import { StaffLookupComponent } from './Pages/Staff/staff-lookup/staff-lookup.component';
+import { StaffManagementDashboardFoReceptionistComponent } from './Pages/Staff/staff-management-dashboard-fo-receptionist/staff-management-dashboard-fo-receptionist.component';
+import { StaffPayRollComponent } from './Pages/Staff/staff-pay-roll/staff-pay-roll.component';
+import { StaffProjectMappingDashboardComponent } from './Pages/Staff/staff-project-mapping-dashboard/staff-project-mapping-dashboard.component';
+import { StaffProjectMappingComponent } from './Pages/Staff/staff-project-mapping/staff-project-mapping.component';
+import { StaffScoreFullDetailsComponent } from './Pages/Staff/staff-score-full-details/staff-score-full-details.component';
+import { StaffScoreReportComponent } from './Pages/Staff/staff-score-report/staff-score-report.component';
+import { TechnologyRequestDashboardComponent } from './Pages/Staff/technology-request-dashboard/technology-request-dashboard.component';
+import { TechnologyRequestComponent } from './Pages/Staff/technology-request/technology-request.component';
+import { TimeSheetForFinanceComponent } from './Pages/Staff/time-sheet-for-finance/time-sheet-for-finance.component';
+import { TimeSheetsForCEOComponent } from './Pages/Staff/time-sheets-for-ceo/time-sheets-for-ceo.component';
+import { TimeSheetsForHrComponent } from './Pages/Staff/time-sheets-for-hr/time-sheets-for-hr.component';
+import { TimeSheetsForManagerComponent } from './Pages/Staff/time-sheets-for-manager/time-sheets-for-manager.component';
+import { TimeSheetsComponent } from './Pages/Staff/time-sheets/time-sheets.component';
+import { TransportRequestByStaffDashboardComponent } from './Pages/Staff/transport-request-by-staff-dashboard/transport-request-by-staff-dashboard.component';
+import { TransportRequestDashboardComponent } from './Pages/Staff/transport-request-dashboard/transport-request-dashboard.component';
+import { TransportRequestComponent } from './Pages/Staff/transport-request/transport-request.component';
+import { TravelRequestComponent } from './Pages/Staff/travel-request/travel-request.component';
+import { UpComingEventsDashboardForFinanceComponent } from './Pages/Staff/up-coming-events-dashboard-for-finance/up-coming-events-dashboard-for-finance.component';
+import { UpComingEventsDashboardForHRComponent } from './Pages/Staff/up-coming-events-dashboard-for-hr/up-coming-events-dashboard-for-hr.component';
+import { UpcomingAnnouncementsDashboardForAdminComponent } from './Pages/Staff/upcoming-announcements-dashboard-for-admin/upcoming-announcements-dashboard-for-admin.component';
+import { UpcomingAnnouncementsDashboardForReceptionistComponent } from './Pages/Staff/upcoming-announcements-dashboard-for-receptionist/upcoming-announcements-dashboard-for-receptionist.component';
+import { UpcomingAnnouncementsDashboardForStaffComponent } from './Pages/Staff/upcoming-announcements-dashboard-for-staff/upcoming-announcements-dashboard-for-staff.component';
+import { UpcomingEventsDashboardForAdminComponent } from './Pages/Staff/upcoming-events-dashboard-for-admin/upcoming-events-dashboard-for-admin.component';
+import { UserDashboardForFinanceComponent } from './Pages/Staff/user-dashboard-for-finance/user-dashboard-for-finance.component';
+import { VendorDashboardComponent } from './Pages/Staff/vendor-dashboard/vendor-dashboard.component';
+import { VisitorRequestDashboardForManagerComponent } from './Pages/Staff/visitor-request-dashboard-for-manager/visitor-request-dashboard-for-manager.component';
+import { VisitorRequestDashboardComponent } from './Pages/Staff/visitor-request-dashboard/visitor-request-dashboard.component';
+import { VisitorRequestForManagerComponent } from './Pages/Staff/visitor-request-for-manager/visitor-request-for-manager.component';
+import { VisitorRequestComponent } from './Pages/Staff/visitor-request/visitor-request.component';
+import { WorkPlaceRequestCompletedComponent } from './Pages/Staff/work-place-request-completed/work-place-request-completed.component';
+import { WorkPlaceRequestForAdminComponent } from './Pages/Staff/work-place-request-for-admin/work-place-request-for-admin.component';
+import { WorkPlaceRequestComponent } from './Pages/Staff/work-place-request/work-place-request.component';
+
+
+const routes: Routes = [
+  { path: '', redirectTo: '/Login', pathMatch: 'full' },
+  { path: 'Login', component: LoginComponent },
+  { path: 'Home', component: HomeComponent },
+  { path: 'Sidebar', component: SidebarComponent },
+  { path: 'StaffAttendance', component: StaffAttendanceComponent },
+  { path: 'TravelRequest', component: TravelRequestComponent },
+  { path: 'WorkPlaceRequest', component: WorkPlaceRequestComponent },
+  { path: 'Feedback', component: FeedbackComponent },
+  { path: 'Expenses', component: ExpensesComponent },
+  { path: 'LeaveRequests', component: LeaveRequestsComponent },
+  { path: 'LocatorRequests', component: LocatorRequestsComponent },
+  { path: 'TimeSheets', component: TimeSheetsComponent },
+  { path: 'StaffDashbaord', component: StaffDashbaordComponent },
+  { path: 'StaffLeaveDashboard', component: StaffLeaveDashboardComponent },
+  { path: 'LocatorDashboard', component: LocatorDashboardComponent },
+  { path: 'NewStaffLeave', component: NewStaffLeaveComponent },
+  { path: 'Locator', component: LocatorComponent },
+  { path: 'MasterTypeDashboard', component: MasterTypeDashboardComponent },
+  { path: 'ExpenseType', component: ExpenseTypeComponent },
+  { path: 'ExpenseTypeDashboard', component: ExpenseTypeDashboardComponent },
+  { path: 'LeaveTypeDashboard', component: LeaveTypeDashboardComponent },
+  { path: 'LeaveType', component: LeaveTypeComponent },
+  { path: 'AllStaffLeavesDashborad', component: AllStaffLeavesDashboradComponent },
+  { path: 'AllStaffDashboard', component: AllStaffDashboardComponent },
+  { path: 'AllStaffAttendanceDashboard', component: AllStaffAttendanceDashboardComponent },
+  { path: 'StaffLeaveDetailsDashboard', component: StaffLeaveDetailsDashboardComponent },
+  { path: 'ProjectIDTypeDashboard', component: ProjectIDTypeDashboardComponent },
+  { path: 'AllStaffLocatorRequestsDashboard', component: AllStaffLocatorRequestsDashboardComponent },
+  { path: 'AnnouncementsDashboard', component: AnnouncementsDashboardComponent },
+  { path: 'Addgroup', component: AddgroupComponent },
+  { path: 'GroupsApproveDashboard', component: GroupsApproveDashboardComponent },
+  { path: 'VisitorDashboard', component: VisitorDashboardComponent },
+  { path: 'NewVisitor', component: NewVisitorComponent },
+  { path: 'VisitorParkingDashboard', component: VisitorParkingDashboardComponent },
+  { path: 'ComplaintDashboard', component: ComplaintDashboardComponent },
+  { path: 'AddTravelRequest', component: AddTravelRequestComponent },
+  { path: 'AddFeedback', component: AddFeedbackComponent },
+  { path: 'AddWorkPlaceRequest', component: AddWorkPlaceRequestComponent },
+  { path: 'AddWorkPlaceRequest/:id', component: AddWorkPlaceRequestComponent },
+  { path: 'AddLocatorRequest', component: AddLocatorRequestComponent },
+  { path: 'ExpensesRequest', component: ExpensesRequestComponent },
+  { path: 'StaffLeave', component: StaffLeaveComponent },
+  { path: 'LoginDashboard', component: LoginDashboardComponent },
+  { path: 'TravelRequestForManager', component: TravelRequestForManagerComponent },
+  { path: 'WorkSpaceDashboardForManager', component: WorkSpaceDashboardForManagerComponent },
+  { path: 'LocatorDashboardComponent', component: LocatorDashboardComponent },
+  { path: 'Staffexpensesdashboard', component: StaffexpensesdashboardComponent },
+  { path: 'ViewGroup', component: ViewGroupComponent },
+  { path: 'NewStaff', component: NewStaffComponent },
+  { path: 'NewStaff/:id', component: NewStaffComponent },
+  { path: 'NewUser', component: NewUserComponent },
+  { path: 'NewUser/:id', component: NewUserComponent },
+  { path: 'UserDashboard', component: UserDashboardComponent },
+  { path: 'ProjectTypeID', component: ProjectTypeIDComponent },
+  { path: 'ProjectTypeID/:id', component: ProjectTypeIDComponent },
+  { path: 'ExpenseType/:id', component: ExpenseTypeComponent },
+  { path: 'LeaveType/:id', component: LeaveTypeComponent },
+  { path: 'WorkPlaceAllocation', component: WorkPlaceAllocationComponent },
+  { path: 'WorkSpaceAllocationDashboard', component: WorkSpaceAllocationDashboardComponent },
+  { path: 'UnApprovedExpensesDashboard', component: UnApprovedExpensesDashboardComponent },
+  { path: 'ExpensesDashboardHR', component: ExpensesDashboardHRComponent },
+  { path: 'LeaveReportDashboard', component: LeaveReportDashboardComponent },
+  { path: 'AllStaffExpencesDash', component: AllStaffExpencesDashComponent },
+  { path: 'AllStaffExpenses', component: AllStaffExpensesComponent },
+  { path: 'NewAnnouncements', component: NewAnnouncementsComponent },
+  { path: 'NewAnnouncements/:id', component: NewAnnouncementsComponent },
+  { path: 'Events', component: EventsComponent },
+  { path: 'Events/:id', component: EventsComponent },
+  { path: 'EventsDashboard', component: EventsDashboardComponent },
+  { path: 'BorrowingsDashboard', component: BorrowingsDashboardComponent },
+  { path: 'Borrowings', component: BorrowingsComponent },
+  { path: 'VisitorRequest', component: VisitorRequestComponent },
+  { path: 'VisitorRequest/:id', component: VisitorRequestComponent },
+  { path: 'VisitorRequestDashboard', component: VisitorRequestDashboardComponent },
+  { path: 'TransportRequestDashboard', component: TransportRequestDashboardComponent },
+  { path: 'TechnologyRequestDashboard', component: TechnologyRequestDashboardComponent },
+  { path: 'StaffLookUpDashboard', component: StaffLookUpDashboardComponent },
+  { path: 'StaffLookup', component: StaffLookupComponent },
+  { path: 'TechnologyRequest', component: TechnologyRequestComponent },
+  { path: 'AssetsDashboard', component: AssetsDashboardComponent },
+  { path: 'TransportRequest', component: TransportRequestComponent },
+  { path: 'RequestedAssetsDashboard', component: RequestedAssetsDashboardComponent },
+  { path: 'RequestBorrowerDashboard', component: RequestBorrowerDashboardComponent },
+  { path: 'VisitorRequestForAdmin', component: VisitorRequestForAdminComponent },
+  { path: 'TransportRequestForAdmin', component: TransportRequestForAdminComponent },
+  { path: 'TransportRequestForAdmin', component: TransportRequestForAdminComponent },
+  { path: 'ChatMaster', component: ChatMasterComponent },
+  { path: 'AppliedStaffLeaveDashboard', component: AppliedStaffLeaveDashboardComponent },
+  { path: 'RejectedStaffLeaveDashboard', component: RejectedStaffLeaveDashboardComponent },
+  { path: 'ApprovedStaffExpenseForManagerDashbaord', component: ApprovedStaffExpenseForManagerDashbaordComponent },
+  { path: 'RejectedStaffExpenseForManagerDashboard', component: RejectedStaffExpenseForManagerDashboardComponent },
+  { path: 'AppliedStaffLeaveDashboardForReceptionist', component: AppliedStaffLeaveDashboardForReceptionistComponent },
+  { path: 'ApprovedStaffLeaveDashboardForReceptionist', component: ApprovedStaffLeaveDashboardForReceptionistComponent },
+  { path: 'RejectedStaffLeaveDashboardForReceptionist', component: RejectedStaffLeaveDashboardForReceptionistComponent },
+  { path: 'RaisedStaffExpenseForAdminDashboard', component: RaisedStaffExpenseForAdminDashboardComponent },
+  { path: 'ApprovedStaffExpenseForAdminDashbaord', component: ApprovedStaffExpenseForAdminDashbaordComponent },
+  { path: 'RejectedStaffExpenseForAdminDashboard', component: RejectedStaffExpenseForAdminDashboardComponent },
+  { path: 'ApprovedLocatorRequestForAdmin', component: ApprovedLocatorRequestForAdminComponent },
+  { path: 'RejectedLocatorRequestForAdmin', component: RejectedLocatorRequestForAdminComponent },
+  { path: 'LocatorRequestDashboard', component: LocatorRequestDashboardComponent },
+  { path: 'GroupChat/:id', component: GroupChatComponent },
+  { path: 'RaisedTransportRequestForReceptionist', component: RaisedTransportRequestForReceptionistComponent },
+  { path: 'BookedTransportRequestForReceptionist', component: BookedTransportRequestForReceptionistComponent },
+  { path: 'CompletedTransportRequestForReceptionist', component: CompletedTransportRequestForReceptionistComponent },
+  { path: 'CancelledTransportRequestForReceptionist', component: CancelledTransportRequestForReceptionistComponent },
+  { path: 'MyStaffDashboard', component: MyStaffDashboardComponent },
+  { path: 'ManagerLeaveDashboard', component: ManagerLeaveDashboardComponent },
+  { path: 'ManagerStaffAttendanceDashboard', component: ManagerStaffAttendanceDashboardComponent },
+  { path: 'ManagerLocatorDashboard', component: ManagerLocatorDashboardComponent },
+  { path: 'RejectLocatorDashboardForManager', component: RejectLocatorDashboardForManagerComponent },
+  { path: 'TeamLocatorDashboardForManager', component: TeamLocatorDashboardForManagerComponent },
+  { path: 'ChatForStaff', component: ChatForStaffComponent },
+  { path: 'AnnouncementsDashboardForHR', component: AnnouncementsDashboardForHRComponent },
+  { path: 'ManagerExpenseDashboard', component: ManagerExpenseDashboardComponent },
+  { path: 'RasiedExpenseForManagerDashboard', component: RasiedExpenseForManagerDashboardComponent },
+  { path: 'UpcomingAnnouncementsDashboardForHr', component: UpcomingAnnouncementsDashboardForHrComponent },
+  { path: 'HRLeaveDashboard', component: HRLeaveDashboardComponent },
+  { path: 'UpComingEventsDashboardForHR', component: UpComingEventsDashboardForHRComponent },
+  { path: 'AddAssets', component: AddAssetsComponent },
+  { path: 'AddAssets/:id', component: AddAssetsComponent },
+  { path: 'UpcomingAnnouncementsDashboardForFinance', component: UpcomingAnnouncementsDashboardForFinanceComponent },
+  { path: 'UpComingEventsDashboardForFinance', component: UpComingEventsDashboardForFinanceComponent },
+  { path: 'ExpensesDashboardForFinance', component: ExpensesDashboardForFinanceComponent },
+  { path: 'UpcomingAnnouncementsDashboardForManager', component: UpcomingAnnouncementsDashboardForManagerComponent },
+  { path: 'UpComingEventsDashboardForManager', component: UpComingEventsDashboardForManagerComponent },
+  { path: 'AddLocatorByStaff', component: AddLocatorByStaffComponent },
+  { path: 'AddLocatorByStaff/:id', component: AddLocatorByStaffComponent },
+  { path: 'ManagerLeave', component: ManagerLeaveComponent },
+  { path: 'NewFeedbackByStaff', component: NewFeedbackByStaffComponent },
+  { path: 'TransportRequestByStaff', component: TransportRequestByStaffDashboardComponent },
+  { path: 'AppliedStaffLeaveDashboardForHR', component: AppliedStaffLeaveDashboardForHRComponent },
+  { path: 'HRLeave', component: HRLeaveComponent },
+  { path: 'AppliedHRStaffLeave', component: AppliedHRStaffLeaveComponent },
+  { path: 'HRAssetsDashboard', component: HRAssetsDashboardComponent },
+  { path: 'AddAssetsByHR', component: AddAssetsByHRComponent },
+  { path: 'BorrowingsDashboardForStaff', component: BorrowingsDashboardForStaffComponent },
+  { path: 'BorrowingsBYStaff', component: BorrowingsBYStaffComponent },
+  { path: 'BorrowingsDashboardForHR', component: BorrowingsDashboardForHRComponent },
+  { path: 'BorrowingsBYHR', component: BorrowingsBYHRComponent },
+  { path: 'ApprovedHRStaffLeaveDashboard', component: ApprovedHRStaffLeaveDashboardComponent },
+  { path: 'RejectedHRStaffLeaveDashboard', component: RejectedHRStaffLeaveDashboardComponent },
+  { path: 'RasiedExpenseForFinanceDashboard', component: RasiedExpenseForFinanceDashboardComponent },
+  { path: 'ApprovedStaffExpenseForFinanceDashbaord', component: ApprovedStaffExpenseForFinanceDashbaordComponent },
+  { path: 'RejectedStaffExpenseForFinanceDashboard', component: RejectedStaffExpenseForFinanceDashboardComponent },
+  { path: 'FinanceLeave', component: FinanceLeaveComponent },
+  { path: 'FinanceLeaveDashboard', component: FinanceLeaveDashboardComponent },
+  { path: 'AppliedStaffLeaveDashboardForFinance', component: AppliedStaffLeaveDashboardForFinanceComponent },
+  { path: 'ApprovedStaffLeaveDashboardForFinance', component: ApprovedStaffLeaveDashboardForFinanceComponent },
+  { path: 'RejectedStaffLeaveDashboardForFinance', component: RejectedStaffLeaveDashboardForFinanceComponent },
+  { path: 'AllAssetsForAdmin', component: AllAssetsForAdminComponent },
+  { path: 'AllExpenseForAdmin', component: AllExpenseForAdminComponent },
+  { path: 'AllStaffForAdmin', component: AllStaffForAdminComponent },
+  { path: 'AllStaffLeaveForAdmin', component: AllStaffLeaveForAdminComponent },
+  { path: 'AllLocatorDashboardForAdmin', component: AllLocatorDashboardForAdminComponent },
+  { path: 'NewVendor', component: NewVendorComponent },
+  { path: 'VendorDashboard', component: VendorDashboardComponent },
+  { path: 'AttendanceDashboardForAdmin', component: AttendanceDashboardForAdminComponent },
+  { path: 'UpcomingEventsDashboardForAdmin', component: UpcomingEventsDashboardForAdminComponent },
+  { path: 'CompletedEventsDashboardForAdmin', component: CompletedEventsDashboardForAdminComponent },
+  { path: 'UpcomingAnnouncementsDashboardForAdmin', component: UpcomingAnnouncementsDashboardForAdminComponent },
+  { path: 'CompletedAnnouncementsDashboardForAdmin', component: CompletedAnnouncementsDashboardForAdminComponent },
+  { path: 'WorkPlaceRequestForAdmin', component: WorkPlaceRequestForAdminComponent },
+  { path: 'ProjectListForAdmin', component: ProjectListForAdminComponent },
+  { path: 'JoingGroupChatForAdmin', component: JoingGroupChatForAdminComponent },
+  { path: 'GroupChatForAdmin', component: GroupChatForAdminComponent },
+  { path: 'GroupChatForAdmin/:id', component: GroupChatForAdminComponent },
+  { path: 'UpcomingAnnouncementsDashboardForStaff', component: UpcomingAnnouncementsDashboardForStaffComponent },
+  { path: 'UpcomingAnnouncementsDashboardForReceptionist', component: UpcomingAnnouncementsDashboardForReceptionistComponent },
+  { path: 'LocatorDashboardForAdmin', component: LocatorDashboardForAdminComponent },
+  { path: 'AllRaisedExpense', component: AllRaisedExpenseComponent },
+  { path: 'ExpensesRequestByManager', component: ExpensesRequestByManagerComponent },
+  { path: 'ExpensesRequestByFinance', component: ExpensesRequestByFinanceComponent },
+  { path: 'StaffManagementDashboardFoReceptionist', component: StaffManagementDashboardFoReceptionistComponent },
+  { path: 'AllStaffLeaveFoReceptionist', component: AllStaffLeaveFoReceptionistComponent },
+  { path: 'AllLocatorDashboardForReceptionist', component: AllLocatorDashboardForReceptionistComponent },
+  { path: 'AllExpenseForReceptionist', component: AllExpenseForReceptionistComponent },
+  { path: 'FeedbackDahsboardForReceptionist', component: FeedbackDahsboardForReceptionistComponent },
+  { path: 'UserDashboardForFinance', component: UserDashboardForFinanceComponent },
+  { path: 'EventDashboardForReceptionist', component: EventDashboardForReceptionistComponent },
+  { path: 'ResignedStaff', component: ResignedStaffComponent },
+  { path: 'CheckedStaffExpense', component: CheckedStaffExpenseComponent },
+  { path: 'AllLocatorDashboardForFinance', component: AllLocatorDashboardForFinanceComponent },
+  { path: 'AllStaffLeaveForFinance', component: AllStaffLeaveForFinanceComponent },
+  { path: 'NewProject', component: NewProjectComponent },
+  { path: 'NewProject/:id', component: NewProjectComponent },
+  { path: 'DesignationDashboard', component: DesignationDashboardComponent },
+  { path: 'NewDesignation', component: NewDesignationComponent },
+
+  { path: 'HolidayListDashboard', component: HolidayListDashboardComponent },
+  { path: 'HolidayList', component: HolidayListComponent },
+  { path: 'HolidayList/:id', component: HolidayListComponent },
+  { path: 'HRProfile', component: HRProfileComponent },
+  { path: 'ProjectList', component: ProjectListComponent },
+  { path: 'ProjectListDashboard', component: ProjectListDashboardComponent },
+
+
+  { path: 'AssetsMaster', component: AssetsMasterComponent },
+  { path: 'AssetsMaster/:id', component: AssetsMasterComponent },
+  { path: 'AssetDashboard', component: AssetDashboardComponent },
+
+  { path: 'GeneralAsset', component: GeneralAssetComponent },
+  { path: 'GeneralAsset/:id', component: GeneralAssetComponent },
+
+  { path: 'GeneralAssetsDashboard', component: GeneralAssetsDashboardComponent },
+
+  { path: 'VisitorRequestForManager', component: VisitorRequestForManagerComponent },
+  { path: 'VisitorRequestDashboardForManager', component: VisitorRequestDashboardForManagerComponent },
+  { path: 'AddTimeSheet', component: AddTimeSheetComponent },
+  { path: 'CompanyExpenseForAdmin', component: CompanyExpenseForAdminComponent },
+  { path: 'AllVisitorRequestforAdmin', component: AllVisitorRequestforAdminComponent },
+  { path: 'AdminStaffLeave', component: AdminStaffLeaveComponent },
+  { path: 'HomeDashboardForAdmin', component: HomeDashboardForAdminComponent },
+  { path: 'GeneralAssetTypeID', component: GeneralAssetTypeIDComponent },
+  { path: 'AddInventory', component: AddInventoryComponent },
+  { path: 'AddInventory/:id', component: AddInventoryComponent },
+  { path: 'InventoryDashboard', component: InventoryDashboardComponent },
+  { path: 'CEOProfile', component: CEOProfileComponent },
+  { path: 'AddTimeSheetForHR', component: AddTimeSheetForHRComponent },
+  { path: 'TimeSheetsForHr', component: TimeSheetsForHrComponent },
+  { path: 'AddTimeSheetsForManager', component: AddTimeSheetsForManagerComponent },
+  { path: 'TimeSheetsForManager', component: TimeSheetsForManagerComponent },
+  { path: 'TimeSheetsForCEO', component: TimeSheetsForCEOComponent },
+
+  { path: 'TimeSheetForFinance', component: TimeSheetForFinanceComponent },
+  { path: 'InventoryNamePurchaseDetails', component: InventoryNamePurchaseDetailsComponent },
+  { path: 'InventoryNamePurchaseDetailsDashboard', component: InventoryNamePurchaseDetailsDashboardComponent },
+
+  { path: 'InventoryItems', component: InventoryItemsComponent },
+  { path: 'InventoryItemDashboard', component: InventoryItemDashboardComponent },
+
+
+  { path: 'AssignedTaskByManager/:page', component: AssignedTaskByManagerComponent },
+  { path: 'AssignedTaskByManager/:id/:page', component: AssignedTaskByManagerComponent },
+  { path: 'AssignedTaskDashboard', component: AssignedTaskDashboardComponent },
+  { path: 'CompletedTaskDashboard', component: CompletedTaskDashboardComponent },
+
+  { path: 'AccountsExpense', component: AccountsExpenseComponent },
+  { path: 'AccountsExpenseDashboard', component: AccountsExpenseDashboardComponent },
+
+  { path: 'AssignedTaskByCEO/:page', component: AssignedTaskByCEOComponent },
+  { path: 'AssignedTaskByCEO/:page/:id/:page', component: AssignedTaskByCEOComponent },
+  { path: 'AssignedTaskForTLDashboard', component: AssignedTaskForTLDashboardComponent },
+  { path: 'CompletedTaskForTlDashboard', component: CompletedTaskForTlDashboardComponent },
+
+  { path: 'AllStaffApprovedLeave', component: AllStaffApprovedLeaveComponent },
+  { path: 'AllStaffRejectLeave', component: AllStaffRejectLeaveComponent },
+
+  { path: 'StaffProjectMapping', component: StaffProjectMappingComponent },
+  { path: 'StaffProjectMappingDashboard', component: StaffProjectMappingDashboardComponent },
+  { path: 'ResignedStaffDashboardForHr', component: ResignedStaffDashboardForHrComponent },
+
+  { path: 'StaffPayRoll', component: StaffPayRollComponent },
+
+  { path: 'NewDepartmentMaster', component: NewDepartmentMasterComponent },
+  { path: 'DepartmentMasterDashboard', component: DepartmentMasterDashboardComponent },
+  { path: 'NewDepartmentMaster/:id', component: NewDepartmentMasterComponent },
+
+  { path: 'StaffProjectMapping/:id', component: StaffProjectMappingComponent },
+
+  { path: 'LateAttendanceDashboard', component: LateAttendanceDashboardComponent },
+  { path: 'LatePunchInDashbaord', component: LatePunchInDashbaordComponent },
+  { path: 'LatePunchIn', component: LatePunchInComponent },
+  { path: 'LatePunchIn/:id', component: LatePunchInComponent },
+
+  { path: 'Myprojects', component: MyprojectsComponent },
+  { path: 'LateAttendancePunchOutDashboard', component: LateAttendancePunchOutDashboardComponent },
+
+
+  { path: 'payrollreports', component: PayrollreportsComponent },
+
+  { path: 'WorkPlaceRequestCompleted', component: WorkPlaceRequestCompletedComponent },
+
+  { path: 'KeyResultArea', component: KeyResultAreaComponent },
+  { path: 'KeyResultAreaDashboard', component: KeyResultAreaDashboardComponent },
+
+  { path: 'KeyResultArea/:id', component: KeyResultAreaComponent },
+
+
+  { path: 'PerformanceIndicator', component: PerformanceIndicatorComponent },
+  { path: 'PerformanceIndicator/:id', component: PerformanceIndicatorComponent },
+  { path: 'PerformanceIndicatorDashboard', component: PerformanceIndicatorDashboardComponent },
+
+
+  { path: 'AppraisalCycle', component: AppraisalCycleComponent },
+  { path: 'AppraisalCycle/:id', component: AppraisalCycleComponent },
+  { path: 'AppraisalCycleDashboard', component: AppraisalCycleDashboardComponent },
+
+  { path: 'Employeekramapping', component: EmployeekramappingComponent },
+  { path: 'Employeekramappingdashboard', component: EmployeekramappingdashboardComponent },
+  { path: 'SelfRatingPage', component: SelfRatingPageComponent },
+  { path: 'SelfRatingPage/:id/:StaffID', component: SelfRatingPageComponent },
+  { path: 'SelfRatingDash', component: SelfRatingDashComponent },
+  { path: 'Approver1rating/:id/:StaffID', component: Approver1ratingComponent },
+  { path: 'Approver1ratingdashboard', component: Approver1ratingdashboardComponent },
+  { path: 'Approver2ratingpage/:id/:StaffID', component: Approver2ratingpageComponent },
+  { path: 'Approver2ratingpagedashboard', component: Approver2ratingpagedashboardComponent },
+  { path: 'Approver3ratingpage/:id/:StaffID', component: Approver3ratingpageComponent },
+  { path: 'Approver3ratingpagedashboard', component: Approver3ratingpagedashboardComponent },
+  { path: 'StaffScoreReport', component: StaffScoreReportComponent },
+  { path: 'StaffScoreFullDetails/:StaffTypeID/:StaffID', component: StaffScoreFullDetailsComponent },
+  { path: 'Postajob', component: PostajobComponent },
+  { path: 'Postajobdash', component: PostajobdashComponent },
+  { path: 'AppliendCandidates', component: AppliendCandidatesComponent },
+  { path: 'ShortlistedCandidates', component: ShortlistedCandidatesComponent },
+  { path: 'ScheduledInterviews', component: ScheduledInterviewsComponent },
+  { path: 'SelectedCandidates', component: SelectedCandidatesComponent },
+  { path: 'OfferedCandidates', component: OfferedCandidatesComponent },
+  { path: 'ApplyJobs', component: ApplyJobsComponent },
+  { path: 'JoinedCandidates', component: JoinedCandidatesComponent },
+  { path: 'DropedCandidates', component: DropedCandidatesComponent },
+  { path: 'StaffCalender', component: StaffCalenderComponent },
+  { path: 'AppraisalReports', component: AppraisalReportsComponent },
+  { path: 'RoleMenuMapping', component: RoleMenuMappingComponent },
+  { path: 'RoleMenuMapping/:id', component: RoleMenuMappingComponent },
+  { path: 'MenuMappingdash', component: MenuMappingdashComponent },
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

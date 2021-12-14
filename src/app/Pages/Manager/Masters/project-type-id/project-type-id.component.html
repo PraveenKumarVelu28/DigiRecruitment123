@@ -1,0 +1,52 @@
+<div class="container-fluid card">
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <label class="page_SubHeading">PROJECT</label>
+            <hr>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Projects</label>
+        </div>
+        <div class="col-lf-4">
+            <select class="form-control" [(ngModel)]="short" name="short">
+                <option value="0" selected>Select Project Type</option>
+                <option value="1">DigitalMarketing</option>
+                <option value="2">Project</option>
+                <option value="3">Product</option>
+                <option value="4">Support</option>
+                <option value="5">Sales</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Code</label>
+        </div>
+        
+        <div class="col-lg-4">
+            <input type="text" class="form-control" name="code" [(ngModel)]="code" placeholder="Code">
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="InsertDetails()">Save</button>
+            <!-- <button type="button" class="addbtn" *ngIf="paramID != undefined" (click)="updatedetails()">Update</button> -->
+
+
+        </div>
+    </div>
+    <br>
+</div>

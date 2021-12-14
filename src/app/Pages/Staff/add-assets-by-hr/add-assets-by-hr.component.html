@@ -1,0 +1,173 @@
+<div class="container-fluid card">
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <label class="page_SubHeading">ASSETS</label>
+            <hr>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Employee name</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="staffID" name="staffID" >
+                <option value="0" selected>Select Employee</option>
+                <option *ngFor="let list of stafflist" value="{{list.id}}">{{list.name}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Vendor name</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="vendorID" name="vendorID" (change)="getvendorID($event)">
+                <option value="0" selected>Select Vendor</option>
+                <option *ngFor="let list of vendorList" value="{{list.id}}">{{list.vendorName}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Email</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="emailID" name="emailID"
+                placeholder="EmailID" disabled>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Phone Number</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="phoneNo" name="phoneNo"
+                placeholder="Phone Number" disabled>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Purchase Date</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="date" class="form-control" [(ngModel)]="purchaseDate" name="purchaseDate">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Equipment Type</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="equipmentTypeID" name="equipmentTypeID">
+                <option value="0" selected>Select Equipment Type</option>
+                <option *ngFor="let list of equipmentTypeList" value="{{list.id}}" >{{list.short}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Equipment</label>
+        </div>
+        <div class="col-lg-4">
+            <angular2-multiselect [data]="dropdownList" [(ngModel)]="selectedItems" 
+            [settings]="dropdownSettings" 
+            (onSelect)="onItemSelect($event)" 
+            (onDeSelect)="OnItemDeSelect($event)"
+            (onSelectAll)="onSelectAll($event)"
+            (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Building</label>
+        </div>
+        <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="buildingID" name="buildingID" >
+                <option value="0" selected>Select Building</option>
+                <option *ngFor="let list of buildinglist" value="{{list.id}}">{{list.name}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Issue Date</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="date" class="form-control" [(ngModel)]="issueDate" name="issueDate">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Return Date</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="date" class="form-control" [(ngModel)]="returnDate" name="returnDate">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Notes</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="notes" name="notes"
+                placeholder="Notes">
+        </div>
+    </div>
+    <br>
+ 
+    <!-- <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Asset Name</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="assetName" name="assetName"
+                placeholder="Asset Name">
+        </div>
+    </div>
+    <br> -->
+
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" *ngIf="paramID==undefined" (click)="InsertDetails()">Save</button>
+            <button type="button" class="addbtn" *ngIf="paramID != undefined" (click)="updatedetails()">Update</button>
+            <!-- <button type="button" class="addbtn" (click)="insertDetails()">Save</button> -->
+        </div>
+    </div>
+    <br>

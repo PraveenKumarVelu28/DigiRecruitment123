@@ -1,0 +1,130 @@
+<div class="container-fluid card">
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <label class="page_SubHeading">PROJECT</label>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="projectCode" name="projectCode">
+                <option value="0" selected>Select Digital Marketing</option>
+                <option *ngFor="let list of digitalmarketingList" value="{{list.code}}">{{list.code}}</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <select class="form-control" [(ngModel)]="projectCode" name="projectID">
+                <option value="0" selected>Select ProjectID</option>
+                <option *ngFor="let list of ProjectList" value="{{list.code}}">{{list.code}}</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <select class="form-control" [(ngModel)]="projectCode" name="productID">
+                <option value="0" selected>Select ProductID</option>
+                <option *ngFor="let list of productList" value="{{list.code}}">{{list.code}}</option>
+            </select>
+        </div>
+        <div class="col-lg-2">
+            <select class="form-control" [(ngModel)]="projectCode" name="supportID">
+                <option value="0" selected>Select SupportID</option>
+                <option *ngFor="let list of supportList" value="{{list.code}}">{{list.code}}</option>
+            </select>
+        </div>
+        <div class="col-lg-3">
+            <select class="form-control" [(ngModel)]="projectCode" name="salesID">
+                <option value="0" selected>Select SalesID</option>
+                <option *ngFor="let list of salesList" value="{{list.code}}">{{list.code}}</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Project Name</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" name="projectName" [(ngModel)]="projectName"
+                placeholder="Project Name">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>Description</label>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" name="description" [(ngModel)]="description"
+                placeholder="Description">
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <label>SPOC</label>
+        </div>
+        <div class="col-lg-4">
+
+            <select class="form-control" [(ngModel)]="spoc" name="spoc">
+                <option value="0" selected>Select Employee</option>
+                <option *ngFor="let list of stafflist" value="{{list.name}}">{{list.name}}</option>
+            </select>
+        </div>
+        <!-- <input type="text" class="form-control" name="spoc" [(ngModel)]="spoc" placeholder="SPOC"> -->
+    </div>
+
+<br>
+<div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+        <label>Client Name</label>
+    </div>
+    <div class="col-lg-4">
+        <input type="text" class="form-control" name="clientName" [(ngModel)]="clientName" placeholder="ClientName">
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+        <label>Client PhoneNo</label>
+    </div>
+    <div class="col-lg-4">
+        <input type="text" class="form-control" name="clientPhoneNo" [(ngModel)]="clientPhoneNo"
+            placeholder="ClientPhoneNo">
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+        <label>Client EmailID</label>
+    </div>
+    <div class="col-lg-4">
+        <input type="text" class="form-control" name="clientEmailID" [(ngModel)]="clientEmailID"
+            placeholder="Client EmailID">
+    </div>
+</div>
+<br>
+
+<div class="row">
+    <div class="col-lg-5"></div>
+    <div class="col-lg-2">
+        <button type="button" class="addbtn" (click)="InsertDetails()">Save</button>
+        <!-- <button type="button" class="addbtn" *ngIf="paramID != undefined" (click)="updatedetails()">Update</button> -->
+
+
+    </div>
+</div>
+<br>
+</div>

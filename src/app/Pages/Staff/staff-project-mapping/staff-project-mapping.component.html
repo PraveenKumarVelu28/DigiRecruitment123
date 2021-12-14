@@ -1,0 +1,80 @@
+<div class="container-fluid card">
+  <br>
+  <div class="row">
+    <div class="col-lg-12">
+      <label class="page_SubHeading"> Staff-Mapped-Project </label>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>Staff</label>
+    </div>
+    <div class="col-lg-4">
+      <select class="form-control" [(ngModel)]="staffID" name="staffID">
+        <option value="0" selected>Select Staff</option>
+        <option *ngFor="let list of staffList" value="{{list.id}}">{{list.name}}</option>
+      </select>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>Project</label>
+    </div>
+    <div class="col-lg-4">
+      <!-- <select class="form-control" [(ngModel)]="projectID" name="projectID" >
+                <option value="0" selected>Select Project</option>
+                <option *ngFor="let list of projectList" value="{{list.id}}">{{list.projectName}}</option>
+            </select> -->
+      <ng-multiselect-dropdown class="multiselect-dropdown" [placeholder]="'Select Projects'" [data]="projectList"
+        [(ngModel)]="projectList1" name='projectList' [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+        (onDeSelect)="onItemDeSelect($event)">
+      </ng-multiselect-dropdown>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>Start Date</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="date" class="form-control" placeholder="Start Date" [(ngModel)]="sDate" name="sDate">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-3">
+      <label>End Date</label>
+    </div>
+    <div class="col-lg-4">
+      <input type="date" class="form-control" placeholder="End Date" [(ngModel)]="eDate" name="eDate">
+    </div>
+  </div>
+  <br>
+
+
+
+  <div class="row" *ngIf="ID!=undefined">
+    <div class="col-lg-5"></div>
+    <div class="col-lg-2">
+      <button type="button" class="addbtn" (click)="UpdateDetails()">Update</button>
+    </div>
+  </div>
+  <div class="row" *ngIf="ID==undefined">
+    <div class="col-lg-5"></div>
+    <div class="col-lg-2">
+      <button type="button" class="addbtn" (click)="InsertDetails()">Save</button>
+    </div>
+  </div>
+  <br>
+</div>

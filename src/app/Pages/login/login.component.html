@@ -1,0 +1,38 @@
+<div class="container-fluid" >
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- https://www.highreshdwallpapers.com/wp-content/uploads/2014/01/HD-Beautiful-Architecture-Wallpaper-1920x1080.jpg -->
+     <div class="row">
+       <br>
+        <div class="col-lg-1">
+
+        </div>
+        
+        <div class="col-lg-4 card" style="text-align:center;background-color:lightblue;margin-top:0%;border-radius:20px;height:415px;margin-left: 1%;background: black;">
+
+            <img src="assets/images/LogoImage.png" style="height:40%;width:69%;margin-left:19%;margin-top:5%;background: white;border-radius: 12px;">
+            <!-- <br>
+            <p style="font-size: 16px;font-weight: 500;">LOGIN</p> -->
+           <br>
+            <select class="form-control" (change)="getRoleID($event)" style="width:77%;margin-left: 66px;" >
+              
+                <option selected disabled >Select</option>
+                <option *ngFor="let list of loginTypeList" value="{{list.id}}">{{list.loginType}}</option>
+                <!-- <option value="2">HR</option>
+                <option value="3">Staff</option>
+                <option value="4">Manager</option>
+                <option value="5">Finance</option>
+                <option value="7">Admin</option> -->
+            </select>
+            <br>
+            <input type="text" class="form-control" [(ngModel)]="userName"   style="width:77%;margin-left: 66px;" placeholder="Username" name="username" >
+            <br>
+            <input type="password" class="form-control" [(ngModel)]="password"  style="width:77%;margin-left: 66px;"  placeholder="Password" name="password">
+            <br>
+            <button type="button" class="loginbtn" (click)="login()">Login</button>
+        </div>
+        <div class="col-lg-7"></div>
+    </div> 
+</div>

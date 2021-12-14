@@ -1,0 +1,53 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <!-- <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()" >Export To Excel</button>
+        </div> -->
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">STAFF ATTENDANCE DASHBOARD</label>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search...">
+        </div>
+        <div class="col-lg-9">
+        </div>
+       
+    </div>
+    
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Sign In Date</th>
+                    <th>Sign In Time</th>
+                    <th>Sign In Location</th>
+                    <th>Sign Out Date</th>
+                    <th>Sign Out Time</th>
+                    <th>Sign Out Location</th>
+                    <th>Number Of Hours</th>
+                </tr>
+                <tr *ngFor="let list of allStaffAttendanceList">
+                    <td>{{list.name}}</td>
+                    <td>{{list.webSigninDate|date}}</td>
+                    <td>{{list.webSigninDate}}</td>
+                    <td>{{list.signinLocation}}</td>
+                    <td>{{list.webSignoutDate|date}}</td>
+                    <td>{{list.webSignoutDate}}</td>
+                    <td>{{list.signoutLocation}}</td>
+                    <td>{{list.hr}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+</div>

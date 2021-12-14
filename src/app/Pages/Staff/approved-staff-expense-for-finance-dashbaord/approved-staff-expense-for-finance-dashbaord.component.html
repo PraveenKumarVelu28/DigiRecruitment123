@@ -1,0 +1,113 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="approvedexportexcel()">Export To Excel</button>
+        </div>
+       
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">APPROVED EXPENSE DASHBOARD</label>
+    <hr>
+   
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="Search">
+        </div>
+        <!-- <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div> -->
+        <div class="col-lg-3"></div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            
+                <table>
+                    <tr>
+                        <th>Employee Name</th>
+                        <th>Expense Amount</th>
+                        <th>Expense Head</th>
+                        <th>Project Name</th>
+                        <!-- <th>Submitted Date</th> -->
+                        <th>Expense Location</th>
+                        <th>Currency</th>
+                        <th>Status</th>
+                        <th>Comments</th>
+                        <th>Attachment</th>
+                    </tr>
+                    <tr *ngFor="let list of filteredApprovedExpenseList | paginate: { itemsPerPage: 8, currentPage: p }|filter:Search">
+                        <td>{{list.name}}</td>
+                        <td>{{list.expenceAmount}}</td>
+                        <td>{{list.expencesName}}</td>
+                        <td>{{list.project}}</td>
+                        <!-- <td>{{list.webdate|date}}</td> -->
+                        <td>{{list.expenceLocation}}</td>
+                        <td>{{list.currency}}</td>
+                        <td>{{list.approvalStatus}}</td>
+                        <td>{{list.comments}}</td>
+                        <td>
+                            <img src="assets/images/pdf.jpg" *ngIf="list.type==0" data-toggle="modal"
+                            data-target="#myModalupimage" (click)="GetImageURL(list)" title="Update"
+                            style="width: 50px;">
+                        <img src="assets/images/image.png" *ngIf="list.type==1" data-toggle="modal"
+                            data-target="#myModalupimage" (click)="GetImageURL(list)" title="Update"
+                            style="width: 50px;">
+                            <img src="assets/images/noimage.png" *ngIf="list.type==2" data-toggle="modal"
+                            data-target="#myModalupimage" (click)="GetImageURL(list)" title="Update"
+                            style="width: 50px;">
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <div class="col-lg-12" style="text-align:right;">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+          
+        </div>
+    </div>
+    <br>
+</div>
+<div class="modal fade" id="myModalupimage">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="margin-top: 15%;width: 588px;margin-left: 222px;">
+            <div class="modal-header">
+                <h4>Invoice</h4>
+
+                <button type="button" class="close " data-dismiss="modal">&times;</button>
+            </div>
+            <div class="row" style="margin-top:5%;">
+                <div class="col-lg-12">
+                    <div class="col-lg-2">
+                    </div>
+                    <div class="col-lg-8">
+                        <a href="{{invoiceURL}}" download target="blank" *ngIf="pdf==0">
+                            <img src="{{invoiceURL}}" style="width: 200px;">
+                        </a>
+                        <a *ngIf="pdf==1" href="{{invoiceURL}}" download target="blank" >
+                            <img src="assets/images/pdf.jpg" style="width: 200px;">
+                        </a>
+                    </div>
+                    <div class="col-lg-2">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-9"> </div>
+                <div class="col-lg-3">
+                    <button class="dashbutton " style="width: 69px;
+                         margin-right: 12px;" type="submit" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

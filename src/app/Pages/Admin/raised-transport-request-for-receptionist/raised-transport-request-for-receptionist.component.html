@@ -1,0 +1,124 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="addbtn" (click)="exportexcel()">Export To Excel</button>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid card">
+    <br>
+    <label class="page_SubHeading">RAISED TRANSPORT REQUEST DASHBOARD</label>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <input type="search" class="form-control" [(ngModel)]="search" placeholder="Search...">
+        </div>
+        <div class="col-lg-3">
+            <input type="text" placeholder="Select Date" class="form-control" bsDaterangepicker [(ngModel)]="value"
+                (ngModelChange)="selectedDate($event)">
+        </div>
+        <div class="col-lg-3">
+            <!-- <select class="form-control" [(ngModel)]="status" name="status" (change)="getstatus($event)">
+                <option selected value="0">Select Status</option>
+                <option value="Yet To Complete">Yet To Complete</option>
+                <option value="Completed">Completed</option>
+            </select> -->
+        </div>
+        <div class="col-lg-3">
+            <h4 style="float: right;">Count:{{count}}</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <th>Raised By</th>
+                    <th>Departure Date</th>
+                    <th>Return Date</th>
+                    <th>Type Of Vehicle</th>
+                    <th>Project Name</th>
+                    <th>Pick Up Point</th>
+                    <th>Destination</th>
+                    <th>Status</th>
+                    <th>Action</th>
+
+                </tr>
+                <tr *ngFor="let list of filteredList|filter:search">
+                    <td>{{list.raisedby}}</td>
+                    <td>{{list.departureDateTime}}</td>
+                    <td>{{list.returnDateTime}}</td>
+                    <td>{{list.typeOfVechile}}</td>
+                    <td>{{list.projectName}}</td>
+                    <td>{{list.pickUpPoint}}</td>
+                    <td>{{list.destination}}</td>
+                    <td>{{list.status}}</td>
+                    <td>
+                        <button class="btn primary btn-xs" data-toggle="modal" (click)="Booked(list.id)" data-target="#myModal">Book</button>&nbsp;
+                        <br>
+                        <br>
+                        <button class="btn primary btn-xs" (click)="CancelTransportationRequest(list.id)" >Cancel</button>&nbsp;
+                       
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br>
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Booking Status</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+               
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-1">
+                    </div>
+                    <div class="col-lg-4">
+                        <label>Vehicle Number</label>
+                    </div>
+                    <div class="col-lg-7">
+                        <input type="text" class="form-control" name="vehicleNumber"  [(ngModel)]="vehicleNumber" placeholder="Vehicle Number">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-1">
+                    </div>
+                    <div class="col-lg-4">
+                        <label>Driver Name</label>
+                    </div>
+                    <div class="col-lg-7">
+                        <input type="text" class="form-control" name="driverName"  [(ngModel)]="driverName" placeholder="Driver Name">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-1">
+                    </div>
+                    <div class="col-lg-4">
+                        <label>Phone Number</label>
+                    </div>
+                    <div class="col-lg-7">
+                        <input type="text" class="form-control" name="phoneNumber"  [(ngModel)]="phoneNumber" placeholder="Phone Number">
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn primary btn-xs" data-dismiss="modal"  (click)="BookedTransportRequest()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
